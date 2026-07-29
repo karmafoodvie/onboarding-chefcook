@@ -40,6 +40,7 @@
       overallProgress: "Overall progress",
       navHome: "Home",
       navPhilosophy: "How We Cook",
+      navLearn: "Learn",
       navResp: "Responsibilities",
       navSignoff: "Daily Sign-off",
       welcomeBadge: "WELCOME, DINESH \u{1F331}",
@@ -47,6 +48,8 @@
       goals: "goals",
       howWeCook: "How We Cook \u{1F331}",
       howWeCookSub: "Our philosophy, in 8 bites",
+      learnCard: "Learn \u{1F4DA}",
+      learnCardSub: "HACCP & allergens, step by step",
       yourResp: "Your Responsibilities",
       yourRespSub: "Who owns what \u2014 you, Nooru, the team",
       dailySignoff: "Daily Sign-off \u{1F512}",
@@ -84,6 +87,7 @@
       overallProgress: "Gesamtfortschritt",
       navHome: "Start",
       navPhilosophy: "Wie wir kochen",
+      navLearn: "Lernen",
       navResp: "Verantwortlichkeiten",
       navSignoff: "Tages-Freigabe",
       welcomeBadge: "WILLKOMMEN, DINESH \u{1F331}",
@@ -91,6 +95,8 @@
       goals: "Ziele",
       howWeCook: "Wie wir kochen \u{1F331}",
       howWeCookSub: "Unsere Philosophie, in 8 H\xE4ppchen",
+      learnCard: "Lernen \u{1F4DA}",
+      learnCardSub: "HACCP & Allergene, Schritt f\xFCr Schritt",
       yourResp: "Deine Verantwortlichkeiten",
       yourRespSub: "Wer macht was \u2014 du, Nooru, das Team",
       dailySignoff: "Tages-Freigabe \u{1F512}",
@@ -120,6 +126,272 @@
       saving: "Speichert\u2026",
       saved: "Gespeichert \u2713",
       saveFailed: "Speichern fehlgeschlagen"
+    }
+  };
+  const LEARN = {
+    en: {
+      title: "Learn",
+      subtitle: "Step-by-step paths \u2014 take your time, tap through, tick off \u2705",
+      start: "Start",
+      continue: "Continue",
+      review: "Review",
+      donePath: "Done \u2713",
+      next: "Next",
+      back: "Back",
+      finish: "Finish path \u{1F389}",
+      checkQ: "Quick check",
+      correct: "Correct! \u{1F389}",
+      tryAgain: "Not quite \u2014 try again \u{1F447}",
+      pathDone: "Path complete \u2014 nice work! \u{1F389}",
+      lesson: "Lesson",
+      of: "of",
+      paths: [
+        {
+          id: "haccp",
+          emoji: "\u{1F9FC}",
+          color: SAGE,
+          title: "HACCP made simple",
+          blurb: "Food safety, explained like you'd explain it to a friend. No jargon.",
+          steps: [
+            { type: "read", emoji: "\u{1F914}", title: "What even is HACCP?", body: [
+              "HACCP sounds scary. It's not. It's just a simple idea: find the spots where food could become unsafe, and keep an eye on them.",
+              "That's it. The whole system is about spotting risks before they reach a guest \u2014 and writing down that you checked.",
+              "Think of it like a checklist a pilot runs before takeoff. Not because something's wrong \u2014 but so nothing goes wrong."
+            ] },
+            { type: "read", emoji: "\u{1F321}\uFE0F", title: "The cold chain \u2014 your #1 rule", body: [
+              "Cold food must stay cold. Always. Fridge: max 4\xB0C. Freezer: max \u221218\xB0C.",
+              "Why it matters: bacteria love the range between 5\xB0C and 63\xB0C \u2014 the 'danger zone'. Warm food sitting out is where trouble grows.",
+              "So: get deliveries into the fridge fast, don't leave prepped food standing around, and cool hot food quickly if it's being stored."
+            ] },
+            {
+              type: "quiz",
+              emoji: "\u{1F9E0}",
+              q: "What's the maximum temperature for a fridge?",
+              opts: ["10\xB0C", "4\xB0C", "It doesn't matter as long as it's cold"],
+              right: 1,
+              fb: "Exactly \u2014 max 4\xB0C. The cold chain is the heart of food safety. \u{1F321}\uFE0F"
+            },
+            { type: "read", emoji: "\u{1F4E5}", title: "Checking deliveries", body: [
+              "When goods arrive, do three quick things: check, measure, store.",
+              "Check: does the delivery match what we ordered? Packaging intact? Best-before date far enough away?",
+              "Measure: temperature of chilled/frozen goods \u2014 and write it down. Store: straight away, using FIFO."
+            ] },
+            { type: "read", emoji: "\u{1F504}", title: "FIFO \u2014 first in, first out", body: [
+              "FIFO = First In, First Out. Whatever arrived first, gets used first.",
+              "When you put new stock away, place it behind the older stock. Older items stay in front, where they get grabbed first.",
+              "This one habit prevents most food waste and stops anything quietly expiring at the back of a shelf."
+            ] },
+            {
+              type: "quiz",
+              emoji: "\u{1F9E0}",
+              q: "You get a new delivery of tomatoes. Where do the new ones go?",
+              opts: ["In front, so they look fresh", "Behind the older tomatoes (FIFO)", "Anywhere with space"],
+              right: 1,
+              fb: "Yes! New stock goes behind. Older stock gets used first. That's FIFO. \u{1F504}"
+            },
+            { type: "read", emoji: "\u{1F9FD}", title: "Cleaning & documentation", body: [
+              "Clean surfaces and tools before and after production \u2014 and between different foods, so nothing mixes.",
+              "Document as you go: temperatures, cleaning, deliveries. If it's not written down, officially it didn't happen.",
+              "It feels like extra work at first, but it becomes a 20-second habit \u2014 and it protects you, the team, and every guest."
+            ] },
+            {
+              type: "quiz",
+              emoji: "\u{1F9E0}",
+              q: "Why do we write down temperatures and cleaning?",
+              opts: ["To make paperwork look busy", "Because if it's not documented, it officially didn't happen", "Only when an inspector visits"],
+              right: 1,
+              fb: "Right. Documentation is proof. No note = didn't happen, in the eyes of the law. \u{1F4CB}"
+            }
+          ]
+        },
+        {
+          id: "allergens",
+          emoji: "\u{1F95C}",
+          color: ORANGE,
+          title: "The 14 Allergens",
+          blurb: "Austria's 14 legally-required allergens, with real examples. Learn them, then test yourself.",
+          steps: [
+            { type: "read", emoji: "\u2696\uFE0F", title: "Why this matters here", body: [
+              "In Austria, by law (EU regulation 1169/2011) we must be able to tell any guest which of 14 allergens are in a dish.",
+              "This can be spoken or written \u2014 but it has to be correct. For someone with a real allergy, this isn't a preference. It can be serious.",
+              "The rule: if you're not 100% sure, check \u2014 ingredient list or ask. Never guess. 'I'll check for you' is always the right answer."
+            ] },
+            { type: "read", emoji: "\u{1F524}", title: "They have letter codes: A\u2013R", body: [
+              "Each allergen has a letter. On menus you'll often see just the letters next to a dish, like 'A, G, L'.",
+              "You don't need to memorise all 14 today. But the big ones for our kitchen \u2014 gluten (A), milk (G), nuts (H), soy (F), celery (L), sesame (N) \u2014 come up constantly.",
+              "Let's walk through all 14 in small groups. \u{1F447}"
+            ] },
+            { type: "read", emoji: "\u{1F33E}", title: "A\u2013E: the everyday ones", body: [
+              "A \u2013 Gluten (wheat, rye, barley): bread, pastry, pasta, breadcrumbs, many sauces.",
+              "B \u2013 Crustaceans: shrimp, crab. C \u2013 Egg: mayo, many cakes, egg pasta, breaded foods.",
+              "D \u2013 Fish (not gelatine). E \u2013 Peanuts: satay sauce, some spreads, cereals, roasted snacks."
+            ] },
+            {
+              type: "quiz",
+              emoji: "\u{1F9E0}",
+              q: "Which letter is gluten?",
+              opts: ["G", "A", "L"],
+              right: 1,
+              fb: "Yes \u2014 A is gluten. G is milk (easy to mix up!). \u{1F33E}"
+            },
+            { type: "read", emoji: "\u{1F95B}", title: "F\u2013M: watch these in our kitchen", body: [
+              "F \u2013 Soy: tofu, soy sauce, many veggie products. G \u2013 Milk (incl. lactose): butter, cream, cheese, many desserts.",
+              "H \u2013 Nuts (almond, hazelnut, walnut, cashew\u2026): curries, pesto, desserts, nut creams.",
+              "L \u2013 Celery: soups, spice mixes, curries, stocks. M \u2013 Mustard: dressings, marinades, pickles."
+            ] },
+            { type: "read", emoji: "\u{1F330}", title: "N\u2013R: the last four", body: [
+              "N \u2013 Sesame: bread, falafel, hummus, many veggie dishes. O \u2013 Sulphites (SO\u2082): dried fruit, some sauces, wine.",
+              "P \u2013 Lupin: some vegan/gluten-free products, meat substitutes. R \u2013 Molluscs: mussels, snails, squid.",
+              "For a plant-based Indian kitchen like ours, the ones to really watch: A, F, G, H, L, N \u2014 they hide in curries, sauces and breads constantly."
+            ] },
+            {
+              type: "quiz",
+              emoji: "\u{1F9E0}",
+              q: "A guest asks if the curry has nuts. You're not sure. What do you do?",
+              opts: ["Say 'probably not' to be friendly", "Check the recipe / ingredient list, then answer honestly", "Say you don't know and walk away"],
+              right: 1,
+              fb: "Exactly. Check, then answer honestly. With allergies, safety beats speed \u2014 every time. \u{1F64F}"
+            },
+            { type: "read", emoji: "\u{1F4CB}", title: "How we label it", body: [
+              "On our menus, allergens appear as letters next to each dish. Guests can also just ask you directly.",
+              "Your job: know where to look it up fast, and never guess. The ingredient list and the team are your backup.",
+              "Master this, and you're not just following the law \u2014 you're keeping every single guest safe. That's the real point. \u2764\uFE0F"
+            ] }
+          ]
+        }
+      ]
+    },
+    de: {
+      title: "Lernen",
+      subtitle: "Schritt-f\xFCr-Schritt-Pfade \u2014 lass dir Zeit, klick dich durch, hak ab \u2705",
+      start: "Starten",
+      continue: "Weiter",
+      review: "Ansehen",
+      donePath: "Fertig \u2713",
+      next: "Weiter",
+      back: "Zur\xFCck",
+      finish: "Pfad abschlie\xDFen \u{1F389}",
+      checkQ: "Kurzer Check",
+      correct: "Richtig! \u{1F389}",
+      tryAgain: "Nicht ganz \u2014 nochmal \u{1F447}",
+      pathDone: "Pfad geschafft \u2014 stark! \u{1F389}",
+      lesson: "Lektion",
+      of: "von",
+      paths: [
+        {
+          id: "haccp",
+          emoji: "\u{1F9FC}",
+          color: SAGE,
+          title: "HACCP einfach erkl\xE4rt",
+          blurb: "Lebensmittelsicherheit, erkl\xE4rt wie einem Freund. Ohne Fachchinesisch.",
+          steps: [
+            { type: "read", emoji: "\u{1F914}", title: "Was ist HACCP \xFCberhaupt?", body: [
+              "HACCP klingt kompliziert. Ist es nicht. Dahinter steckt eine einfache Idee: finde die Stellen, wo Essen unsicher werden k\xF6nnte, und behalt sie im Auge.",
+              "Das ist alles. Das ganze System geht darum, Risiken zu erkennen, bevor sie beim Gast landen \u2014 und aufzuschreiben, dass du kontrolliert hast.",
+              "Stell dir eine Checkliste vor, die ein Pilot vor dem Start durchgeht. Nicht weil was kaputt ist \u2014 sondern damit nichts kaputt geht."
+            ] },
+            { type: "read", emoji: "\u{1F321}\uFE0F", title: "Die K\xFChlkette \u2014 deine wichtigste Regel", body: [
+              "Kaltes Essen muss kalt bleiben. Immer. K\xFChlschrank: max. 4\xB0C. Tiefk\xFChler: max. \u221218\xB0C.",
+              "Warum? Bakterien lieben den Bereich zwischen 5\xB0C und 63\xB0C \u2014 die 'Gefahrenzone'. Warmes Essen, das rumsteht, ist das Problem.",
+              "Also: Lieferungen schnell in den K\xFChlschrank, vorbereitetes Essen nicht rumstehen lassen, hei\xDFes Essen schnell runterk\xFChlen wenn es gelagert wird."
+            ] },
+            {
+              type: "quiz",
+              emoji: "\u{1F9E0}",
+              q: "Wie kalt muss ein K\xFChlschrank maximal sein?",
+              opts: ["10\xB0C", "4\xB0C", "Egal, Hauptsache kalt"],
+              right: 1,
+              fb: "Genau \u2014 max. 4\xB0C. Die K\xFChlkette ist das Herz der Lebensmittelsicherheit. \u{1F321}\uFE0F"
+            },
+            { type: "read", emoji: "\u{1F4E5}", title: "Lieferungen kontrollieren", body: [
+              "Wenn Ware ankommt, mach drei schnelle Dinge: pr\xFCfen, messen, einlagern.",
+              "Pr\xFCfen: Stimmt die Lieferung mit der Bestellung? Verpackung intakt? MHD weit genug weg?",
+              "Messen: Temperatur der K\xFChl-/TK-Ware \u2014 und aufschreiben. Einlagern: sofort, nach FIFO."
+            ] },
+            { type: "read", emoji: "\u{1F504}", title: "FIFO \u2014 first in, first out", body: [
+              "FIFO = First In, First Out. Was zuerst da war, wird zuerst verbraucht.",
+              "Wenn du neue Ware einr\xE4umst, stell sie hinter die \xE4ltere. \xC4ltere Ware bleibt vorne, wo sie zuerst gegriffen wird.",
+              "Diese eine Gewohnheit verhindert die meiste Lebensmittelverschwendung \u2014 und dass hinten im Regal heimlich was abl\xE4uft."
+            ] },
+            {
+              type: "quiz",
+              emoji: "\u{1F9E0}",
+              q: "Neue Tomaten-Lieferung kommt. Wo kommen die neuen hin?",
+              opts: ["Nach vorne, damit sie frisch aussehen", "Hinter die \xE4lteren Tomaten (FIFO)", "Egal, wo Platz ist"],
+              right: 1,
+              fb: "Ja! Neue Ware nach hinten. \xC4ltere zuerst verbrauchen. Das ist FIFO. \u{1F504}"
+            },
+            { type: "read", emoji: "\u{1F9FD}", title: "Reinigung & Dokumentation", body: [
+              "Fl\xE4chen und Werkzeuge vor und nach der Produktion reinigen \u2014 und zwischen verschiedenen Lebensmitteln, damit sich nichts vermischt.",
+              "Dokumentiere laufend: Temperaturen, Reinigung, Lieferungen. Was nicht aufgeschrieben ist, ist offiziell nicht passiert.",
+              "F\xFChlt sich am Anfang nach Extra-Arbeit an, wird aber zur 20-Sekunden-Gewohnheit \u2014 und sch\xFCtzt dich, das Team und jeden Gast."
+            ] },
+            {
+              type: "quiz",
+              emoji: "\u{1F9E0}",
+              q: "Warum schreiben wir Temperaturen und Reinigung auf?",
+              opts: ["Damit der Papierkram besch\xE4ftigt aussieht", "Weil es offiziell nicht passiert ist, wenn's nicht dokumentiert ist", "Nur wenn eine Kontrolle kommt"],
+              right: 1,
+              fb: "Richtig. Dokumentation ist der Beweis. Kein Eintrag = nicht passiert, im Sinne des Gesetzes. \u{1F4CB}"
+            }
+          ]
+        },
+        {
+          id: "allergens",
+          emoji: "\u{1F95C}",
+          color: ORANGE,
+          title: "Die 14 Allergene",
+          blurb: "\xD6sterreichs 14 gesetzlich vorgeschriebene Allergene, mit echten Beispielen. Lernen, dann testen.",
+          steps: [
+            { type: "read", emoji: "\u2696\uFE0F", title: "Warum das hier wichtig ist", body: [
+              "In \xD6sterreich m\xFCssen wir per Gesetz (EU-Verordnung 1169/2011) jedem Gast sagen k\xF6nnen, welche der 14 Allergene in einem Gericht sind.",
+              "Das kann m\xFCndlich oder schriftlich sein \u2014 aber es muss korrekt sein. F\xFCr jemanden mit echter Allergie ist das keine Vorliebe. Es kann ernst werden.",
+              "Die Regel: wenn du nicht 100% sicher bist, nachschauen \u2014 Zutatenliste oder fragen. Nie raten. 'Ich schau kurz nach' ist immer die richtige Antwort."
+            ] },
+            { type: "read", emoji: "\u{1F524}", title: "Sie haben Buchstaben-Codes: A\u2013R", body: [
+              "Jedes Allergen hat einen Buchstaben. Auf Speisekarten siehst du oft nur die Buchstaben neben einem Gericht, z.B. 'A, G, L'.",
+              "Du musst heute nicht alle 14 auswendig k\xF6nnen. Aber die Wichtigen f\xFCr unsere K\xFCche \u2014 Gluten (A), Milch (G), N\xFCsse (H), Soja (F), Sellerie (L), Sesam (N) \u2014 kommen st\xE4ndig vor.",
+              "Gehen wir alle 14 in kleinen Gruppen durch. \u{1F447}"
+            ] },
+            { type: "read", emoji: "\u{1F33E}", title: "A\u2013E: die allt\xE4glichen", body: [
+              "A \u2013 Gluten (Weizen, Roggen, Gerste): Brot, Geb\xE4ck, Nudeln, Semmelbr\xF6sel, viele So\xDFen.",
+              "B \u2013 Krebstiere: Garnelen, Krabben. C \u2013 Ei: Mayo, viele Kuchen, Eiernudeln, Paniertes.",
+              "D \u2013 Fisch (au\xDFer Gelatine). E \u2013 Erdn\xFCsse: Sat\xE9sauce, manche Aufstriche, Cerealien, ger\xF6stete Snacks."
+            ] },
+            {
+              type: "quiz",
+              emoji: "\u{1F9E0}",
+              q: "Welcher Buchstabe ist Gluten?",
+              opts: ["G", "A", "L"],
+              right: 1,
+              fb: "Ja \u2014 A ist Gluten. G ist Milch (leicht zu verwechseln!). \u{1F33E}"
+            },
+            { type: "read", emoji: "\u{1F95B}", title: "F\u2013M: aufpassen in unserer K\xFCche", body: [
+              "F \u2013 Soja: Tofu, Sojasauce, viele Veggie-Produkte. G \u2013 Milch (inkl. Laktose): Butter, Sahne, K\xE4se, viele Desserts.",
+              "H \u2013 Schalenfr\xFCchte/N\xFCsse (Mandel, Haselnuss, Walnuss, Cashew\u2026): Currys, Pesto, Desserts, Nusscremes.",
+              "L \u2013 Sellerie: Suppen, Gew\xFCrzmischungen, Currys, Fonds. M \u2013 Senf: Dressings, Marinaden, Eingelegtes."
+            ] },
+            { type: "read", emoji: "\u{1F330}", title: "N\u2013R: die letzten vier", body: [
+              "N \u2013 Sesam: Brot, Falafel, Humus, viele Veggie-Gerichte. O \u2013 Sulfite (SO\u2082): Trockenobst, manche So\xDFen, Wein.",
+              "P \u2013 Lupinen: manche vegane/glutenfreie Produkte, Fleischersatz. R \u2013 Weichtiere: Muscheln, Schnecken, Tintenfisch.",
+              "F\xFCr eine pflanzliche indische K\xFCche wie unsere die wirklich wichtigen: A, F, G, H, L, N \u2014 sie stecken st\xE4ndig in Currys, So\xDFen und Broten."
+            ] },
+            {
+              type: "quiz",
+              emoji: "\u{1F9E0}",
+              q: "Ein Gast fragt, ob das Curry N\xFCsse enth\xE4lt. Du bist unsicher. Was tust du?",
+              opts: ["'Wahrscheinlich nicht' sagen, um freundlich zu sein", "Rezept / Zutatenliste checken, dann ehrlich antworten", "Sagen dass du's nicht wei\xDFt und weggehen"],
+              right: 1,
+              fb: "Genau. Nachschauen, dann ehrlich antworten. Bei Allergien geht Sicherheit vor Schnelligkeit \u2014 immer. \u{1F64F}"
+            },
+            { type: "read", emoji: "\u{1F4CB}", title: "Wie wir es kennzeichnen", body: [
+              "Auf unseren Speisekarten stehen die Allergene als Buchstaben neben jedem Gericht. G\xE4ste k\xF6nnen dich auch direkt fragen.",
+              "Deine Aufgabe: wissen, wo du schnell nachschaust, und nie raten. Die Zutatenliste und das Team sind dein Backup.",
+              "Wenn du das drauf hast, folgst du nicht nur dem Gesetz \u2014 du h\xE4ltst jeden einzelnen Gast sicher. Darum geht's wirklich. \u2764\uFE0F"
+            ] }
+          ]
+        }
+      ]
     }
   };
   const DEFAULT_PROGRAM = {
@@ -453,6 +725,7 @@
   const IconTruck = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("rect", { x: "1", y: "3", width: "15", height: "13" }), /* @__PURE__ */ React.createElement("polygon", { points: "16 8 20 8 23 11 23 16 16 16 16 8" }), /* @__PURE__ */ React.createElement("circle", { cx: "5.5", cy: "18.5", r: "2.5" }), /* @__PURE__ */ React.createElement("circle", { cx: "18.5", cy: "18.5", r: "2.5" })) });
   const IconMsg = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement("path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" }) });
   const IconFlame = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement("path", { d: "M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" }) });
+  const IconBook = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M4 19.5A2.5 2.5 0 0 1 6.5 17H20" }), /* @__PURE__ */ React.createElement("path", { d: "M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" })) });
   const IconEdit = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" }), /* @__PURE__ */ React.createElement("path", { d: "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" })) });
   const IconPlus = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("line", { x1: "12", y1: "5", x2: "12", y2: "19" }), /* @__PURE__ */ React.createElement("line", { x1: "5", y1: "12", x2: "19", y2: "12" })) });
   const IconTrash = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("polyline", { points: "3 6 5 6 21 6" }), /* @__PURE__ */ React.createElement("path", { d: "M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" }), /* @__PURE__ */ React.createElement("path", { d: "M10 11v6" }), /* @__PURE__ */ React.createElement("path", { d: "M14 11v6" }), /* @__PURE__ */ React.createElement("path", { d: "M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" })) });
@@ -583,6 +856,7 @@
     const NAV = [
       { key: "home", label: t("navHome"), Icon: IconHome },
       ...program.weeks.map((w) => ({ key: w.id, label: w.label, Icon: IconCal, week: w })),
+      { key: "learn", label: t("navLearn"), Icon: IconBook },
       { key: "philosophy", label: t("navPhilosophy"), Icon: IconFlame },
       { key: "resp", label: t("navResp"), Icon: IconChef },
       { key: "signoff", label: t("navSignoff"), Icon: IconClip }
@@ -620,7 +894,7 @@
         " ",
         n.label
       );
-    }))), /* @__PURE__ */ React.createElement("main", { style: { maxWidth: 1e3, margin: "0 auto", padding: "28px 20px 80px" } }, view.type === "home" && /* @__PURE__ */ React.createElement(HomeView, { program, go, weekProgress, t }), view.type === "week" && /* @__PURE__ */ React.createElement(WeekView, { program, week: program.weeks.find((w) => w.id === view.week.id) || view.week, progress, toggle, weekProgress, go, notes, setNote, isAdmin, updateProgram, saveStatus, t }), view.type === "philosophy" && /* @__PURE__ */ React.createElement(PhilosophyView, { program }), view.type === "resp" && /* @__PURE__ */ React.createElement(RespView, { program }), view.type === "signoff" && /* @__PURE__ */ React.createElement(SignoffView, { program })));
+    }))), /* @__PURE__ */ React.createElement("main", { style: { maxWidth: 1e3, margin: "0 auto", padding: "28px 20px 80px" } }, view.type === "home" && /* @__PURE__ */ React.createElement(HomeView, { program, go, weekProgress, t }), view.type === "week" && /* @__PURE__ */ React.createElement(WeekView, { program, week: program.weeks.find((w) => w.id === view.week.id) || view.week, progress, toggle, weekProgress, go, notes, setNote, isAdmin, updateProgram, saveStatus, t }), view.type === "philosophy" && /* @__PURE__ */ React.createElement(PhilosophyView, { program }), view.type === "learn" && /* @__PURE__ */ React.createElement(LearnView, { lang, progress, toggle }), view.type === "resp" && /* @__PURE__ */ React.createElement(RespView, { program }), view.type === "signoff" && /* @__PURE__ */ React.createElement(SignoffView, { program })));
   }
   function HomeView({ program, go, weekProgress, t }) {
     return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { background: INK, borderRadius: 20, padding: "40px 32px", color: CREAM, position: "relative", overflow: "hidden", marginBottom: 28 } }, /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: -40, right: -40, width: 180, height: 180, background: NEON, opacity: 0.12, borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", bottom: -60, left: -20, width: 140, height: 140, background: ORANGE, opacity: 0.15, borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "relative" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "inline-block", background: NEON, color: INK, fontSize: 12, fontWeight: 800, padding: "5px 12px", borderRadius: 99, letterSpacing: 0.5, marginBottom: 16 } }, t("welcomeBadge")), /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 34, fontWeight: 800, margin: "0 0 12px", lineHeight: 1.1 } }, program.intro.title), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 17, opacity: 0.85, margin: 0, fontWeight: 500 } }, program.intro.subtitle))), /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 16, padding: "24px 26px", marginBottom: 24, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, program.intro.body.map((paragraph, i) => /* @__PURE__ */ React.createElement("p", { key: i, style: { fontSize: 15.5, lineHeight: 1.65, color: "#333", margin: i === 0 ? "0 0 14px" : 0 } }, paragraph))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 14, marginBottom: 30 } }, program.intro.principles.map((p, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { background: "white", borderRadius: 14, padding: 20, borderTop: `4px solid ${ORANGE}`, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, /* @__PURE__ */ React.createElement("div", { style: { width: 42, height: 42, borderRadius: 10, background: CREAM, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 } }, /* @__PURE__ */ React.createElement(IconFlame, { color: ORANGE })), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 16, marginBottom: 6 } }, p.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: "#555", lineHeight: 1.5 } }, p.text)))), /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 22, fontWeight: 800, margin: "0 0 16px" } }, t("yourWeeks")), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 14 } }, program.weeks.map((w) => {
@@ -636,7 +910,7 @@
         /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 17, marginBottom: 3 } }, w.theme), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: "#888", marginBottom: 8 } }, w.dates), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, /* @__PURE__ */ React.createElement("div", { style: { flex: 1, maxWidth: 160, height: 6, background: "#eee", borderRadius: 99, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${wp.pct}%`, height: "100%", background: w.color } })), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: "#999", fontWeight: 600 } }, wp.done, "/", wp.total, " ", t("goals")))),
         /* @__PURE__ */ React.createElement(IconChevron, { size: 22, color: "#ccc" })
       );
-    })), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 14, marginTop: 24 } }, /* @__PURE__ */ React.createElement("button", { onClick: () => go("philosophy"), style: { background: SAGE, color: "white", border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" } }, /* @__PURE__ */ React.createElement(IconFlame, { size: 24, color: NEON }), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 15, marginTop: 10 } }, t("howWeCook")), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, opacity: 0.85, marginTop: 3 } }, t("howWeCookSub"))), /* @__PURE__ */ React.createElement("button", { onClick: () => go("resp"), style: { background: INK, color: CREAM, border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" } }, /* @__PURE__ */ React.createElement(IconChef, { size: 24, color: NEON }), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 15, marginTop: 10 } }, t("yourResp")), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, opacity: 0.7, marginTop: 3 } }, t("yourRespSub"))), /* @__PURE__ */ React.createElement("button", { onClick: () => go("signoff"), style: { background: ORANGE, color: "white", border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" } }, /* @__PURE__ */ React.createElement(IconClip, { size: 24, color: "white" }), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 15, marginTop: 10 } }, t("dailySignoff")), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, opacity: 0.85, marginTop: 3 } }, t("dailySignoffSub")))));
+    })), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 14, marginTop: 24 } }, /* @__PURE__ */ React.createElement("button", { onClick: () => go("learn"), style: { background: "#3A7CA5", color: "white", border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" } }, /* @__PURE__ */ React.createElement(IconBook, { size: 24, color: NEON }), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 15, marginTop: 10 } }, t("learnCard")), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, opacity: 0.85, marginTop: 3 } }, t("learnCardSub"))), /* @__PURE__ */ React.createElement("button", { onClick: () => go("philosophy"), style: { background: SAGE, color: "white", border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" } }, /* @__PURE__ */ React.createElement(IconFlame, { size: 24, color: NEON }), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 15, marginTop: 10 } }, t("howWeCook")), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, opacity: 0.85, marginTop: 3 } }, t("howWeCookSub"))), /* @__PURE__ */ React.createElement("button", { onClick: () => go("resp"), style: { background: INK, color: CREAM, border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" } }, /* @__PURE__ */ React.createElement(IconChef, { size: 24, color: NEON }), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 15, marginTop: 10 } }, t("yourResp")), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, opacity: 0.7, marginTop: 3 } }, t("yourRespSub"))), /* @__PURE__ */ React.createElement("button", { onClick: () => go("signoff"), style: { background: ORANGE, color: "white", border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" } }, /* @__PURE__ */ React.createElement(IconClip, { size: 24, color: "white" }), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 15, marginTop: 10 } }, t("dailySignoff")), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, opacity: 0.85, marginTop: 3 } }, t("dailySignoffSub")))));
   }
   function EditText({ value, onCommit, style, placeholder }) {
     return /* @__PURE__ */ React.createElement(
@@ -766,6 +1040,108 @@
     const P = program.philosophy;
     if (!P) return null;
     return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 30, fontWeight: 800, margin: "0 0 6px" } }, P.title), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 16, color: "#666", margin: "0 0 22px" } }, P.subtitle), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15, lineHeight: 1.6, color: "#555", margin: "0 0 20px" } }, P.intro), /* @__PURE__ */ React.createElement("div", { style: { background: INK, color: CREAM, borderRadius: 20, padding: "30px 28px", marginBottom: 30, position: "relative", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: -30, right: -30, width: 140, height: 140, background: NEON, opacity: 0.13, borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "relative", fontSize: 19, fontWeight: 700, lineHeight: 1.5 } }, P.core)), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 14, marginBottom: 32 } }, P.pillars.map((p, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { background: "white", borderRadius: 16, padding: "22px 22px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `4px solid ${[ORANGE, SAGE, "#3A7CA5", SAGE, ORANGE, "#8B5CF6", "#3A7CA5", SAGE][i % 8]}` } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 28, marginBottom: 8 } }, p.emoji), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 800, fontSize: 17, marginBottom: 4 } }, p.title), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 13, color: ORANGE, marginBottom: 9 } }, p.tag), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: "#555", lineHeight: 1.55 } }, p.text)))), /* @__PURE__ */ React.createElement("div", { style: { background: "#FDEAEA", borderRadius: 16, padding: "22px 24px", marginBottom: 30 } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 18, fontWeight: 800, margin: "0 0 14px", color: "#A33" } }, P.notTitle), P.not.map((n, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", alignItems: "flex-start", gap: 10, marginBottom: i < P.not.length - 1 ? 10 : 0 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 18 } }, n.emoji), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 15, color: "#663", lineHeight: 1.5, fontWeight: 500 } }, n.text)))), /* @__PURE__ */ React.createElement("div", { style: { background: NEON, borderRadius: 20, padding: "28px 26px" } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 20, fontWeight: 800, margin: "0 0 4px", color: INK } }, P.testTitle), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 14.5, margin: "0 0 18px", color: "#333" } }, P.testSubtitle), P.test.map((t, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,0.55)", borderRadius: 12, padding: "13px 16px", marginBottom: 10 } }, /* @__PURE__ */ React.createElement("div", { style: { minWidth: 30, height: 30, borderRadius: "50%", background: INK, color: NEON, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14 } }, i + 1), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 15, fontWeight: 600, color: INK } }, t))), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15, fontWeight: 700, color: INK, margin: "16px 0 0", lineHeight: 1.5 } }, P.outro)));
+  }
+  function LearnView({ lang, progress, toggle }) {
+    const L = LEARN[lang];
+    const [openPath, setOpenPath] = useState(null);
+    const [stepIdx, setStepIdx] = useState(0);
+    const [quizPick, setQuizPick] = useState(null);
+    const stepDone = (pathId, i) => !!progress[`learn_${pathId}_${i}`];
+    const pathProgress = (path2) => {
+      const total2 = path2.steps.length;
+      const done = path2.steps.filter((_, i) => stepDone(path2.id, i)).length;
+      return { done, total: total2, pct: total2 ? Math.round(done / total2 * 100) : 0 };
+    };
+    const openAt = (path2, i) => {
+      setOpenPath(path2);
+      setStepIdx(i);
+      setQuizPick(null);
+      window.scrollTo(0, 0);
+    };
+    const closePath = () => {
+      setOpenPath(null);
+      setQuizPick(null);
+      window.scrollTo(0, 0);
+    };
+    if (!openPath) {
+      return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 30, fontWeight: 800, margin: "0 0 6px" } }, L.title, " \u{1F4DA}"), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 16, color: "#666", margin: "0 0 24px" } }, L.subtitle), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 16 } }, L.paths.map((path2) => {
+        const pp2 = pathProgress(path2);
+        const firstUndone = path2.steps.findIndex((_, i) => !stepDone(path2.id, i));
+        const startAt = firstUndone === -1 ? 0 : firstUndone;
+        const label = pp2.pct === 100 ? L.review : pp2.done > 0 ? L.continue : L.start;
+        return /* @__PURE__ */ React.createElement("div", { key: path2.id, style: { background: "white", borderRadius: 18, padding: "24px 24px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `5px solid ${path2.color}` } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-start", gap: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 40, lineHeight: 1 } }, path2.emoji), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 800, fontSize: 20, marginBottom: 4 } }, path2.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14.5, color: "#666", lineHeight: 1.5, marginBottom: 14 } }, path2.blurb), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { flex: 1, maxWidth: 220, height: 8, background: "#eee", borderRadius: 99, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${pp2.pct}%`, height: "100%", background: path2.color, transition: "width .3s" } })), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13, fontWeight: 700, color: path2.color } }, pp2.done, "/", pp2.total)), /* @__PURE__ */ React.createElement(
+          "button",
+          {
+            onClick: () => openAt(path2, startAt),
+            style: { background: pp2.pct === 100 ? "white" : path2.color, color: pp2.pct === 100 ? path2.color : "white", border: pp2.pct === 100 ? `2px solid ${path2.color}` : "none", borderRadius: 10, padding: "11px 22px", fontSize: 15, fontWeight: 700, cursor: "pointer" }
+          },
+          label,
+          " ",
+          pp2.pct === 100 ? "\u2713" : "\u2192"
+        ))));
+      })));
+    }
+    const path = openPath;
+    const step = path.steps[stepIdx];
+    const total = path.steps.length;
+    const isLast = stepIdx === total - 1;
+    const pp = pathProgress(path);
+    const markDoneAndNext = () => {
+      if (!stepDone(path.id, stepIdx)) toggle(`learn_${path.id}_${stepIdx}`);
+      if (isLast) {
+        closePath();
+      } else {
+        setStepIdx(stepIdx + 1);
+        setQuizPick(null);
+        window.scrollTo(0, 0);
+      }
+    };
+    const goBack = () => {
+      if (stepIdx === 0) {
+        closePath();
+      } else {
+        setStepIdx(stepIdx - 1);
+        setQuizPick(null);
+        window.scrollTo(0, 0);
+      }
+    };
+    const quizAnswered = step.type === "quiz" && quizPick !== null;
+    const quizCorrect = quizAnswered && quizPick === step.right;
+    const canProceed = step.type !== "quiz" || quizCorrect;
+    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("button", { onClick: closePath, style: { background: "none", border: "none", color: "#888", cursor: "pointer", fontSize: 14, display: "flex", alignItems: "center", gap: 5, marginBottom: 16, padding: 0 } }, /* @__PURE__ */ React.createElement(IconBook, { size: 15, color: "#888" }), " ", path.title), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 22 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: "#999", fontWeight: 600, whiteSpace: "nowrap" } }, L.lesson, " ", stepIdx + 1, " ", L.of, " ", total), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, height: 8, background: "#eee", borderRadius: 99, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${Math.round((stepIdx + (canProceed ? 1 : 0)) / total * 100)}%`, height: "100%", background: path.color, transition: "width .3s" } }))), /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 20, padding: "32px 28px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `5px solid ${path.color}`, marginBottom: 20 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 44, marginBottom: 14 } }, step.emoji), step.type === "read" && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 24, fontWeight: 800, margin: "0 0 18px" } }, step.title), step.body.map((para, i) => /* @__PURE__ */ React.createElement("p", { key: i, style: { fontSize: 16, lineHeight: 1.65, color: "#333", margin: i === step.body.length - 1 ? 0 : "0 0 14px" } }, para))), step.type === "quiz" && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, fontWeight: 800, color: path.color, letterSpacing: 0.5, marginBottom: 8 } }, L.checkQ.toUpperCase()), /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 21, fontWeight: 800, margin: "0 0 18px", lineHeight: 1.35 } }, step.q), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 10 } }, step.opts.map((opt, oi) => {
+      let bg = "white", border = "2px solid #e5e5e5", col = "#333";
+      if (quizAnswered) {
+        if (oi === step.right) {
+          bg = `${SAGE}12`;
+          border = `2px solid ${SAGE}`;
+          col = SAGE;
+        } else if (oi === quizPick) {
+          bg = "#FDECEC";
+          border = "2px solid #D9534F";
+          col = "#B33";
+        }
+      }
+      return /* @__PURE__ */ React.createElement(
+        "button",
+        {
+          key: oi,
+          onClick: () => {
+            if (!quizAnswered) setQuizPick(oi);
+          },
+          disabled: quizAnswered,
+          style: { textAlign: "left", background: bg, border, borderRadius: 12, padding: "14px 16px", fontSize: 15, fontWeight: 600, color: col, cursor: quizAnswered ? "default" : "pointer", lineHeight: 1.4 }
+        },
+        opt
+      );
+    })), quizAnswered && /* @__PURE__ */ React.createElement("div", { style: { marginTop: 16, padding: "14px 16px", borderRadius: 12, background: quizCorrect ? `${SAGE}12` : "#FFF6E5", fontSize: 14.5, lineHeight: 1.5, color: quizCorrect ? SAGE : "#8a6d00", fontWeight: 600 } }, quizCorrect ? step.fb : L.tryAgain))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 12 } }, /* @__PURE__ */ React.createElement("button", { onClick: goBack, style: { padding: "13px 22px", background: "#f2f2f2", border: "none", borderRadius: 12, fontWeight: 700, fontSize: 15, cursor: "pointer", color: "#555" } }, "\u2190 ", L.back), /* @__PURE__ */ React.createElement(
+      "button",
+      {
+        onClick: markDoneAndNext,
+        disabled: !canProceed,
+        style: { flex: 1, padding: "13px 22px", background: canProceed ? path.color : "#ddd", color: "white", border: "none", borderRadius: 12, fontWeight: 700, fontSize: 15, cursor: canProceed ? "pointer" : "not-allowed" }
+      },
+      isLast ? L.finish : L.next + " \u2192"
+    )));
   }
   function SignoffView({ program }) {
     const S = program.signoff;
