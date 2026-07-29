@@ -128,270 +128,172 @@
       saveFailed: "Speichern fehlgeschlagen"
     }
   };
+  const MENU_DATA = [{ "w": 1, "days": [{ "d": "Mo", "dishes": [{ "n": "Linsen Power Bowl mit fruchtiger Kr\xE4utervinaigrette", "c": "Bowl (kalt)" }, { "n": "Chana Masala Curry", "c": "Curry" }, { "n": "Mama Masala Power Dal mit Berglinsen", "c": "Dal" }] }, { "d": "Di", "dishes": [{ "n": "K\xFCrbis-Linsenbolognese-Lasagne", "c": "Lasagne" }, { "n": "Tofu Tikka Masala mit Spinat", "c": "Curry" }, { "n": "R\xF6stzwiebel-Linsen-Dal", "c": "Dal" }] }, { "d": "Mi", "dishes": [] }, { "d": "Do", "dishes": [{ "n": "Cremige Spinat-Ricotta-Lasagne", "c": "Lasagne" }, { "n": "Mango-Karfiol-Curry mit Kokos & Sesam", "c": "Curry" }, { "n": "Zitronen-Linsen-Dal", "c": "Dal" }] }, { "d": "Fr", "dishes": [{ "n": "BBQ Masala Bowl mit Kichererbsen & Kr\xE4uter-Dressing", "c": "Bowl (kalt)" }, { "n": "Cremiges Korma Veggie Curry mit Cashews", "c": "Curry" }, { "n": "Kichererbsen-Linsen Dal", "c": "Dal" }] }] }, { "w": 2, "days": [{ "d": "Mo", "dishes": [{ "n": "Chana Veggie Salad Bowl mit Mango-Dressing", "c": "Bowl (kalt)" }, { "n": "Aloo Gobi Chana Curry", "c": "Curry" }, { "n": "Dal Tadka", "c": "Dal" }] }, { "d": "Di", "dishes": [{ "n": "Melanzani-Lasagne mit Tomaten-Tamarinden-Sugo", "c": "Lasagne" }, { "n": "Thai K\xFCrbis Kokos Curry mit Makrutlimettenbl\xE4ttern", "c": "Curry" }, { "n": "Kurkuma-Linsen-Dal", "c": "Dal" }] }, { "d": "Mi", "dishes": [{ "n": "Summer Tikka Bowl mit Jeera Reis", "c": "Bowl (kalt)" }, { "n": "Tofu Goa Curry mit Mango", "c": "Curry" }, { "n": "Parmesan-Basilikum Meatballs mit Gew\xFCrzreis", "c": "Meatballs / Chili" }] }, { "d": "Do", "dishes": [{ "n": "Cremige S\xFC\xDFkartoffel-Spinat-Lasagne", "c": "Lasagne" }, { "n": "Kokos Satay Veggie Curry mit Erdnusssauce", "c": "Curry" }, { "n": "S\xFC\xDFkartoffel Dal mit Linsen & Kichererbsen", "c": "Dal" }] }, { "d": "Fr", "dishes": [{ "n": "Spinat-Karfiol-Biryani mit Minz-Raita", "c": "Biryani" }, { "n": "Chana Masala Curry", "c": "Curry" }, { "n": "Mama Masala Power Dal mit Berglinsen", "c": "Dal" }] }] }, { "w": 3, "days": [{ "d": "Mo", "dishes": [{ "n": "Green Herb Chickpea Bowl mit Limetten-Kr\xE4uterdressing", "c": "Bowl (kalt)" }, { "n": "Fruchtiges Goa Kichererbsen Curry", "c": "Curry" }, { "n": "Cremiger Tomaten-Linsen-Dal", "c": "Dal" }] }, { "d": "Di", "dishes": [{ "n": "Indian Ratatouille Lasagne", "c": "Lasagne" }, { "n": "Melanzani-Mango-Curry mit ger\xF6stetem Sesam & Tamarinde", "c": "Curry" }, { "n": "Karotten-Ingwer-Linsen-Dal", "c": "Dal" }] }, { "d": "Mi", "dishes": [{ "n": "Green Power Bowl mit Edamame, Pak Choi & Tahini", "c": "Bowl (kalt)" }, { "n": "Tofu Korma mit Cashews & Karfiol", "c": "Curry" }, { "n": "Erd\xE4pfel-Bohnen-Gulasch mit Berglinsen & Sojafaschiertes", "c": "Meatballs / Chili" }] }, { "d": "Do", "dishes": [{ "n": "Veggie Bolognese Lasagne", "c": "Lasagne" }, { "n": "Kokos Satay Veggie Curry mit Erdnusssauce", "c": "Curry" }, { "n": "Ingwer-Linsen-Dal", "c": "Dal" }] }, { "d": "Fr", "dishes": [{ "n": "Lemon Herb Lentil Bowl mit Salzzitronen", "c": "Bowl (kalt)" }, { "n": "Spicy Green Herb Curry mit Zitronenreis", "c": "Curry" }, { "n": "Kichererbsen-Linsen Dal", "c": "Dal" }] }] }, { "w": 4, "days": [{ "d": "Mo", "dishes": [{ "n": "Lemon Herb Lentil Bowl mit Salzzitronen", "c": "Bowl (kalt)" }, { "n": "Aloo Gobi Chana Curry", "c": "Curry" }, { "n": "Zitronen-Linsen-Dal", "c": "Dal" }] }, { "d": "Di", "dishes": [{ "n": "Veggie Bolognese Lasagne", "c": "Lasagne" }, { "n": "Thai K\xFCrbis Kokos Curry mit Makrutlimettenbl\xE4ttern", "c": "Curry" }, { "n": "S\xFC\xDFkartoffel Dal mit Linsen & Kichererbsen", "c": "Dal" }] }, { "d": "Mi", "dishes": [{ "n": "Crunchy Asia Bowl mit Edamame, Pak Choi & Erdnusssauce", "c": "Bowl (kalt)" }, { "n": "Tofu Green Palak Curry mit Spinat & Kokos", "c": "Curry" }, { "n": "Spiced Bean Power Chili mit Basmatireis", "c": "Meatballs / Chili" }] }, { "d": "Do", "dishes": [{ "n": "Parmigiana Melanzani Lasagne", "c": "Lasagne" }, { "n": "Mango-Karfiol-Curry mit Kokos & Sesam", "c": "Curry" }, { "n": "Kichererbsen-Linsen Dal", "c": "Dal" }] }, { "d": "Fr", "dishes": [{ "n": "Sweet Sour Chana Biryani mit Raita", "c": "Biryani" }, { "n": "Green Palak Curry", "c": "Curry" }, { "n": "Tomaten-Spinat-Linsen-Dal", "c": "Dal" }] }] }];
+  const Ing = ({ d, vb = "0 0 48 48", size = 40 }) => /* @__PURE__ */ React.createElement("svg", { width: size, height: size, viewBox: vb, xmlns: "http://www.w3.org/2000/svg" }, d);
+  const ING = {
+    wheat: /* @__PURE__ */ React.createElement(Ing, { d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M24 6v36", stroke: "#C89B3C", strokeWidth: "2.5", fill: "none" }), /* @__PURE__ */ React.createElement("g", { fill: "#E4B858", stroke: "#C89B3C", strokeWidth: "1" }, /* @__PURE__ */ React.createElement("ellipse", { cx: "24", cy: "12", rx: "3", ry: "5" }), /* @__PURE__ */ React.createElement("ellipse", { cx: "18", cy: "18", rx: "3", ry: "5", transform: "rotate(-30 18 18)" }), /* @__PURE__ */ React.createElement("ellipse", { cx: "30", cy: "18", rx: "3", ry: "5", transform: "rotate(30 30 18)" }), /* @__PURE__ */ React.createElement("ellipse", { cx: "18", cy: "26", rx: "3", ry: "5", transform: "rotate(-30 18 26)" }), /* @__PURE__ */ React.createElement("ellipse", { cx: "30", cy: "26", rx: "3", ry: "5", transform: "rotate(30 30 26)" }))) }),
+    shrimp: /* @__PURE__ */ React.createElement(Ing, { d: /* @__PURE__ */ React.createElement("path", { d: "M32 14c-8 0-16 5-16 14 0 5 4 8 9 8 3 0 5-1 6-3-4 0-7-2-7-6 0-6 6-9 12-9 3 0 5-2 5-4s-2-4-9-4z M14 20c-3 1-5 3-5 5", fill: "#F49B7A", stroke: "#D96B44", strokeWidth: "1.5" }) }),
+    egg: /* @__PURE__ */ React.createElement(Ing, { d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("ellipse", { cx: "24", cy: "26", rx: "14", ry: "17", fill: "#FFF7EC", stroke: "#E8D9B5", strokeWidth: "1.5" }), /* @__PURE__ */ React.createElement("circle", { cx: "24", cy: "28", r: "7", fill: "#F5B93B" })) }),
+    fish: /* @__PURE__ */ React.createElement(Ing, { d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M8 24c6-8 20-8 26 0-6 8-20 8-26 0z", fill: "#8FC7DB", stroke: "#4E93AC", strokeWidth: "1.5" }), /* @__PURE__ */ React.createElement("path", { d: "M34 24l8-6v12l-8-6z", fill: "#8FC7DB", stroke: "#4E93AC", strokeWidth: "1.5" }), /* @__PURE__ */ React.createElement("circle", { cx: "15", cy: "22", r: "1.8", fill: "#1A1A18" })) }),
+    peanut: /* @__PURE__ */ React.createElement(Ing, { d: /* @__PURE__ */ React.createElement("path", { d: "M20 10c-5 0-8 4-8 8 0 3 2 5 2 8s-2 5-2 8c0 4 3 8 8 8s8-4 8-8c0-3-2-5-2-8s2-5 2-8c0-4-3-8-8-8z", fill: "#D9A566", stroke: "#A87433", strokeWidth: "1.5", transform: "translate(4 0)" }) }),
+    soy: /* @__PURE__ */ React.createElement(Ing, { d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M10 30c0-8 8-16 20-18-2 12-10 20-18 22-1 0-2-2-2-4z", fill: "#B5C77A", stroke: "#7E9440", strokeWidth: "1.5" }), /* @__PURE__ */ React.createElement("circle", { cx: "18", cy: "26", r: "2.5", fill: "#7E9440" }), /* @__PURE__ */ React.createElement("circle", { cx: "25", cy: "20", r: "2.5", fill: "#7E9440" })) }),
+    milk: /* @__PURE__ */ React.createElement(Ing, { d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M18 10h12v6l3 6v20a2 2 0 0 1-2 2H17a2 2 0 0 1-2-2V22l3-6z", fill: "#F4F6FB", stroke: "#B9C2D0", strokeWidth: "1.5" }), /* @__PURE__ */ React.createElement("rect", { x: "17", y: "26", width: "14", height: "10", fill: "#DCE6F2" })) }),
+    nut: /* @__PURE__ */ React.createElement(Ing, { d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("circle", { cx: "24", cy: "24", r: "15", fill: "#C08843", stroke: "#8A5E24", strokeWidth: "1.5" }), /* @__PURE__ */ React.createElement("path", { d: "M24 10v28M13 18c8 4 14 4 22 0M13 30c8-4 14-4 22 0", stroke: "#8A5E24", strokeWidth: "1.5", fill: "none" })) }),
+    celery: /* @__PURE__ */ React.createElement(Ing, { d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M20 42V16M28 42V14M24 42V12", stroke: "#7DA84E", strokeWidth: "3", fill: "none" }), /* @__PURE__ */ React.createElement("path", { d: "M18 16c-2-6 2-10 6-10s8 4 6 10", fill: "#A8CF6E", stroke: "#7DA84E", strokeWidth: "1.5" })) }),
+    mustard: /* @__PURE__ */ React.createElement(Ing, { d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("circle", { cx: "24", cy: "26", r: "14", fill: "#E8C33B", stroke: "#B99420", strokeWidth: "1.5" }), /* @__PURE__ */ React.createElement("circle", { cx: "19", cy: "23", r: "2", fill: "#B99420" }), /* @__PURE__ */ React.createElement("circle", { cx: "27", cy: "21", r: "2", fill: "#B99420" }), /* @__PURE__ */ React.createElement("circle", { cx: "24", cy: "30", r: "2", fill: "#B99420" }), /* @__PURE__ */ React.createElement("circle", { cx: "30", cy: "28", r: "2", fill: "#B99420" })) }),
+    sesame: /* @__PURE__ */ React.createElement(Ing, { d: /* @__PURE__ */ React.createElement("g", { fill: "#EFE3C4", stroke: "#C9B27E", strokeWidth: "1" }, /* @__PURE__ */ React.createElement("ellipse", { cx: "18", cy: "20", rx: "3", ry: "5", transform: "rotate(-20 18 20)" }), /* @__PURE__ */ React.createElement("ellipse", { cx: "28", cy: "18", rx: "3", ry: "5", transform: "rotate(15 28 18)" }), /* @__PURE__ */ React.createElement("ellipse", { cx: "22", cy: "28", rx: "3", ry: "5", transform: "rotate(-10 22 28)" }), /* @__PURE__ */ React.createElement("ellipse", { cx: "30", cy: "28", rx: "3", ry: "5", transform: "rotate(25 30 28)" })) }),
+    wine: /* @__PURE__ */ React.createElement(Ing, { d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M16 8h16l-2 12a6 6 0 0 1-12 0z", fill: "#B5477A", stroke: "#7E2E54", strokeWidth: "1.5" }), /* @__PURE__ */ React.createElement("path", { d: "M24 26v10M18 40h12", stroke: "#7E2E54", strokeWidth: "2", fill: "none" })) }),
+    lupin: /* @__PURE__ */ React.createElement(Ing, { d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M24 42V20", stroke: "#7DA84E", strokeWidth: "2", fill: "none" }), /* @__PURE__ */ React.createElement("g", { fill: "#9B7BD4", stroke: "#6E52A8", strokeWidth: "1" }, /* @__PURE__ */ React.createElement("circle", { cx: "24", cy: "10", r: "4" }), /* @__PURE__ */ React.createElement("circle", { cx: "19", cy: "15", r: "3.5" }), /* @__PURE__ */ React.createElement("circle", { cx: "29", cy: "15", r: "3.5" }), /* @__PURE__ */ React.createElement("circle", { cx: "20", cy: "21", r: "3" }), /* @__PURE__ */ React.createElement("circle", { cx: "28", cy: "21", r: "3" }))) }),
+    mollusc: /* @__PURE__ */ React.createElement(Ing, { d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M24 40C14 40 8 30 8 22c0-6 5-10 8-6 2-4 5-4 8 0 3-4 6-4 8 0 3-4 8 0 8 6 0 8-6 18-16 18z", fill: "#E0A9C4", stroke: "#B06B8C", strokeWidth: "1.5" })) })
+  };
   const LEARN = {
     en: {
       title: "Learn",
-      subtitle: "Step-by-step paths \u2014 take your time, tap through, tick off \u2705",
-      start: "Start",
-      continue: "Continue",
-      review: "Review",
-      donePath: "Done \u2713",
-      next: "Next",
-      back: "Back",
-      finish: "Finish path \u{1F389}",
-      checkQ: "Quick check",
-      correct: "Correct! \u{1F389}",
-      tryAgain: "Not quite \u2014 try again \u{1F447}",
-      pathDone: "Path complete \u2014 nice work! \u{1F389}",
-      lesson: "Lesson",
-      of: "of",
-      paths: [
-        {
-          id: "haccp",
-          emoji: "\u{1F9FC}",
-          color: SAGE,
-          title: "HACCP made simple",
-          blurb: "Food safety, explained like you'd explain it to a friend. No jargon.",
-          steps: [
-            { type: "read", emoji: "\u{1F914}", title: "What even is HACCP?", body: [
-              "HACCP sounds scary. It's not. It's just a simple idea: find the spots where food could become unsafe, and keep an eye on them.",
-              "That's it. The whole system is about spotting risks before they reach a guest \u2014 and writing down that you checked.",
-              "Think of it like a checklist a pilot runs before takeoff. Not because something's wrong \u2014 but so nothing goes wrong."
-            ] },
-            { type: "read", emoji: "\u{1F321}\uFE0F", title: "The cold chain \u2014 your #1 rule", body: [
-              "Cold food must stay cold. Always. Fridge: max 4\xB0C. Freezer: max \u221218\xB0C.",
-              "Why it matters: bacteria love the range between 5\xB0C and 63\xB0C \u2014 the 'danger zone'. Warm food sitting out is where trouble grows.",
-              "So: get deliveries into the fridge fast, don't leave prepped food standing around, and cool hot food quickly if it's being stored."
-            ] },
-            {
-              type: "quiz",
-              emoji: "\u{1F9E0}",
-              q: "What's the maximum temperature for a fridge?",
-              opts: ["10\xB0C", "4\xB0C", "It doesn't matter as long as it's cold"],
-              right: 1,
-              fb: "Exactly \u2014 max 4\xB0C. The cold chain is the heart of food safety. \u{1F321}\uFE0F"
-            },
-            { type: "read", emoji: "\u{1F4E5}", title: "Checking deliveries", body: [
-              "When goods arrive, do three quick things: check, measure, store.",
-              "Check: does the delivery match what we ordered? Packaging intact? Best-before date far enough away?",
-              "Measure: temperature of chilled/frozen goods \u2014 and write it down. Store: straight away, using FIFO."
-            ] },
-            { type: "read", emoji: "\u{1F504}", title: "FIFO \u2014 first in, first out", body: [
-              "FIFO = First In, First Out. Whatever arrived first, gets used first.",
-              "When you put new stock away, place it behind the older stock. Older items stay in front, where they get grabbed first.",
-              "This one habit prevents most food waste and stops anything quietly expiring at the back of a shelf."
-            ] },
-            {
-              type: "quiz",
-              emoji: "\u{1F9E0}",
-              q: "You get a new delivery of tomatoes. Where do the new ones go?",
-              opts: ["In front, so they look fresh", "Behind the older tomatoes (FIFO)", "Anywhere with space"],
-              right: 1,
-              fb: "Yes! New stock goes behind. Older stock gets used first. That's FIFO. \u{1F504}"
-            },
-            { type: "read", emoji: "\u{1F9FD}", title: "Cleaning & documentation", body: [
-              "Clean surfaces and tools before and after production \u2014 and between different foods, so nothing mixes.",
-              "Document as you go: temperatures, cleaning, deliveries. If it's not written down, officially it didn't happen.",
-              "It feels like extra work at first, but it becomes a 20-second habit \u2014 and it protects you, the team, and every guest."
-            ] },
-            {
-              type: "quiz",
-              emoji: "\u{1F9E0}",
-              q: "Why do we write down temperatures and cleaning?",
-              opts: ["To make paperwork look busy", "Because if it's not documented, it officially didn't happen", "Only when an inspector visits"],
-              right: 1,
-              fb: "Right. Documentation is proof. No note = didn't happen, in the eyes of the law. \u{1F4CB}"
-            }
-          ]
-        },
-        {
-          id: "allergens",
-          emoji: "\u{1F95C}",
-          color: ORANGE,
-          title: "The 14 Allergens",
-          blurb: "Austria's 14 legally-required allergens, with real examples. Learn them, then test yourself.",
-          steps: [
-            { type: "read", emoji: "\u2696\uFE0F", title: "Why this matters here", body: [
-              "In Austria, by law (EU regulation 1169/2011) we must be able to tell any guest which of 14 allergens are in a dish.",
-              "This can be spoken or written \u2014 but it has to be correct. For someone with a real allergy, this isn't a preference. It can be serious.",
-              "The rule: if you're not 100% sure, check \u2014 ingredient list or ask. Never guess. 'I'll check for you' is always the right answer."
-            ] },
-            { type: "read", emoji: "\u{1F524}", title: "They have letter codes: A\u2013R", body: [
-              "Each allergen has a letter. On menus you'll often see just the letters next to a dish, like 'A, G, L'.",
-              "You don't need to memorise all 14 today. But the big ones for our kitchen \u2014 gluten (A), milk (G), nuts (H), soy (F), celery (L), sesame (N) \u2014 come up constantly.",
-              "Let's walk through all 14 in small groups. \u{1F447}"
-            ] },
-            { type: "read", emoji: "\u{1F33E}", title: "A\u2013E: the everyday ones", body: [
-              "A \u2013 Gluten (wheat, rye, barley): bread, pastry, pasta, breadcrumbs, many sauces.",
-              "B \u2013 Crustaceans: shrimp, crab. C \u2013 Egg: mayo, many cakes, egg pasta, breaded foods.",
-              "D \u2013 Fish (not gelatine). E \u2013 Peanuts: satay sauce, some spreads, cereals, roasted snacks."
-            ] },
-            {
-              type: "quiz",
-              emoji: "\u{1F9E0}",
-              q: "Which letter is gluten?",
-              opts: ["G", "A", "L"],
-              right: 1,
-              fb: "Yes \u2014 A is gluten. G is milk (easy to mix up!). \u{1F33E}"
-            },
-            { type: "read", emoji: "\u{1F95B}", title: "F\u2013M: watch these in our kitchen", body: [
-              "F \u2013 Soy: tofu, soy sauce, many veggie products. G \u2013 Milk (incl. lactose): butter, cream, cheese, many desserts.",
-              "H \u2013 Nuts (almond, hazelnut, walnut, cashew\u2026): curries, pesto, desserts, nut creams.",
-              "L \u2013 Celery: soups, spice mixes, curries, stocks. M \u2013 Mustard: dressings, marinades, pickles."
-            ] },
-            { type: "read", emoji: "\u{1F330}", title: "N\u2013R: the last four", body: [
-              "N \u2013 Sesame: bread, falafel, hummus, many veggie dishes. O \u2013 Sulphites (SO\u2082): dried fruit, some sauces, wine.",
-              "P \u2013 Lupin: some vegan/gluten-free products, meat substitutes. R \u2013 Molluscs: mussels, snails, squid.",
-              "For a plant-based Indian kitchen like ours, the ones to really watch: A, F, G, H, L, N \u2014 they hide in curries, sauces and breads constantly."
-            ] },
-            {
-              type: "quiz",
-              emoji: "\u{1F9E0}",
-              q: "A guest asks if the curry has nuts. You're not sure. What do you do?",
-              opts: ["Say 'probably not' to be friendly", "Check the recipe / ingredient list, then answer honestly", "Say you don't know and walk away"],
-              right: 1,
-              fb: "Exactly. Check, then answer honestly. With allergies, safety beats speed \u2014 every time. \u{1F64F}"
-            },
-            { type: "read", emoji: "\u{1F4CB}", title: "How we label it", body: [
-              "On our menus, allergens appear as letters next to each dish. Guests can also just ask you directly.",
-              "Your job: know where to look it up fast, and never guess. The ingredient list and the team are your backup.",
-              "Master this, and you're not just following the law \u2014 you're keeping every single guest safe. That's the real point. \u2764\uFE0F"
-            ] }
-          ]
-        }
-      ]
+      subtitle: "Everything you need, in bite-size. Tap a topic to open it.",
+      back: "Back to Learn",
+      sections: [
+        { id: "allergens", emoji: "\u26A0\uFE0F", color: "#E94E1B", title: "The 14 Allergens", blurb: "Austria's legally-required allergens \u2014 with pictures." },
+        { id: "haccp", emoji: "\u{1F9FC}", color: "#3A7CA5", title: "HACCP made simple", blurb: "Food safety in 6 everyday rules. No jargon." },
+        { id: "feedback", emoji: "\u{1F4AC}", color: "#2E7D5B", title: "What guests tell us", blurb: "138 real guest answers \u2014 what they love & want." },
+        { id: "menu", emoji: "\u{1F35B}", color: "#8B5CF6", title: "Menu rotation (Autumn 2026)", blurb: "The 4-week wheel, Mon\u2013Fri. Words stay, veg is seasonal." }
+      ],
+      // ---- ALLERGENS ----
+      alTitle: "The 14 Allergens (Austria)",
+      alIntro: "By Austrian & EU law (1169/2011), every dish must show which of these 14 it contains \u2014 written on the menu or told to the guest. Never guess: if unsure, check the recipe or ask. 'I'll check for you' is always the right answer.",
+      alListTitle: "The 14 \u2014 with letter codes",
+      alNote: "Our kitchen is fully vegetarian & vegan, so B, D, E and R almost never appear. The ones that show up constantly in our dishes: A (gluten), F (soy), G (milk), H (nuts), L (celery), M (mustard), N (sesame). Those are the ones to really know.",
+      allergens: [
+        { code: "A", ing: "wheat", name: "Cereals with gluten", ex: "Bread, pastry, pasta, breadcrumbs, many sauces" },
+        { code: "B", ing: "shrimp", name: "Crustaceans", ex: "Shrimp, crab, paella, surimi" },
+        { code: "C", ing: "egg", name: "Eggs", ex: "Mayonnaise, cakes, egg pasta, breaded food" },
+        { code: "D", ing: "fish", name: "Fish", ex: "Sauces, soups, Worcestershire" },
+        { code: "E", ing: "peanut", name: "Peanuts", ex: "Satay sauce, some spreads, roasted snacks" },
+        { code: "F", ing: "soy", name: "Soybeans", ex: "Tofu, soy sauce, many veggie products" },
+        { code: "G", ing: "milk", name: "Milk (incl. lactose)", ex: "Butter, cheese, cream, yoghurt, desserts" },
+        { code: "H", ing: "nut", name: "Tree nuts", ex: "Almond, cashew, walnut \u2014 curry, pesto, sweets" },
+        { code: "L", ing: "celery", name: "Celery", ex: "Stock, soups, spice mixes, curries" },
+        { code: "M", ing: "mustard", name: "Mustard", ex: "Dressings, marinades, pickles" },
+        { code: "N", ing: "sesame", name: "Sesame", ex: "Bread, hummus, falafel, many veggie dishes" },
+        { code: "O", ing: "wine", name: "Sulphites (SO\u2082)", ex: "Dried fruit, some sauces, wine, sauerkraut" },
+        { code: "P", ing: "lupin", name: "Lupin", ex: "Some vegan/gluten-free products, meat substitutes" },
+        { code: "R", ing: "mollusc", name: "Molluscs", ex: "Mussels, snails, squid" }
+      ],
+      // ---- HACCP ----
+      hcTitle: "HACCP made simple",
+      hcIntro: "HACCP sounds scary \u2014 it's not. It's just spotting where food could become unsafe, and keeping an eye on it. Like a pilot's checklist before takeoff: not because something's wrong, but so nothing goes wrong. Six everyday rules:",
+      haccp: [
+        { emoji: "\u{1F321}\uFE0F", t: "Keep the cold chain", d: "Cold stays cold: fridge max 4\xB0C, freezer max \u221218\xB0C. Bacteria grow fastest between 5\u201363\xB0C \u2014 the danger zone. Don't let food sit warm." },
+        { emoji: "\u{1F525}", t: "Cook & hold hot enough", d: "Core temp min 72\xB0C kills the dangerous bacteria. Hold warm above 63\xB0C. Lukewarm is the enemy \u2014 when in doubt, use the thermometer." },
+        { emoji: "\u{1F9F4}", t: "Clean & separate", d: "Clean hands, surfaces, tools. Wash between different foods. Wash hands after raw food, the bin, your phone. Prevents most problems." },
+        { emoji: "\u{1F4E5}", t: "Check deliveries", d: "Match the note to the order, measure chilled/frozen temps and write them down, check packaging & dates. Store by FIFO \u2014 first in, first out." },
+        { emoji: "\u270D\uFE0F", t: "Write it down", d: "If it's not documented, officially it didn't happen. Temperatures, cleaning, deliveries \u2014 note them on the HACCP sheet. Proof you did it right." },
+        { emoji: "\u{1F3F7}\uFE0F", t: "Label & date", d: "Every stored or filled container gets a label: what, date, best-before, allergens. No mystery tubs. Keeps FIFO and Schrankerl goods traceable." }
+      ],
+      hcRule: "The golden rule: if you're ever unsure whether something is safe \u2014 it goes in the bin. Safety beats waste, every single time.",
+      // ---- FEEDBACK ----
+      fbTitle: "What our guests tell us",
+      fbIntro: "138 guests filled in our survey. Here's what matters for your cooking \u2014 the real signal from the people who eat our food every day.",
+      fbBig: [
+        { n: "4.3/5", l: "Overall satisfaction" },
+        { n: "9.2/10", l: "Would recommend us" },
+        { n: "138", l: "Guests answered" }
+      ],
+      fbRatingsTitle: "How they rate us (1\u20135)",
+      fbRatings: [
+        { l: "Freshness", v: 3.99 },
+        { l: "Taste", v: 3.9 },
+        { l: "Portion size", v: 3.72 },
+        { l: "Spiciness level", v: 3.66 },
+        { l: "Price-value", v: 3.59 },
+        { l: "Variety", v: 3.42 }
+      ],
+      fbTakeTitle: "What this means for you \u{1F468}\u200D\u{1F373}",
+      fbTake: [
+        "Freshness & taste are our strengest points \u2014 protect them, they're why people come.",
+        "Variety scores lowest (3.4). The 4-week rotation matters \u2014 keep dishes feeling different.",
+        "Favourite categories: Curry (by far), then Mixed Portions, Lasagne & Dal.",
+        "Top reasons guests choose us: sustainable & wholesome food, taste, and that it's vegan.",
+        "Most-loved ingredients: lentils, chickpeas, broccoli, spinach, coriander \u2014 lean into these."
+      ],
+      // ---- MENU ----
+      menuTitle: "Menu rotation \u2014 Autumn 2026",
+      menuIntro: "A 4-week wheel: every weekday (Mon\u2013Fri) has its own set of dishes, then it repeats. The dish names stay the same all season into spring \u2014 only the vegetables shift with what's fresh. Each day usually has a cold Bowl, a Curry and a Dal; some days add a Lasagne, Biryani or Chili.",
+      menuWeek: "Week",
+      menuHoliday: "Public holiday",
+      menuNote: "This is the September starting point. Wordings are fixed; swap the seasonal veg (e.g. pumpkin \u2192 root veg in winter) without renaming the dish.",
+      menu: MENU_DATA
     },
     de: {
       title: "Lernen",
-      subtitle: "Schritt-f\xFCr-Schritt-Pfade \u2014 lass dir Zeit, klick dich durch, hak ab \u2705",
-      start: "Starten",
-      continue: "Weiter",
-      review: "Ansehen",
-      donePath: "Fertig \u2713",
-      next: "Weiter",
-      back: "Zur\xFCck",
-      finish: "Pfad abschlie\xDFen \u{1F389}",
-      checkQ: "Kurzer Check",
-      correct: "Richtig! \u{1F389}",
-      tryAgain: "Nicht ganz \u2014 nochmal \u{1F447}",
-      pathDone: "Pfad geschafft \u2014 stark! \u{1F389}",
-      lesson: "Lektion",
-      of: "von",
-      paths: [
-        {
-          id: "haccp",
-          emoji: "\u{1F9FC}",
-          color: SAGE,
-          title: "HACCP einfach erkl\xE4rt",
-          blurb: "Lebensmittelsicherheit, erkl\xE4rt wie einem Freund. Ohne Fachchinesisch.",
-          steps: [
-            { type: "read", emoji: "\u{1F914}", title: "Was ist HACCP \xFCberhaupt?", body: [
-              "HACCP klingt kompliziert. Ist es nicht. Dahinter steckt eine einfache Idee: finde die Stellen, wo Essen unsicher werden k\xF6nnte, und behalt sie im Auge.",
-              "Das ist alles. Das ganze System geht darum, Risiken zu erkennen, bevor sie beim Gast landen \u2014 und aufzuschreiben, dass du kontrolliert hast.",
-              "Stell dir eine Checkliste vor, die ein Pilot vor dem Start durchgeht. Nicht weil was kaputt ist \u2014 sondern damit nichts kaputt geht."
-            ] },
-            { type: "read", emoji: "\u{1F321}\uFE0F", title: "Die K\xFChlkette \u2014 deine wichtigste Regel", body: [
-              "Kaltes Essen muss kalt bleiben. Immer. K\xFChlschrank: max. 4\xB0C. Tiefk\xFChler: max. \u221218\xB0C.",
-              "Warum? Bakterien lieben den Bereich zwischen 5\xB0C und 63\xB0C \u2014 die 'Gefahrenzone'. Warmes Essen, das rumsteht, ist das Problem.",
-              "Also: Lieferungen schnell in den K\xFChlschrank, vorbereitetes Essen nicht rumstehen lassen, hei\xDFes Essen schnell runterk\xFChlen wenn es gelagert wird."
-            ] },
-            {
-              type: "quiz",
-              emoji: "\u{1F9E0}",
-              q: "Wie kalt muss ein K\xFChlschrank maximal sein?",
-              opts: ["10\xB0C", "4\xB0C", "Egal, Hauptsache kalt"],
-              right: 1,
-              fb: "Genau \u2014 max. 4\xB0C. Die K\xFChlkette ist das Herz der Lebensmittelsicherheit. \u{1F321}\uFE0F"
-            },
-            { type: "read", emoji: "\u{1F4E5}", title: "Lieferungen kontrollieren", body: [
-              "Wenn Ware ankommt, mach drei schnelle Dinge: pr\xFCfen, messen, einlagern.",
-              "Pr\xFCfen: Stimmt die Lieferung mit der Bestellung? Verpackung intakt? MHD weit genug weg?",
-              "Messen: Temperatur der K\xFChl-/TK-Ware \u2014 und aufschreiben. Einlagern: sofort, nach FIFO."
-            ] },
-            { type: "read", emoji: "\u{1F504}", title: "FIFO \u2014 first in, first out", body: [
-              "FIFO = First In, First Out. Was zuerst da war, wird zuerst verbraucht.",
-              "Wenn du neue Ware einr\xE4umst, stell sie hinter die \xE4ltere. \xC4ltere Ware bleibt vorne, wo sie zuerst gegriffen wird.",
-              "Diese eine Gewohnheit verhindert die meiste Lebensmittelverschwendung \u2014 und dass hinten im Regal heimlich was abl\xE4uft."
-            ] },
-            {
-              type: "quiz",
-              emoji: "\u{1F9E0}",
-              q: "Neue Tomaten-Lieferung kommt. Wo kommen die neuen hin?",
-              opts: ["Nach vorne, damit sie frisch aussehen", "Hinter die \xE4lteren Tomaten (FIFO)", "Egal, wo Platz ist"],
-              right: 1,
-              fb: "Ja! Neue Ware nach hinten. \xC4ltere zuerst verbrauchen. Das ist FIFO. \u{1F504}"
-            },
-            { type: "read", emoji: "\u{1F9FD}", title: "Reinigung & Dokumentation", body: [
-              "Fl\xE4chen und Werkzeuge vor und nach der Produktion reinigen \u2014 und zwischen verschiedenen Lebensmitteln, damit sich nichts vermischt.",
-              "Dokumentiere laufend: Temperaturen, Reinigung, Lieferungen. Was nicht aufgeschrieben ist, ist offiziell nicht passiert.",
-              "F\xFChlt sich am Anfang nach Extra-Arbeit an, wird aber zur 20-Sekunden-Gewohnheit \u2014 und sch\xFCtzt dich, das Team und jeden Gast."
-            ] },
-            {
-              type: "quiz",
-              emoji: "\u{1F9E0}",
-              q: "Warum schreiben wir Temperaturen und Reinigung auf?",
-              opts: ["Damit der Papierkram besch\xE4ftigt aussieht", "Weil es offiziell nicht passiert ist, wenn's nicht dokumentiert ist", "Nur wenn eine Kontrolle kommt"],
-              right: 1,
-              fb: "Richtig. Dokumentation ist der Beweis. Kein Eintrag = nicht passiert, im Sinne des Gesetzes. \u{1F4CB}"
-            }
-          ]
-        },
-        {
-          id: "allergens",
-          emoji: "\u{1F95C}",
-          color: ORANGE,
-          title: "Die 14 Allergene",
-          blurb: "\xD6sterreichs 14 gesetzlich vorgeschriebene Allergene, mit echten Beispielen. Lernen, dann testen.",
-          steps: [
-            { type: "read", emoji: "\u2696\uFE0F", title: "Warum das hier wichtig ist", body: [
-              "In \xD6sterreich m\xFCssen wir per Gesetz (EU-Verordnung 1169/2011) jedem Gast sagen k\xF6nnen, welche der 14 Allergene in einem Gericht sind.",
-              "Das kann m\xFCndlich oder schriftlich sein \u2014 aber es muss korrekt sein. F\xFCr jemanden mit echter Allergie ist das keine Vorliebe. Es kann ernst werden.",
-              "Die Regel: wenn du nicht 100% sicher bist, nachschauen \u2014 Zutatenliste oder fragen. Nie raten. 'Ich schau kurz nach' ist immer die richtige Antwort."
-            ] },
-            { type: "read", emoji: "\u{1F524}", title: "Sie haben Buchstaben-Codes: A\u2013R", body: [
-              "Jedes Allergen hat einen Buchstaben. Auf Speisekarten siehst du oft nur die Buchstaben neben einem Gericht, z.B. 'A, G, L'.",
-              "Du musst heute nicht alle 14 auswendig k\xF6nnen. Aber die Wichtigen f\xFCr unsere K\xFCche \u2014 Gluten (A), Milch (G), N\xFCsse (H), Soja (F), Sellerie (L), Sesam (N) \u2014 kommen st\xE4ndig vor.",
-              "Gehen wir alle 14 in kleinen Gruppen durch. \u{1F447}"
-            ] },
-            { type: "read", emoji: "\u{1F33E}", title: "A\u2013E: die allt\xE4glichen", body: [
-              "A \u2013 Gluten (Weizen, Roggen, Gerste): Brot, Geb\xE4ck, Nudeln, Semmelbr\xF6sel, viele So\xDFen.",
-              "B \u2013 Krebstiere: Garnelen, Krabben. C \u2013 Ei: Mayo, viele Kuchen, Eiernudeln, Paniertes.",
-              "D \u2013 Fisch (au\xDFer Gelatine). E \u2013 Erdn\xFCsse: Sat\xE9sauce, manche Aufstriche, Cerealien, ger\xF6stete Snacks."
-            ] },
-            {
-              type: "quiz",
-              emoji: "\u{1F9E0}",
-              q: "Welcher Buchstabe ist Gluten?",
-              opts: ["G", "A", "L"],
-              right: 1,
-              fb: "Ja \u2014 A ist Gluten. G ist Milch (leicht zu verwechseln!). \u{1F33E}"
-            },
-            { type: "read", emoji: "\u{1F95B}", title: "F\u2013M: aufpassen in unserer K\xFCche", body: [
-              "F \u2013 Soja: Tofu, Sojasauce, viele Veggie-Produkte. G \u2013 Milch (inkl. Laktose): Butter, Sahne, K\xE4se, viele Desserts.",
-              "H \u2013 Schalenfr\xFCchte/N\xFCsse (Mandel, Haselnuss, Walnuss, Cashew\u2026): Currys, Pesto, Desserts, Nusscremes.",
-              "L \u2013 Sellerie: Suppen, Gew\xFCrzmischungen, Currys, Fonds. M \u2013 Senf: Dressings, Marinaden, Eingelegtes."
-            ] },
-            { type: "read", emoji: "\u{1F330}", title: "N\u2013R: die letzten vier", body: [
-              "N \u2013 Sesam: Brot, Falafel, Humus, viele Veggie-Gerichte. O \u2013 Sulfite (SO\u2082): Trockenobst, manche So\xDFen, Wein.",
-              "P \u2013 Lupinen: manche vegane/glutenfreie Produkte, Fleischersatz. R \u2013 Weichtiere: Muscheln, Schnecken, Tintenfisch.",
-              "F\xFCr eine pflanzliche indische K\xFCche wie unsere die wirklich wichtigen: A, F, G, H, L, N \u2014 sie stecken st\xE4ndig in Currys, So\xDFen und Broten."
-            ] },
-            {
-              type: "quiz",
-              emoji: "\u{1F9E0}",
-              q: "Ein Gast fragt, ob das Curry N\xFCsse enth\xE4lt. Du bist unsicher. Was tust du?",
-              opts: ["'Wahrscheinlich nicht' sagen, um freundlich zu sein", "Rezept / Zutatenliste checken, dann ehrlich antworten", "Sagen dass du's nicht wei\xDFt und weggehen"],
-              right: 1,
-              fb: "Genau. Nachschauen, dann ehrlich antworten. Bei Allergien geht Sicherheit vor Schnelligkeit \u2014 immer. \u{1F64F}"
-            },
-            { type: "read", emoji: "\u{1F4CB}", title: "Wie wir es kennzeichnen", body: [
-              "Auf unseren Speisekarten stehen die Allergene als Buchstaben neben jedem Gericht. G\xE4ste k\xF6nnen dich auch direkt fragen.",
-              "Deine Aufgabe: wissen, wo du schnell nachschaust, und nie raten. Die Zutatenliste und das Team sind dein Backup.",
-              "Wenn du das drauf hast, folgst du nicht nur dem Gesetz \u2014 du h\xE4ltst jeden einzelnen Gast sicher. Darum geht's wirklich. \u2764\uFE0F"
-            ] }
-          ]
-        }
-      ]
+      subtitle: "Alles Wichtige, kompakt. Tipp ein Thema an, um es zu \xF6ffnen.",
+      back: "Zur\xFCck zu Lernen",
+      sections: [
+        { id: "allergens", emoji: "\u26A0\uFE0F", color: "#E94E1B", title: "Die 14 Allergene", blurb: "\xD6sterreichs Pflicht-Allergene \u2014 mit Bildern." },
+        { id: "haccp", emoji: "\u{1F9FC}", color: "#3A7CA5", title: "HACCP einfach erkl\xE4rt", blurb: "Lebensmittelsicherheit in 6 Alltagsregeln. Ohne Fachchinesisch." },
+        { id: "feedback", emoji: "\u{1F4AC}", color: "#2E7D5B", title: "Was G\xE4ste uns sagen", blurb: "138 echte Antworten \u2014 was sie lieben & w\xFCnschen." },
+        { id: "menu", emoji: "\u{1F35B}", color: "#8B5CF6", title: "Men\xFC-Rad (Herbst 2026)", blurb: "Das 4-Wochen-Rad, Mo\u2013Fr. Wordings bleiben, Gem\xFCse saisonal." }
+      ],
+      alTitle: "Die 14 Allergene (\xD6sterreich)",
+      alIntro: "Nach \xF6sterreichischem & EU-Recht (1169/2011) muss jedes Gericht zeigen, welche der 14 Allergene es enth\xE4lt \u2014 schriftlich auf der Karte oder m\xFCndlich. Nie raten: im Zweifel Rezept pr\xFCfen oder fragen. 'Ich schau kurz nach' ist immer die richtige Antwort.",
+      alListTitle: "Die 14 \u2014 mit Buchstaben-Codes",
+      alNote: "Unsere K\xFCche ist komplett vegetarisch & vegan, daher kommen B, D, E und R fast nie vor. St\xE4ndig in unseren Gerichten: A (Gluten), F (Soja), G (Milch), H (N\xFCsse), L (Sellerie), M (Senf), N (Sesam). Die muss man wirklich kennen.",
+      allergens: [
+        { code: "A", ing: "wheat", name: "Glutenhaltiges Getreide", ex: "Brot, Geb\xE4ck, Nudeln, Semmelbr\xF6sel, viele So\xDFen" },
+        { code: "B", ing: "shrimp", name: "Krebstiere", ex: "Garnelen, Krebse, Paella, Surimi" },
+        { code: "C", ing: "egg", name: "Eier", ex: "Mayonnaise, Kuchen, Eiernudeln, Paniertes" },
+        { code: "D", ing: "fish", name: "Fisch", ex: "So\xDFen, Suppen, Worcestershire" },
+        { code: "E", ing: "peanut", name: "Erdn\xFCsse", ex: "Satay-Sauce, manche Aufstriche, ger\xF6stete Snacks" },
+        { code: "F", ing: "soy", name: "Sojabohnen", ex: "Tofu, Sojasauce, viele Veggie-Produkte" },
+        { code: "G", ing: "milk", name: "Milch (inkl. Laktose)", ex: "Butter, K\xE4se, Sahne, Joghurt, Desserts" },
+        { code: "H", ing: "nut", name: "Schalenfr\xFCchte", ex: "Mandel, Cashew, Walnuss \u2014 Curry, Pesto, S\xFC\xDFes" },
+        { code: "L", ing: "celery", name: "Sellerie", ex: "Br\xFChe, Suppen, Gew\xFCrzmischungen, Currys" },
+        { code: "M", ing: "mustard", name: "Senf", ex: "Dressings, Marinaden, Essiggurken" },
+        { code: "N", ing: "sesame", name: "Sesam", ex: "Brot, Hummus, Falafel, viele Veggie-Gerichte" },
+        { code: "O", ing: "wine", name: "Schwefeldioxid & Sulfite", ex: "Trockenfr\xFCchte, manche So\xDFen, Wein, Sauerkraut" },
+        { code: "P", ing: "lupin", name: "Lupinen", ex: "Manche vegane/glutenfreie Produkte, Fleischersatz" },
+        { code: "R", ing: "mollusc", name: "Weichtiere", ex: "Muscheln, Schnecken, Tintenfisch" }
+      ],
+      hcTitle: "HACCP einfach erkl\xE4rt",
+      hcIntro: "HACCP klingt kompliziert \u2014 ist es nicht. Es geht nur darum, zu erkennen wo Essen unsicher werden k\xF6nnte, und das im Auge zu behalten. Wie die Checkliste eines Piloten vor dem Start: nicht weil was kaputt ist, sondern damit nichts kaputt geht. Sechs Alltagsregeln:",
+      haccp: [
+        { emoji: "\u{1F321}\uFE0F", t: "K\xFChlkette halten", d: "Kalt bleibt kalt: K\xFChlschrank max. 4\xB0C, Tiefk\xFChler max. \u221218\xB0C. Bakterien wachsen am schnellsten zwischen 5\u201363\xB0C \u2014 der Gefahrenzone. Nichts warm stehen lassen." },
+        { emoji: "\u{1F525}", t: "Hei\xDF genug garen & halten", d: "Kerntemperatur min. 72\xB0C t\xF6tet die gef\xE4hrlichen Bakterien. Warm halten \xFCber 63\xB0C. Lauwarm ist der Feind \u2014 im Zweifel Thermometer benutzen." },
+        { emoji: "\u{1F9F4}", t: "Sauber & getrennt", d: "Saubere H\xE4nde, Fl\xE4chen, Werkzeug. Waschen zwischen verschiedenen Lebensmitteln. H\xE4nde waschen nach rohem Essen, M\xFCll, Handy. Verhindert die meisten Probleme." },
+        { emoji: "\u{1F4E5}", t: "Lieferungen pr\xFCfen", d: "Lieferschein mit Bestellung abgleichen, K\xFChl-/TK-Temperatur messen & aufschreiben, Verpackung & Datum pr\xFCfen. Einlagern nach FIFO \u2014 first in, first out." },
+        { emoji: "\u270D\uFE0F", t: "Aufschreiben", d: "Was nicht dokumentiert ist, ist offiziell nicht passiert. Temperaturen, Reinigung, Lieferungen \u2014 auf dem HACCP-Bogen notieren. Dein Beweis, dass es passt." },
+        { emoji: "\u{1F3F7}\uFE0F", t: "Beschriften & datieren", d: "Jeder gelagerte oder abgef\xFCllte Beh\xE4lter bekommt ein Etikett: was, Datum, MHD, Allergene. Keine R\xE4tsel-Boxen. H\xE4lt FIFO und Schrankerl-Ware nachvollziehbar." }
+      ],
+      hcRule: "Die goldene Regel: wenn du je unsicher bist, ob etwas sicher ist \u2014 ab in den M\xFCll. Sicherheit vor Verschwendung, jedes Mal.",
+      fbTitle: "Was unsere G\xE4ste uns sagen",
+      fbIntro: "138 G\xE4ste haben unsere Umfrage ausgef\xFCllt. Hier das Wichtigste f\xFCr deine K\xFCche \u2014 das echte Signal von den Menschen, die t\xE4glich bei uns essen.",
+      fbBig: [
+        { n: "4,3/5", l: "Gesamtzufriedenheit" },
+        { n: "9,2/10", l: "W\xFCrden uns weiterempfehlen" },
+        { n: "138", l: "G\xE4ste haben geantwortet" }
+      ],
+      fbRatingsTitle: "Wie sie uns bewerten (1\u20135)",
+      fbRatings: [
+        { l: "Frische", v: 3.99 },
+        { l: "Geschmack", v: 3.9 },
+        { l: "Portionsgr\xF6\xDFe", v: 3.72 },
+        { l: "Sch\xE4rfegrad", v: 3.66 },
+        { l: "Preis-Leistung", v: 3.59 },
+        { l: "Abwechslung", v: 3.42 }
+      ],
+      fbTakeTitle: "Was das f\xFCr dich hei\xDFt \u{1F468}\u200D\u{1F373}",
+      fbTake: [
+        "Frische & Geschmack sind unsere st\xE4rksten Punkte \u2014 sch\xFCtz sie, daf\xFCr kommen die Leute.",
+        "Abwechslung schneidet am schlechtesten ab (3,4). Das 4-Wochen-Rad z\xE4hlt \u2014 Gerichte m\xFCssen sich unterschiedlich anf\xFChlen.",
+        "Lieblingskategorien: Curry (mit Abstand), dann Mixed Portions, Lasagne & Dal.",
+        "Top-Gr\xFCnde f\xFCr uns: nachhaltiges & bek\xF6mmliches Essen, Geschmack, und dass es vegan ist.",
+        "Meistgeliebte Zutaten: Linsen, Kichererbsen, Brokkoli, Spinat, Koriander \u2014 davon mehr."
+      ],
+      menuTitle: "Men\xFC-Rad \u2014 Herbst 2026",
+      menuIntro: "Ein 4-Wochen-Rad: jeder Wochentag (Mo\u2013Fr) hat eigene Gerichte, dann wiederholt es sich. Die Gerichtsnamen bleiben die ganze Saison bis ins Fr\xFChjahr gleich \u2014 nur das Gem\xFCse wechselt mit dem, was frisch ist. Jeder Tag hat meist eine kalte Bowl, ein Curry und ein Dal; manche Tage zus\xE4tzlich Lasagne, Biryani oder Chili.",
+      menuWeek: "Woche",
+      menuHoliday: "Feiertag",
+      menuNote: "Das ist der September-Startpunkt. Wordings sind fix; das saisonale Gem\xFCse tauschen (z.B. K\xFCrbis \u2192 Wurzelgem\xFCse im Winter), ohne das Gericht umzubenennen.",
+      menu: MENU_DATA
     }
   };
   const DEFAULT_PROGRAM = {
@@ -404,8 +306,8 @@
       ],
       principles: [
         { title: "Light & balanced", text: "Guests should feel good and energised after eating \u2014 never heavy." },
-        { title: "Authentic & fresh", text: "Real Indian flavour, spices in the foreground, cooked fresh every day." },
-        { title: "Learn first, then improve", text: "Weeks 1\u20132: observe and understand our handwriting before changing anything." }
+        { title: "Authentic & fresh", text: "Real Indian flavour, spices in the foreground, cooked fresh every day \u2014 but tuned to a European level, not too spicy." },
+        { title: "Learn first, then improve", text: "Weeks 1\u20132: observe our processes and start planning how they could be improved \u2014 with your chef's eye." }
       ]
     },
     weeks: [
@@ -416,14 +318,14 @@
         theme: "Observe & Understand",
         motto: '"Listen before you cook."',
         color: SAGE,
-        goal: "By the end of Week 1 you can explain our kitchen philosophy in your own words, know our top dishes, and have built a first connection with Nooru and the team \u2014 without changing any process yet.",
+        goal: "By the end of Week 1 you can explain our kitchen philosophy in your own words, know our top dishes, and have built a first connection with Nooru and the team. Start observing our processes with your chef's eye \u2014 where could we work faster or smarter? Note your ideas; you'll act on them from Week 3.",
         days: [
           { day: "Monday \xB7 Aug 3", tag: "Only watch", items: [
             "Arrival & welcome from the team",
             "Read the Kitchen Philosophy guide (your first task)",
             "Watch Nooru prep vegetables at 06:30 \u2014 note quantities & ratios",
             "Observe a full production + filling cycle",
-            "Do NOT change anything \u2014 just observe and take notes"
+            "Observe existing processes closely \u2014 take notes, don't change them yet"
           ] },
           { day: "Tuesday \xB7 Aug 4", tag: "Warehouse system", items: [
             "Watch morning prep again \u2014 focus on vegetable amounts per dish",
@@ -441,7 +343,7 @@
             "Observe how Nooru assigns tasks to the team",
             "Watch the team briefing \u2014 how information flows",
             "Cook 2\u20133 dishes independently, Nooru gives feedback",
-            "Note ideas quietly \u2014 no changes yet"
+            "With your chef's eye: which processes could be faster or smarter? Note ideas \u2014 most of the team aren't trained chefs"
           ] },
           { day: "Friday \xB7 Aug 7", tag: "Normal + Schrankerl", items: [
             "Normal production in the morning",
@@ -454,7 +356,7 @@
           "I can explain the kitchen philosophy in my own words",
           "I know the top 10 dishes",
           "I asked Nooru at least 15 questions",
-          "I made no uninvited changes to existing processes",
+          "I noted first ideas on how processes could be improved",
           "I completed my first scale rating"
         ]
       },
@@ -609,7 +511,7 @@
       intro: "This is the compass for every dish that leaves our kitchen. New ideas are always welcome \u2014 but they earn their place on the menu by fitting this philosophy, not by replacing it.",
       core: "We cook light, balanced, fresh and full of flavour \u2014 so every single portion leaves people feeling good, not weighed down. Good food in, good energy out. That's the whole deal. \u2728",
       pillars: [
-        { emoji: "\u{1F525}", title: "Taste", tag: "Bold, clear, unmistakably Karma", text: "One hero flavour leads, two or three supporting notes back it up. Salt, sour, sweet, bitter, umami \u2014 always in balance, never one drowning out the rest." },
+        { emoji: "\u{1F525}", title: "Taste", tag: "Bold, clear, unmistakably Karma", text: "One hero flavour leads, two or three supporting notes back it up. Salt, sour, sweet, bitter, umami \u2014 always in balance. Authentic Indian flavour, but tuned to a European level: flavourful, not too spicy." },
         { emoji: "\u{1F324}\uFE0F", title: "Lightness", tag: "Never a food coma", text: "Good oils, citrus and herbs do the heavy lifting \u2014 not cream and butter. People should leave the table lighter than they arrived, not needing a nap." },
         { emoji: "\u2696\uFE0F", title: "Balance", tag: "Protein, veg, carbs \u2014 all pulling their weight", text: "Vegetables are a main character in every dish, not a side note. Every plate needs protein, veg, carbs (or legumes) and a splash of acid or fat to tie it together." },
         { emoji: "\u{1F331}", title: "Freshness", tag: "Cooked today, for today", text: "Seasonal where we can, fresh herbs (not dried, unless that's the point), and nothing gets reheated tomorrow. What we serve is what we made this morning." },
@@ -894,7 +796,7 @@
         " ",
         n.label
       );
-    }))), /* @__PURE__ */ React.createElement("main", { style: { maxWidth: 1e3, margin: "0 auto", padding: "28px 20px 80px" } }, view.type === "home" && /* @__PURE__ */ React.createElement(HomeView, { program, go, weekProgress, t }), view.type === "week" && /* @__PURE__ */ React.createElement(WeekView, { program, week: program.weeks.find((w) => w.id === view.week.id) || view.week, progress, toggle, weekProgress, go, notes, setNote, isAdmin, updateProgram, saveStatus, t }), view.type === "philosophy" && /* @__PURE__ */ React.createElement(PhilosophyView, { program }), view.type === "learn" && /* @__PURE__ */ React.createElement(LearnView, { lang, progress, toggle }), view.type === "resp" && /* @__PURE__ */ React.createElement(RespView, { program }), view.type === "signoff" && /* @__PURE__ */ React.createElement(SignoffView, { program })));
+    }))), /* @__PURE__ */ React.createElement("main", { style: { maxWidth: 1e3, margin: "0 auto", padding: "28px 20px 80px" } }, view.type === "home" && /* @__PURE__ */ React.createElement(HomeView, { program, go, weekProgress, t }), view.type === "week" && /* @__PURE__ */ React.createElement(WeekView, { program, week: program.weeks.find((w) => w.id === view.week.id) || view.week, progress, toggle, weekProgress, go, notes, setNote, isAdmin, updateProgram, saveStatus, t }), view.type === "philosophy" && /* @__PURE__ */ React.createElement(PhilosophyView, { program }), view.type === "learn" && /* @__PURE__ */ React.createElement(LearnView, { lang }), view.type === "resp" && /* @__PURE__ */ React.createElement(RespView, { program }), view.type === "signoff" && /* @__PURE__ */ React.createElement(SignoffView, { program })));
   }
   function HomeView({ program, go, weekProgress, t }) {
     return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { background: INK, borderRadius: 20, padding: "40px 32px", color: CREAM, position: "relative", overflow: "hidden", marginBottom: 28 } }, /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: -40, right: -40, width: 180, height: 180, background: NEON, opacity: 0.12, borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", bottom: -60, left: -20, width: 140, height: 140, background: ORANGE, opacity: 0.15, borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "relative" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "inline-block", background: NEON, color: INK, fontSize: 12, fontWeight: 800, padding: "5px 12px", borderRadius: 99, letterSpacing: 0.5, marginBottom: 16 } }, t("welcomeBadge")), /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 34, fontWeight: 800, margin: "0 0 12px", lineHeight: 1.1 } }, program.intro.title), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 17, opacity: 0.85, margin: 0, fontWeight: 500 } }, program.intro.subtitle))), /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 16, padding: "24px 26px", marginBottom: 24, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, program.intro.body.map((paragraph, i) => /* @__PURE__ */ React.createElement("p", { key: i, style: { fontSize: 15.5, lineHeight: 1.65, color: "#333", margin: i === 0 ? "0 0 14px" : 0 } }, paragraph))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 14, marginBottom: 30 } }, program.intro.principles.map((p, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { background: "white", borderRadius: 14, padding: 20, borderTop: `4px solid ${ORANGE}`, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, /* @__PURE__ */ React.createElement("div", { style: { width: 42, height: 42, borderRadius: 10, background: CREAM, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 } }, /* @__PURE__ */ React.createElement(IconFlame, { color: ORANGE })), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 16, marginBottom: 6 } }, p.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: "#555", lineHeight: 1.5 } }, p.text)))), /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 22, fontWeight: 800, margin: "0 0 16px" } }, t("yourWeeks")), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 14 } }, program.weeks.map((w) => {
@@ -1041,107 +943,62 @@
     if (!P) return null;
     return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 30, fontWeight: 800, margin: "0 0 6px" } }, P.title), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 16, color: "#666", margin: "0 0 22px" } }, P.subtitle), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15, lineHeight: 1.6, color: "#555", margin: "0 0 20px" } }, P.intro), /* @__PURE__ */ React.createElement("div", { style: { background: INK, color: CREAM, borderRadius: 20, padding: "30px 28px", marginBottom: 30, position: "relative", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: -30, right: -30, width: 140, height: 140, background: NEON, opacity: 0.13, borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "relative", fontSize: 19, fontWeight: 700, lineHeight: 1.5 } }, P.core)), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 14, marginBottom: 32 } }, P.pillars.map((p, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { background: "white", borderRadius: 16, padding: "22px 22px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `4px solid ${[ORANGE, SAGE, "#3A7CA5", SAGE, ORANGE, "#8B5CF6", "#3A7CA5", SAGE][i % 8]}` } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 28, marginBottom: 8 } }, p.emoji), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 800, fontSize: 17, marginBottom: 4 } }, p.title), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 13, color: ORANGE, marginBottom: 9 } }, p.tag), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: "#555", lineHeight: 1.55 } }, p.text)))), /* @__PURE__ */ React.createElement("div", { style: { background: "#FDEAEA", borderRadius: 16, padding: "22px 24px", marginBottom: 30 } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 18, fontWeight: 800, margin: "0 0 14px", color: "#A33" } }, P.notTitle), P.not.map((n, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", alignItems: "flex-start", gap: 10, marginBottom: i < P.not.length - 1 ? 10 : 0 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 18 } }, n.emoji), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 15, color: "#663", lineHeight: 1.5, fontWeight: 500 } }, n.text)))), /* @__PURE__ */ React.createElement("div", { style: { background: NEON, borderRadius: 20, padding: "28px 26px" } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 20, fontWeight: 800, margin: "0 0 4px", color: INK } }, P.testTitle), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 14.5, margin: "0 0 18px", color: "#333" } }, P.testSubtitle), P.test.map((t, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,0.55)", borderRadius: 12, padding: "13px 16px", marginBottom: 10 } }, /* @__PURE__ */ React.createElement("div", { style: { minWidth: 30, height: 30, borderRadius: "50%", background: INK, color: NEON, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14 } }, i + 1), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 15, fontWeight: 600, color: INK } }, t))), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15, fontWeight: 700, color: INK, margin: "16px 0 0", lineHeight: 1.5 } }, P.outro)));
   }
-  function LearnView({ lang, progress, toggle }) {
+  function LearnView({ lang }) {
     const L = LEARN[lang];
-    const [openPath, setOpenPath] = useState(null);
-    const [stepIdx, setStepIdx] = useState(0);
-    const [quizPick, setQuizPick] = useState(null);
-    const stepDone = (pathId, i) => !!progress[`learn_${pathId}_${i}`];
-    const pathProgress = (path2) => {
-      const total2 = path2.steps.length;
-      const done = path2.steps.filter((_, i) => stepDone(path2.id, i)).length;
-      return { done, total: total2, pct: total2 ? Math.round(done / total2 * 100) : 0 };
-    };
-    const openAt = (path2, i) => {
-      setOpenPath(path2);
-      setStepIdx(i);
-      setQuizPick(null);
-      window.scrollTo(0, 0);
-    };
-    const closePath = () => {
-      setOpenPath(null);
-      setQuizPick(null);
-      window.scrollTo(0, 0);
-    };
-    if (!openPath) {
-      return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 30, fontWeight: 800, margin: "0 0 6px" } }, L.title, " \u{1F4DA}"), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 16, color: "#666", margin: "0 0 24px" } }, L.subtitle), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 16 } }, L.paths.map((path2) => {
-        const pp2 = pathProgress(path2);
-        const firstUndone = path2.steps.findIndex((_, i) => !stepDone(path2.id, i));
-        const startAt = firstUndone === -1 ? 0 : firstUndone;
-        const label = pp2.pct === 100 ? L.review : pp2.done > 0 ? L.continue : L.start;
-        return /* @__PURE__ */ React.createElement("div", { key: path2.id, style: { background: "white", borderRadius: 18, padding: "24px 24px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `5px solid ${path2.color}` } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-start", gap: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 40, lineHeight: 1 } }, path2.emoji), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 800, fontSize: 20, marginBottom: 4 } }, path2.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14.5, color: "#666", lineHeight: 1.5, marginBottom: 14 } }, path2.blurb), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { flex: 1, maxWidth: 220, height: 8, background: "#eee", borderRadius: 99, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${pp2.pct}%`, height: "100%", background: path2.color, transition: "width .3s" } })), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13, fontWeight: 700, color: path2.color } }, pp2.done, "/", pp2.total)), /* @__PURE__ */ React.createElement(
-          "button",
-          {
-            onClick: () => openAt(path2, startAt),
-            style: { background: pp2.pct === 100 ? "white" : path2.color, color: pp2.pct === 100 ? path2.color : "white", border: pp2.pct === 100 ? `2px solid ${path2.color}` : "none", borderRadius: 10, padding: "11px 22px", fontSize: 15, fontWeight: 700, cursor: "pointer" }
-          },
-          label,
-          " ",
-          pp2.pct === 100 ? "\u2713" : "\u2192"
-        ))));
-      })));
-    }
-    const path = openPath;
-    const step = path.steps[stepIdx];
-    const total = path.steps.length;
-    const isLast = stepIdx === total - 1;
-    const pp = pathProgress(path);
-    const markDoneAndNext = () => {
-      if (!stepDone(path.id, stepIdx)) toggle(`learn_${path.id}_${stepIdx}`);
-      if (isLast) {
-        closePath();
-      } else {
-        setStepIdx(stepIdx + 1);
-        setQuizPick(null);
-        window.scrollTo(0, 0);
-      }
-    };
-    const goBack = () => {
-      if (stepIdx === 0) {
-        closePath();
-      } else {
-        setStepIdx(stepIdx - 1);
-        setQuizPick(null);
-        window.scrollTo(0, 0);
-      }
-    };
-    const quizAnswered = step.type === "quiz" && quizPick !== null;
-    const quizCorrect = quizAnswered && quizPick === step.right;
-    const canProceed = step.type !== "quiz" || quizCorrect;
-    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("button", { onClick: closePath, style: { background: "none", border: "none", color: "#888", cursor: "pointer", fontSize: 14, display: "flex", alignItems: "center", gap: 5, marginBottom: 16, padding: 0 } }, /* @__PURE__ */ React.createElement(IconBook, { size: 15, color: "#888" }), " ", path.title), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 22 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: "#999", fontWeight: 600, whiteSpace: "nowrap" } }, L.lesson, " ", stepIdx + 1, " ", L.of, " ", total), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, height: 8, background: "#eee", borderRadius: 99, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${Math.round((stepIdx + (canProceed ? 1 : 0)) / total * 100)}%`, height: "100%", background: path.color, transition: "width .3s" } }))), /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 20, padding: "32px 28px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `5px solid ${path.color}`, marginBottom: 20 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 44, marginBottom: 14 } }, step.emoji), step.type === "read" && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 24, fontWeight: 800, margin: "0 0 18px" } }, step.title), step.body.map((para, i) => /* @__PURE__ */ React.createElement("p", { key: i, style: { fontSize: 16, lineHeight: 1.65, color: "#333", margin: i === step.body.length - 1 ? 0 : "0 0 14px" } }, para))), step.type === "quiz" && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, fontWeight: 800, color: path.color, letterSpacing: 0.5, marginBottom: 8 } }, L.checkQ.toUpperCase()), /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 21, fontWeight: 800, margin: "0 0 18px", lineHeight: 1.35 } }, step.q), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 10 } }, step.opts.map((opt, oi) => {
-      let bg = "white", border = "2px solid #e5e5e5", col = "#333";
-      if (quizAnswered) {
-        if (oi === step.right) {
-          bg = `${SAGE}12`;
-          border = `2px solid ${SAGE}`;
-          col = SAGE;
-        } else if (oi === quizPick) {
-          bg = "#FDECEC";
-          border = "2px solid #D9534F";
-          col = "#B33";
-        }
-      }
-      return /* @__PURE__ */ React.createElement(
+    const [open, setOpen] = useState(null);
+    if (!open) {
+      return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 30, fontWeight: 800, margin: "0 0 6px" } }, L.title, " \u{1F4DA}"), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 16, color: "#666", margin: "0 0 24px" } }, L.subtitle), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 16 } }, L.sections.map((s) => /* @__PURE__ */ React.createElement(
         "button",
         {
-          key: oi,
+          key: s.id,
           onClick: () => {
-            if (!quizAnswered) setQuizPick(oi);
+            setOpen(s.id);
+            window.scrollTo(0, 0);
           },
-          disabled: quizAnswered,
-          style: { textAlign: "left", background: bg, border, borderRadius: 12, padding: "14px 16px", fontSize: 15, fontWeight: 600, color: col, cursor: quizAnswered ? "default" : "pointer", lineHeight: 1.4 }
+          style: { background: "white", borderRadius: 18, padding: "24px 22px", border: "none", cursor: "pointer", textAlign: "left", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `5px solid ${s.color}` }
         },
-        opt
-      );
-    })), quizAnswered && /* @__PURE__ */ React.createElement("div", { style: { marginTop: 16, padding: "14px 16px", borderRadius: 12, background: quizCorrect ? `${SAGE}12` : "#FFF6E5", fontSize: 14.5, lineHeight: 1.5, color: quizCorrect ? SAGE : "#8a6d00", fontWeight: 600 } }, quizCorrect ? step.fb : L.tryAgain))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 12 } }, /* @__PURE__ */ React.createElement("button", { onClick: goBack, style: { padding: "13px 22px", background: "#f2f2f2", border: "none", borderRadius: 12, fontWeight: 700, fontSize: 15, cursor: "pointer", color: "#555" } }, "\u2190 ", L.back), /* @__PURE__ */ React.createElement(
+        /* @__PURE__ */ React.createElement("div", { style: { fontSize: 40, marginBottom: 12 } }, s.emoji),
+        /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 800, fontSize: 18, marginBottom: 6 } }, s.title),
+        /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: "#666", lineHeight: 1.5, marginBottom: 14 } }, s.blurb),
+        /* @__PURE__ */ React.createElement("span", { style: { display: "inline-block", background: s.color, color: "white", fontWeight: 700, fontSize: 13.5, padding: "8px 16px", borderRadius: 10 } }, L.title === "Learn" ? "Open" : "\xD6ffnen", " \u2192")
+      ))));
+    }
+    const backBtn = /* @__PURE__ */ React.createElement(
       "button",
       {
-        onClick: markDoneAndNext,
-        disabled: !canProceed,
-        style: { flex: 1, padding: "13px 22px", background: canProceed ? path.color : "#ddd", color: "white", border: "none", borderRadius: 12, fontWeight: 700, fontSize: 15, cursor: canProceed ? "pointer" : "not-allowed" }
+        onClick: () => {
+          setOpen(null);
+          window.scrollTo(0, 0);
+        },
+        style: { background: "none", border: "none", color: "#888", cursor: "pointer", fontSize: 14, display: "flex", alignItems: "center", gap: 5, marginBottom: 18, padding: 0 }
       },
-      isLast ? L.finish : L.next + " \u2192"
-    )));
+      /* @__PURE__ */ React.createElement(IconBook, { size: 15, color: "#888" }),
+      " ",
+      L.back
+    );
+    if (open === "allergens") {
+      return /* @__PURE__ */ React.createElement("div", null, backBtn, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 28, fontWeight: 800, margin: "0 0 8px" } }, "\u26A0\uFE0F ", L.alTitle), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15, color: "#555", lineHeight: 1.6, margin: "0 0 22px" } }, L.alIntro), /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 17, fontWeight: 800, margin: "0 0 14px" } }, L.alListTitle), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 12, marginBottom: 24 } }, L.allergens.map((a) => /* @__PURE__ */ React.createElement("div", { key: a.code, style: { background: "white", borderRadius: 14, padding: "14px 16px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", display: "flex", alignItems: "center", gap: 14 } }, /* @__PURE__ */ React.createElement("div", { style: { flexShrink: 0, width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center" } }, ING[a.ing]), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, marginBottom: 2 } }, /* @__PURE__ */ React.createElement("span", { style: { minWidth: 24, height: 24, borderRadius: 6, background: ORANGE, color: "white", fontWeight: 800, fontSize: 13, display: "flex", alignItems: "center", justifyContent: "center" } }, a.code), /* @__PURE__ */ React.createElement("span", { style: { fontWeight: 700, fontSize: 15 } }, a.name)), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, color: "#888", lineHeight: 1.4 } }, a.ex))))), /* @__PURE__ */ React.createElement("div", { style: { background: `${ORANGE}12`, borderRadius: 14, padding: "18px 20px", borderLeft: `4px solid ${ORANGE}` } }, /* @__PURE__ */ React.createElement("p", { style: { fontSize: 14.5, color: "#663", lineHeight: 1.6, margin: 0, fontWeight: 500 } }, L.alNote)));
+    }
+    if (open === "haccp") {
+      return /* @__PURE__ */ React.createElement("div", null, backBtn, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 28, fontWeight: 800, margin: "0 0 8px" } }, "\u{1F9FC} ", L.hcTitle), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15, color: "#555", lineHeight: 1.6, margin: "0 0 22px" } }, L.hcIntro), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 12, marginBottom: 24 } }, L.haccp.map((h, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { background: "white", borderRadius: 14, padding: "18px 20px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", display: "flex", gap: 16, alignItems: "flex-start", borderLeft: "4px solid #3A7CA5" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 30, flexShrink: 0, lineHeight: 1 } }, h.emoji), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 800, fontSize: 16, marginBottom: 4 } }, i + 1, ". ", h.t), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: "#555", lineHeight: 1.55 } }, h.d))))), /* @__PURE__ */ React.createElement("div", { style: { background: INK, color: CREAM, borderRadius: 14, padding: "20px 22px", display: "flex", gap: 12, alignItems: "center" } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 26 } }, "\u2B50"), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15, lineHeight: 1.55, margin: 0, fontWeight: 600 } }, L.hcRule)));
+    }
+    if (open === "feedback") {
+      const maxV = 5;
+      return /* @__PURE__ */ React.createElement("div", null, backBtn, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 28, fontWeight: 800, margin: "0 0 8px" } }, "\u{1F4AC} ", L.fbTitle), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15, color: "#555", lineHeight: 1.6, margin: "0 0 22px" } }, L.fbIntro), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, marginBottom: 24 } }, L.fbBig.map((b, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { background: SAGE, color: "white", borderRadius: 16, padding: "20px 12px", textAlign: "center" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 26, fontWeight: 800, lineHeight: 1.1 } }, b.n), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, opacity: 0.9, marginTop: 6, lineHeight: 1.3 } }, b.l)))), /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 16, padding: "22px 24px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", marginBottom: 22 } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 16, fontWeight: 800, margin: "0 0 16px" } }, L.fbRatingsTitle), L.fbRatings.map((r, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { marginBottom: i === L.fbRatings.length - 1 ? 0 : 14 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", marginBottom: 5 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 14, fontWeight: 600, color: "#333" } }, r.l), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 14, fontWeight: 800, color: r.v >= 3.9 ? SAGE : r.v >= 3.6 ? "#C68A00" : ORANGE } }, lang === "de" ? r.v.toFixed(1).replace(".", ",") : r.v.toFixed(1))), /* @__PURE__ */ React.createElement("div", { style: { height: 9, background: "#eee", borderRadius: 99, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${r.v / maxV * 100}%`, height: "100%", background: r.v >= 3.9 ? SAGE : r.v >= 3.6 ? "#E0A800" : ORANGE, borderRadius: 99 } }))))), /* @__PURE__ */ React.createElement("div", { style: { background: `${SAGE}10`, borderRadius: 16, padding: "20px 22px", borderLeft: `4px solid ${SAGE}` } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 16, fontWeight: 800, margin: "0 0 12px" } }, L.fbTakeTitle), L.fbTake.map((t, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", gap: 10, marginBottom: i === L.fbTake.length - 1 ? 0 : 10 } }, /* @__PURE__ */ React.createElement("span", { style: { color: SAGE, fontWeight: 800, flexShrink: 0 } }, "\u2192"), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 14.5, color: "#444", lineHeight: 1.55 } }, t)))));
+    }
+    if (open === "menu") {
+      const catColor = (c) => {
+        if (!c) return "#999";
+        if (c.startsWith("Bowl")) return "#3A7CA5";
+        if (c.startsWith("Curry")) return ORANGE;
+        if (c.startsWith("Dal")) return "#C68A00";
+        if (c.startsWith("Lasagne")) return "#B5477A";
+        if (c.startsWith("Biryani")) return "#8B5CF6";
+        return SAGE;
+      };
+      return /* @__PURE__ */ React.createElement("div", null, backBtn, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 28, fontWeight: 800, margin: "0 0 8px" } }, "\u{1F35B} ", L.menuTitle), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15, color: "#555", lineHeight: 1.6, margin: "0 0 22px" } }, L.menuIntro), L.menu.map((wk) => /* @__PURE__ */ React.createElement("div", { key: wk.w, style: { marginBottom: 26 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "inline-block", background: INK, color: NEON, fontWeight: 800, fontSize: 14, padding: "6px 16px", borderRadius: 99, marginBottom: 12 } }, L.menuWeek, " ", wk.w), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 10 } }, wk.days.map((d, di) => /* @__PURE__ */ React.createElement("div", { key: di, style: { background: "white", borderRadius: 14, padding: "14px 16px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", display: "flex", gap: 14, alignItems: "flex-start" } }, /* @__PURE__ */ React.createElement("div", { style: { minWidth: 34, height: 34, borderRadius: 9, background: CREAM, color: INK, fontWeight: 800, fontSize: 13, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 } }, d.d), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }, d.dishes.length === 0 ? /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: "#aaa", fontStyle: "italic", paddingTop: 6 } }, L.menuHoliday) : d.dishes.map((dish, ii) => /* @__PURE__ */ React.createElement("div", { key: ii, style: { display: "flex", alignItems: "baseline", gap: 8, marginBottom: ii === d.dishes.length - 1 ? 0 : 6 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 10.5, fontWeight: 800, color: "white", background: catColor(dish.c), padding: "2px 7px", borderRadius: 6, flexShrink: 0, whiteSpace: "nowrap" } }, dish.c.replace(" (kalt)", "").replace(" / Chili", "")), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13.5, color: "#333", lineHeight: 1.4 } }, dish.n))))))))), /* @__PURE__ */ React.createElement("div", { style: { background: "#8B5CF612", borderRadius: 14, padding: "18px 20px", borderLeft: "4px solid #8B5CF6" } }, /* @__PURE__ */ React.createElement("p", { style: { fontSize: 14.5, color: "#534", lineHeight: 1.6, margin: 0, fontWeight: 500 } }, L.menuNote)));
+    }
+    return null;
   }
   function SignoffView({ program }) {
     const S = program.signoff;
