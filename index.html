@@ -18,861 +18,625 @@
   <!-- React + Supabase via CDN (no build step needed) -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 
-  <script type="text/babel" data-presets="react">
-    const { useState, useEffect } = React;
-
-    // ═══════════════════════════════════════════════════════════
-    // 1) SUPABASE CONFIG  ←←← ENTER YOUR TWO KEYS HERE
-    // ═══════════════════════════════════════════════════════════
-    // Find them in Supabase → Project Settings → API
-    const SUPABASE_URL = "https://bvkvvycoletlvqkrqybj.supabase.co";
-    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ2a3Z2eWNvbGV0bHZxa3JxeWJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUyODUzMDQsImV4cCI6MjEwMDg2MTMwNH0.9AHCsY-JjJ26gwq8iGREW8j2MizpQSh1_MnBFxuFPrY";
-
-    // The user id — since there is no login yet, everyone using this
-    // URL is "dinesh". Change this string per employee later, or add auth.
-    const USER_ID = "dinesh";
-
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    // ═══════════════════════════════════════════════════════════
-    // 2) BRAND TOKENS
-    // ═══════════════════════════════════════════════════════════
-    const INK = "#14141F";
-    const NEON = "#D4FF3F";
-    const ORANGE = "#E94E1B";
-    const CREAM = "#FBF8F0";
-    const SAGE = "#2E7D5B";
-
-    // ═══════════════════════════════════════════════════════════
-    // 3) CONTENT  ←←← EDIT THE ONBOARDING PROGRAM HERE
-    // ═══════════════════════════════════════════════════════════
-    // This is the FALLBACK used only if Supabase has no content yet
-    // (e.g. before you've run the seed insert from supabase-schema.sql).
-    // Once content exists in the `onboarding_content` table, that is
-    // what loads — and what the Admin edit screen changes.
-    const DEFAULT_PROGRAM = {
-      intro: {
-        title: "Welcome to Karma Food",
-        subtitle: "Your first weeks as Head Chef",
-        body: [
-          "Karma Food was founded in 2014 by Simone and Adi Raihmann — a family business built from a love of healthy, Indian-inspired, plant-based food. Today we run several locations across Vienna and Klosterneuburg, plus catering, cooking classes, our curry pastes and webshop.",
-          "You are joining as our Head Chef with full responsibility for the kitchen: recipes, quality, purchasing and leading the team. This app is your guide for the first four weeks. Work through it at your own pace — your progress is saved automatically.",
-        ],
-        principles: [
-          { title: "Light & balanced", text: "Guests should feel good and energised after eating — never heavy." },
-          { title: "Authentic & fresh", text: "Real Indian flavour, spices in the foreground, cooked fresh every day." },
-          { title: "Learn first, then improve", text: "Weeks 1–2: observe and understand our handwriting before changing anything." },
-        ],
-      },
-      weeks: [
-        {
-          id: "w1", label: "Week 1", dates: "Aug 3 – Aug 7",
-          theme: "Observe & Understand", motto: "\"Listen before you cook.\"", color: SAGE,
-          goal: "By the end of Week 1 you can explain our kitchen philosophy in your own words, know our top dishes, and have built a first connection with Nooru and the team — without changing any process yet.",
-          days: [
-            { day: "Monday · Aug 3", tag: "Only watch", items: [
-              "Arrival & welcome from the team",
-              "Read the Kitchen Philosophy guide (your first task)",
-              "Watch Nooru prep vegetables at 06:30 — note quantities & ratios",
-              "Observe a full production + filling cycle",
-              "Do NOT change anything — just observe and take notes",
-            ]},
-            { day: "Tuesday · Aug 4", tag: "Warehouse system", items: [
-              "Watch morning prep again — focus on vegetable amounts per dish",
-              "Warehouse walk-through with Nooru: where things live, FIFO logic",
-              "Equipment overview — ask what you don't know",
-              "Start a private scale rating (taste / texture / amount) 1–5",
-            ]},
-            { day: "Wednesday · Aug 5", tag: "Cook along", items: [
-              "Cook your first dish under Nooru's guidance",
-              "Learn the filling standard: amount, temperature, labelling",
-              "First conversation with management about your scale rating",
-              "Quality check: taste each dish together with Nooru",
-            ]},
-            { day: "Thursday · Aug 6", tag: "People & structure", items: [
-              "Observe how Nooru assigns tasks to the team",
-              "Watch the team briefing — how information flows",
-              "Cook 2–3 dishes independently, Nooru gives feedback",
-              "Note ideas quietly — no changes yet",
-            ]},
-            { day: "Friday · Aug 7", tag: "Normal + Schrankerl", items: [
-              "Normal production in the morning",
-              "Schrankerl production in parallel from ~11:00 (1 salad, 1 curry, 1 dessert)",
-              "Learn the Schrankerl packing & labelling standard",
-              "Week 1 review with management + Nooru (60 min)",
-            ]},
-          ],
-          checklist: [
-            "I can explain the kitchen philosophy in my own words",
-            "I know the top 10 dishes",
-            "I asked Nooru at least 15 questions",
-            "I made no uninvited changes to existing processes",
-            "I completed my first scale rating",
-          ],
-        },
-        {
-          id: "w2", label: "Week 2", dates: "Aug 10 – Aug 14",
-          theme: "Cook Along & Learn", motto: "\"Learn the handwriting with your hands.\"", color: "#3A7CA5",
-          goal: "By the end of Week 2 you can cook 80% of the menu to our standard, know all main suppliers, and the collaboration with Nooru feels respectful and clear on both sides.",
-          days: [
-            { day: "Monday · Aug 10", tag: "Cook the menu", items: [
-              "Morning prep with Nooru — you now cut vegetables to the standard",
-              "Cook dishes 1–3 of the menu yourself, Nooru observes",
-              "Filling & labelling by yourself under supervision",
-              "Short debrief: which dishes felt easy, which need practice?",
-            ]},
-            { day: "Tuesday · Aug 11", tag: "Suppliers", items: [
-              "Cook dishes 4–6 of the menu independently",
-              "Set up one order together with Nooru — see the whole flow",
-              "First supplier contact (call or visit) — meet the person",
-              "Note delivery rhythms and minimum order amounts",
-            ]},
-            { day: "Wednesday · Aug 12", tag: "Calculation", items: [
-              "Cook the remaining menu dishes — aim for full coverage",
-              "Learn the calculation: food cost per dish, food-cost %",
-              "Nooru shows you the HACCP documentation in detail",
-              "Second supplier contact",
-            ]},
-            { day: "Thursday · Aug 13", tag: "Confidence", items: [
-              "Cook a full service mostly independently, Nooru available",
-              "Third supplier contact — you now know the main three",
-              "Review your private scale rating from Week 1 — what changed?",
-              "Quietly note your first test-recipe idea (don't cook it yet)",
-            ]},
-            { day: "Friday · Aug 14", tag: "Normal + Schrankerl", items: [
-              "Normal production in the morning — you lead more of it",
-              "Schrankerl production in parallel from ~11:00 (salad, curry, dessert)",
-              "Do the Schrankerl end-check and packing yourself",
-              "Week 2 review with management + Nooru",
-            ]},
-          ],
-          checklist: [
-            "I can cook at least 80% of the menu to standard",
-            "I know all main suppliers by name and product group",
-            "Nooru and I work together visibly with respect",
-            "I understand the HACCP documentation",
-            "I set up at least one order end-to-end",
-          ],
-        },
-        {
-          id: "w3", label: "Week 3", dates: "Aug 17 – Aug 21",
-          theme: "Take Over Responsibility", motto: "\"Take what belongs to your role — without overwriting the handwriting.\"", color: ORANGE,
-          goal: "By the end of Week 3 you handle warehouse management and calculation, your first recipe ideas respect the philosophy, and Nooru confirms good collaboration.",
-          days: [
-            { day: "Mon–Fri", tag: "Step up", items: [
-              "Take over warehouse management and stock control",
-              "Take over calculation (cost per dish, food-cost %)",
-              "Two-week feedback conversation (Aug 17) — your honest input",
-              "Present 2 first recipe ideas in a team test-cook (after service)",
-              "Get Nooru's feedback on your recipes",
-            ]},
-          ],
-          checklist: [
-            "Warehouse and stock are stable / improved",
-            "First recipe ideas respect the kitchen philosophy",
-            "Nooru confirms good collaboration",
-            "I attended the 2-week feedback conversation",
-          ],
-        },
-        {
-          id: "w4", label: "Week 4", dates: "Aug 24 – Aug 28",
-          theme: "Establish Your Role", motto: "\"Now we know who does what — and where we're going together.\"", color: "#8B5CF6",
-          goal: "By the end of Week 4 your role is clear and established, and you present your first concrete proposals to improve the menu — always respecting the philosophy.",
-          days: [
-            { day: "Mon–Fri", tag: "Own it", items: [
-              "Full responsibility for your area, daily 10-min briefing with Nooru",
-              "Prepare concept: \"My first 3 menu optimisations\"",
-              "Present to management together with Nooru",
-              "Look ahead: seasonality plan for the next 12 weeks",
-              "30-day review with management",
-            ]},
-          ],
-          checklist: [
-            "First menu optimisations are ready & philosophy-compliant",
-            "Nooru and I have a working, trusting collaboration",
-            "The team gives positive feedback",
-            "I completed the 30-day review",
-          ],
-        },
+  <script>
+(() => {
+  const { useState, useEffect } = React;
+  const SUPABASE_URL = "https://bvkvvycoletlvqkrqybj.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ2a3Z2eWNvbGV0bHZxa3JxeWJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUyODUzMDQsImV4cCI6MjEwMDg2MTMwNH0.9AHCsY-JjJ26gwq8iGREW8j2MizpQSh1_MnBFxuFPrY";
+  const USER_ID = "dinesh";
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const INK = "#14141F";
+  const NEON = "#D4FF3F";
+  const ORANGE = "#E94E1B";
+  const CREAM = "#FBF8F0";
+  const SAGE = "#2E7D5B";
+  const DEFAULT_PROGRAM = {
+    intro: {
+      title: "Welcome to Karma Food",
+      subtitle: "Your first weeks as Head Chef",
+      body: [
+        "Karma Food was founded in 2014 by Simone and Adi Raihmann \u2014 a family business built from a love of healthy, Indian-inspired, plant-based food. Today we run several locations across Vienna and Klosterneuburg, plus catering, cooking classes, our curry pastes and webshop.",
+        "You are joining as our Head Chef with full responsibility for the kitchen: recipes, quality, purchasing and leading the team. This app is your guide for the first four weeks. Work through it at your own pace \u2014 your progress is saved automatically."
       ],
-      responsibilities: {
-        title: "Roles & Responsibilities",
-        subtitle: "Who does what in our kitchen — so everyone has clarity",
-        team: {
-          title: "Our Kitchen Team",
-          text: "We are a team of 5, from 5 countries — Pakistan, India, Afghanistan, Austria and Brazil. We speak English, German, Punjabi and Hindi. This mix is a strength: you and Nooru can bridge between team members in several languages.",
-        },
-        leadership: {
-          title: "Leading the Team Together",
-          text: "You and Nooru lead the kitchen team together. In daily operations you have 100% responsibility, and on decisions you have the final call. But Nooru's operational experience is your strongest asset — lead with him, not around him.",
-        },
-        yoursTitle: "Your Responsibilities (Dinesh · Head Chef)",
-        yours: [
-          { title: "Kitchen leadership", text: "Full responsibility for the kitchen and daily operations (100%). You set the direction and make the final decisions." },
-          { title: "Recipe development & menus", text: "Develop and prepare our menus, refine recipes to fit our philosophy, standardise every recipe with grammage and filling amount." },
-          { title: "Purchasing & ordering", text: "Ordering, supplier relationships, stock. Nooru runs ordering until October while you learn our products; from October you take it over fully." },
-          { title: "Warehouse management", text: "Stock system, calculation, food-cost, minimising waste — the economics of the kitchen." },
-          { title: "Team leadership", text: "Lead the team together with Nooru, structure the work, run briefings and debriefings. You decide; Nooru advises." },
-          { title: "Quality management", text: "You sign off every batch before filling — like a site manager. Nothing leaves the kitchen without your approval." },
+      principles: [
+        { title: "Light & balanced", text: "Guests should feel good and energised after eating \u2014 never heavy." },
+        { title: "Authentic & fresh", text: "Real Indian flavour, spices in the foreground, cooked fresh every day." },
+        { title: "Learn first, then improve", text: "Weeks 1\u20132: observe and understand our handwriting before changing anything." }
+      ]
+    },
+    weeks: [
+      {
+        id: "w1",
+        label: "Week 1",
+        dates: "Aug 3 \u2013 Aug 7",
+        theme: "Observe & Understand",
+        motto: '"Listen before you cook."',
+        color: SAGE,
+        goal: "By the end of Week 1 you can explain our kitchen philosophy in your own words, know our top dishes, and have built a first connection with Nooru and the team \u2014 without changing any process yet.",
+        days: [
+          { day: "Monday \xB7 Aug 3", tag: "Only watch", items: [
+            "Arrival & welcome from the team",
+            "Read the Kitchen Philosophy guide (your first task)",
+            "Watch Nooru prep vegetables at 06:30 \u2014 note quantities & ratios",
+            "Observe a full production + filling cycle",
+            "Do NOT change anything \u2014 just observe and take notes"
+          ] },
+          { day: "Tuesday \xB7 Aug 4", tag: "Warehouse system", items: [
+            "Watch morning prep again \u2014 focus on vegetable amounts per dish",
+            "Warehouse walk-through with Nooru: where things live, FIFO logic",
+            "Equipment overview \u2014 ask what you don't know",
+            "Start a private scale rating (taste / texture / amount) 1\u20135"
+          ] },
+          { day: "Wednesday \xB7 Aug 5", tag: "Cook along", items: [
+            "Cook your first dish under Nooru's guidance",
+            "Learn the filling standard: amount, temperature, labelling",
+            "First conversation with management about your scale rating",
+            "Quality check: taste each dish together with Nooru"
+          ] },
+          { day: "Thursday \xB7 Aug 6", tag: "People & structure", items: [
+            "Observe how Nooru assigns tasks to the team",
+            "Watch the team briefing \u2014 how information flows",
+            "Cook 2\u20133 dishes independently, Nooru gives feedback",
+            "Note ideas quietly \u2014 no changes yet"
+          ] },
+          { day: "Friday \xB7 Aug 7", tag: "Normal + Schrankerl", items: [
+            "Normal production in the morning",
+            "Schrankerl production in parallel from ~11:00 (1 salad, 1 curry, 1 dessert)",
+            "Learn the Schrankerl packing & labelling standard",
+            "Week 1 review with management + Nooru (60 min)"
+          ] }
         ],
-        nooruTitle: "Nooru's Responsibilities (Sous-Chef / Kitchen Lead)",
-        nooru: [
-          { title: "Daily operations", text: "Runs the kitchen's daily organisation and workflow — the operational heart of the kitchen." },
-          { title: "Standards in every service", text: "Makes sure our recipes and standards are met in every batch, every day." },
-          { title: "Team coordination", text: "Coordinates the team day to day, proposes the shift plan, onboards new team members." },
-          { title: "Hygiene & HACCP", text: "Owns hygiene standards and HACCP in daily practice." },
-          { title: "Product & process knowledge", text: "Holds deep knowledge of our recipes, products and suppliers — indispensable for the whole kitchen." },
-        ],
-        sous: {
-          title: "How to work with Nooru",
-          text: "Nooru was our head chef before and knows our recipes, processes and products better than anyone. He is not your assistant — he is your most important partner. You lead on content, strategy and final decisions; he leads on daily operations. Treat his knowledge as indispensable, and the whole team will follow.",
-        },
-        working: {
-          title: "How We Work — What Matters to Us",
-          values: ["Respectful", "Calm", "Clear", "Structured", "Clean", "Thinking ahead", "Planning"],
-          text: "And above all: we work with joy. A kitchen that enjoys the work cooks better food.",
-        },
+        checklist: [
+          "I can explain the kitchen philosophy in my own words",
+          "I know the top 10 dishes",
+          "I asked Nooru at least 15 questions",
+          "I made no uninvited changes to existing processes",
+          "I completed my first scale rating"
+        ]
       },
-      signoff: {
-        title: "Daily Sign-off (like a site manager)",
-        subtitle: "The main problem is forgetting. This checklist removes it.",
-        text: "Before Everton loads the transporter, you sign off. No approval slip = no departure. You check production, then filling & packaging, then give written release with a photo.",
-        steps: [
-          { n: 1, title: "Production check", text: "Taste, temperature, consistency for each dish (salad, curry, dessert)." },
-          { n: 2, title: "Filling & packaging", text: "Labelling complete on every container, sealed, correct amount, photo taken." },
-          { n: 3, title: "Release for Everton", text: "All points ticked, photo sent, Everton informed. Sign & time." },
+      {
+        id: "w2",
+        label: "Week 2",
+        dates: "Aug 10 \u2013 Aug 14",
+        theme: "Cook Along & Learn",
+        motto: '"Learn the handwriting with your hands."',
+        color: "#3A7CA5",
+        goal: "By the end of Week 2 you can cook 80% of the menu to our standard, know all main suppliers, and the collaboration with Nooru feels respectful and clear on both sides.",
+        days: [
+          { day: "Monday \xB7 Aug 10", tag: "Cook the menu", items: [
+            "Morning prep with Nooru \u2014 you now cut vegetables to the standard",
+            "Cook dishes 1\u20133 of the menu yourself, Nooru observes",
+            "Filling & labelling by yourself under supervision",
+            "Short debrief: which dishes felt easy, which need practice?"
+          ] },
+          { day: "Tuesday \xB7 Aug 11", tag: "Suppliers", items: [
+            "Cook dishes 4\u20136 of the menu independently",
+            "Set up one order together with Nooru \u2014 see the whole flow",
+            "First supplier contact (call or visit) \u2014 meet the person",
+            "Note delivery rhythms and minimum order amounts"
+          ] },
+          { day: "Wednesday \xB7 Aug 12", tag: "Calculation", items: [
+            "Cook the remaining menu dishes \u2014 aim for full coverage",
+            "Learn the calculation: food cost per dish, food-cost %",
+            "Nooru shows you the HACCP documentation in detail",
+            "Second supplier contact"
+          ] },
+          { day: "Thursday \xB7 Aug 13", tag: "Confidence", items: [
+            "Cook a full service mostly independently, Nooru available",
+            "Third supplier contact \u2014 you now know the main three",
+            "Review your private scale rating from Week 1 \u2014 what changed?",
+            "Quietly note your first test-recipe idea (don't cook it yet)"
+          ] },
+          { day: "Friday \xB7 Aug 14", tag: "Normal + Schrankerl", items: [
+            "Normal production in the morning \u2014 you lead more of it",
+            "Schrankerl production in parallel from ~11:00 (salad, curry, dessert)",
+            "Do the Schrankerl end-check and packing yourself",
+            "Week 2 review with management + Nooru"
+          ] }
         ],
+        checklist: [
+          "I can cook at least 80% of the menu to standard",
+          "I know all main suppliers by name and product group",
+          "Nooru and I work together visibly with respect",
+          "I understand the HACCP documentation",
+          "I set up at least one order end-to-end"
+        ]
       },
-    };
-
-    // ═══════════════════════════════════════════════════════════
-    // 4) SUPABASE STORAGE HELPERS
-    // ═══════════════════════════════════════════════════════════
-    async function loadProgress() {
-      const { data, error } = await supabase
-        .from("onboarding_progress").select("state").eq("user_id", USER_ID).maybeSingle();
-      if (error) { console.error(error); return {}; }
-      return data?.state || {};
-    }
-    async function saveProgress(state) {
-      const { error } = await supabase
-        .from("onboarding_progress")
-        .upsert({ user_id: USER_ID, state, updated_at: new Date().toISOString() });
-      if (error) console.error(error);
-    }
-    async function loadNotes() {
-      const { data, error } = await supabase
-        .from("onboarding_notes").select("notes").eq("user_id", USER_ID).maybeSingle();
-      if (error) { console.error(error); return {}; }
-      return data?.notes || {};
-    }
-    async function saveNotes(notes) {
-      const { error } = await supabase
-        .from("onboarding_notes")
-        .upsert({ user_id: USER_ID, notes, updated_at: new Date().toISOString() });
-      if (error) console.error(error);
-    }
-
-    // debounce helper for notes (don't hammer the DB on every keystroke)
-    function debounce(fn, ms) {
-      let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); };
-    }
-    const saveNotesDebounced = debounce(saveNotes, 700);
-
-    // ── CONTENT (the editable program: weeks/days/tasks/goals) ──
-    async function loadContent() {
-      const { data, error } = await supabase
-        .from("onboarding_content").select("data").eq("id", "program").maybeSingle();
-      if (error) { console.error(error); return null; }
-      return data?.data || null;
-    }
-    async function saveContent(program) {
-      const { error } = await supabase
-        .from("onboarding_content")
-        .upsert({ id: "program", data: program, updated_at: new Date().toISOString() });
-      if (error) { console.error(error); return false; }
-      return true;
-    }
-
-    // ── ADMIN AUTH ────────────────────────────────────────────
-    async function adminSignIn(email, password) {
-      return supabase.auth.signInWithPassword({ email, password });
-    }
-    async function adminSignOut() {
-      return supabase.auth.signOut();
-    }
-    async function getSession() {
-      const { data } = await supabase.auth.getSession();
-      return data?.session || null;
-    }
-
-    // ═══════════════════════════════════════════════════════════
-    // 5) TINY ICON SET (inline SVG, no dependency)
-    // ═══════════════════════════════════════════════════════════
-    const Ico = ({ d, size = 22, color = INK, fill = "none", sw = 2 }) => (
-      <svg width={size} height={size} viewBox="0 0 24 24" fill={fill} stroke={color}
-        strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round">{d}</svg>
-    );
-    const IconChef = (p) => <Ico {...p} d={<><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/></>} />;
-    const IconTarget = (p) => <Ico {...p} d={<><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></>} />;
-    const IconCheck = (p) => <Ico {...p} d={<polyline points="20 6 9 17 4 12"/>} />;
-    const IconCircle = (p) => <Ico {...p} d={<circle cx="12" cy="12" r="10"/>} />;
-    const IconCheckCircle = (p) => <Ico {...p} d={<><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></>} />;
-    const IconChevron = (p) => <Ico {...p} d={<polyline points="9 18 15 12 9 6"/>} />;
-    const IconArrow = (p) => <Ico {...p} d={<><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></>} />;
-    const IconHome = (p) => <Ico {...p} d={<><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></>} />;
-    const IconMenu = (p) => <Ico {...p} d={<><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></>} />;
-    const IconX = (p) => <Ico {...p} d={<><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>} />;
-    const IconStar = (p) => <Ico {...p} d={<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>} />;
-    const IconCal = (p) => <Ico {...p} d={<><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></>} />;
-    const IconClip = (p) => <Ico {...p} d={<><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></>} />;
-    const IconUsers = (p) => <Ico {...p} d={<><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></>} />;
-    const IconTruck = (p) => <Ico {...p} d={<><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></>} />;
-    const IconMsg = (p) => <Ico {...p} d={<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>} />;
-    const IconFlame = (p) => <Ico {...p} d={<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>} />;
-    const IconEdit = (p) => <Ico {...p} d={<><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></>} />;
-    const IconPlus = (p) => <Ico {...p} d={<><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></>} />;
-    const IconTrash = (p) => <Ico {...p} d={<><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></>} />;
-    const IconLock = (p) => <Ico {...p} d={<><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></>} />;
-
-    // ═══════════════════════════════════════════════════════════
-    // 6) APP
-    // ═══════════════════════════════════════════════════════════
-    // ── LOGIN MODAL (admin only) ──────────────────────────────
-    function LoginModal({ onClose }) {
-      const [email, setEmail] = useState("");
-      const [password, setPassword] = useState("");
-      const [error, setError] = useState("");
-      const [loading, setLoading] = useState(false);
-
-      const submit = async (e) => {
-        e.preventDefault();
-        setLoading(true); setError("");
-        const { error } = await adminSignIn(email, password);
-        setLoading(false);
-        if (error) { setError("Login failed — check email & password."); return; }
-        onClose();
-      };
-
-      return (
-        <div style={{ position: "fixed", inset: 0, zIndex: 60, background: "rgba(0,0,0,0.5)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}
-          onClick={onClose}>
-          <form onClick={(e) => e.stopPropagation()} onSubmit={submit}
-            style={{ background: "white", borderRadius: 16, padding: "28px 26px", width: 340, maxWidth: "100%", boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
-              <div style={{ width: 34, height: 34, borderRadius: 9, background: INK, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <IconLock size={17} color={NEON} />
-              </div>
-              <div style={{ fontWeight: 800, fontSize: 18 }}>Admin login</div>
-            </div>
-            <p style={{ fontSize: 13, color: "#888", margin: "0 0 18px" }}>
-              Sign in to edit weeks, tasks and goals. Dinesh does not need this.
-            </p>
-            <label style={{ fontSize: 12.5, fontWeight: 700, color: "#555" }}>Email</label>
-            <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
-              style={{ width: "100%", padding: "10px 12px", margin: "6px 0 14px", border: "2px solid #eee", borderRadius: 9, fontSize: 14.5, boxSizing: "border-box" }} />
-            <label style={{ fontSize: 12.5, fontWeight: 700, color: "#555" }}>Password</label>
-            <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)}
-              style={{ width: "100%", padding: "10px 12px", margin: "6px 0 6px", border: "2px solid #eee", borderRadius: 9, fontSize: 14.5, boxSizing: "border-box" }} />
-            {error && <div style={{ color: "#C0392B", fontSize: 13, margin: "6px 0" }}>{error}</div>}
-            <div style={{ display: "flex", gap: 10, marginTop: 16 }}>
-              <button type="button" onClick={onClose} style={{ flex: 1, padding: "11px 0", background: "#f2f2f2", border: "none", borderRadius: 9, fontWeight: 700, fontSize: 14, cursor: "pointer" }}>Cancel</button>
-              <button type="submit" disabled={loading} style={{ flex: 1, padding: "11px 0", background: INK, color: NEON, border: "none", borderRadius: 9, fontWeight: 700, fontSize: 14, cursor: "pointer" }}>
-                {loading ? "Signing in…" : "Sign in"}
-              </button>
-            </div>
-          </form>
-        </div>
-      );
-    }
-
-    function App() {
-      const [program, setProgram] = useState(null);       // loaded from Supabase (or DEFAULT_PROGRAM)
-      const [progress, setProgress] = useState(null);
-      const [notes, setNotes] = useState({});
-      const [view, setView] = useState({ type: "home" });
-      const [menuOpen, setMenuOpen] = useState(false);
-      const [session, setSession] = useState(undefined);   // undefined = not checked yet, null = signed out
-      const [loginOpen, setLoginOpen] = useState(false);
-      const [saveStatus, setSaveStatus] = useState("");    // "", "saving", "saved"
-
-      useEffect(() => {
-        loadProgress().then((p) => setProgress(p || {}));
-        loadNotes().then((n) => setNotes(n || {}));
-        loadContent().then((c) => setProgram(c || DEFAULT_PROGRAM));
-        getSession().then(setSession);
-        const { data: sub } = supabase.auth.onAuthStateChange((_event, sess) => setSession(sess));
-        return () => sub?.subscription?.unsubscribe();
-      }, []);
-
-      const isAdmin = !!session;
-
-      const toggle = (key) => {
-        const next = { ...progress, [key]: !progress[key] };
-        setProgress(next); saveProgress(next);
-      };
-      const setNote = (key, value) => {
-        const next = { ...notes, [key]: value };
-        setNotes(next); saveNotesDebounced(next);
-      };
-
-      // Admin edit: update program in local state immediately (so the
-      // UI feels instant), then persist the whole object to Supabase.
-      const updateProgram = (mutatorFn) => {
-        setProgram((prev) => {
-          const next = JSON.parse(JSON.stringify(prev));
-          mutatorFn(next);
-          setSaveStatus("saving");
-          saveContent(next).then((ok) => setSaveStatus(ok ? "saved" : "error"));
-          return next;
-        });
-      };
-
-      if (progress === null || program === null || session === undefined) {
-        return (<div style={{ minHeight: "100vh", background: CREAM, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "system-ui" }}>
-          <div style={{ color: INK, fontSize: 18 }}>Loading…</div></div>);
+      {
+        id: "w3",
+        label: "Week 3",
+        dates: "Aug 17 \u2013 Aug 21",
+        theme: "Take Over Responsibility",
+        motto: '"Take what belongs to your role \u2014 without overwriting the handwriting."',
+        color: ORANGE,
+        goal: "By the end of Week 3 you handle warehouse management and calculation, your first recipe ideas respect the philosophy, and Nooru confirms good collaboration.",
+        days: [
+          { day: "Mon\u2013Fri", tag: "Step up", items: [
+            "Take over warehouse management and stock control",
+            "Take over calculation (cost per dish, food-cost %)",
+            "Two-week feedback conversation (Aug 17) \u2014 your honest input",
+            "Present 2 first recipe ideas in a team test-cook (after service)",
+            "Get Nooru's feedback on your recipes"
+          ] }
+        ],
+        checklist: [
+          "Warehouse and stock are stable / improved",
+          "First recipe ideas respect the kitchen philosophy",
+          "Nooru confirms good collaboration",
+          "I attended the 2-week feedback conversation"
+        ]
+      },
+      {
+        id: "w4",
+        label: "Week 4",
+        dates: "Aug 24 \u2013 Aug 28",
+        theme: "Establish Your Role",
+        motto: `"Now we know who does what \u2014 and where we're going together."`,
+        color: "#8B5CF6",
+        goal: "By the end of Week 4 your role is clear and established, and you present your first concrete proposals to improve the menu \u2014 always respecting the philosophy.",
+        days: [
+          { day: "Mon\u2013Fri", tag: "Own it", items: [
+            "Full responsibility for your area, daily 10-min briefing with Nooru",
+            'Prepare concept: "My first 3 menu optimisations"',
+            "Present to management together with Nooru",
+            "Look ahead: seasonality plan for the next 12 weeks",
+            "30-day review with management"
+          ] }
+        ],
+        checklist: [
+          "First menu optimisations are ready & philosophy-compliant",
+          "Nooru and I have a working, trusting collaboration",
+          "The team gives positive feedback",
+          "I completed the 30-day review"
+        ]
       }
-
-      const weekProgress = (w) => {
-        const total = w.checklist.length;
-        const done = w.checklist.filter((_, i) => progress[`${w.id}_goal_${i}`]).length;
-        return { done, total, pct: total ? Math.round((done / total) * 100) : 0 };
+    ],
+    responsibilities: {
+      title: "Roles & Responsibilities",
+      subtitle: "Who does what in our kitchen \u2014 so everyone has clarity",
+      team: {
+        title: "Our Kitchen Team",
+        text: "We are a team of 5, from 5 countries \u2014 Pakistan, India, Afghanistan, Austria and Brazil. We speak English, German, Punjabi and Hindi. This mix is a strength: you and Nooru can bridge between team members in several languages."
+      },
+      leadership: {
+        title: "Leading the Team Together",
+        text: "You and Nooru lead the kitchen team together. In daily operations you have 100% responsibility, and on decisions you have the final call. But Nooru's operational experience is your strongest asset \u2014 lead with him, not around him."
+      },
+      yoursTitle: "Your Responsibilities (Dinesh \xB7 Head Chef)",
+      yours: [
+        { title: "Kitchen leadership", text: "Full responsibility for the kitchen and daily operations (100%). You set the direction and make the final decisions." },
+        { title: "Recipe development & menus", text: "Develop and prepare our menus, refine recipes to fit our philosophy, standardise every recipe with grammage and filling amount." },
+        { title: "Purchasing & ordering", text: "Ordering, supplier relationships, stock. Nooru runs ordering until October while you learn our products; from October you take it over fully." },
+        { title: "Warehouse management", text: "Stock system, calculation, food-cost, minimising waste \u2014 the economics of the kitchen." },
+        { title: "Team leadership", text: "Lead the team together with Nooru, structure the work, run briefings and debriefings. You decide; Nooru advises." },
+        { title: "Quality management", text: "You sign off every batch before filling \u2014 like a site manager. Nothing leaves the kitchen without your approval." }
+      ],
+      nooruTitle: "Nooru's Responsibilities (Sous-Chef / Kitchen Lead)",
+      nooru: [
+        { title: "Daily operations", text: "Runs the kitchen's daily organisation and workflow \u2014 the operational heart of the kitchen." },
+        { title: "Standards in every service", text: "Makes sure our recipes and standards are met in every batch, every day." },
+        { title: "Team coordination", text: "Coordinates the team day to day, proposes the shift plan, onboards new team members." },
+        { title: "Hygiene & HACCP", text: "Owns hygiene standards and HACCP in daily practice." },
+        { title: "Product & process knowledge", text: "Holds deep knowledge of our recipes, products and suppliers \u2014 indispensable for the whole kitchen." }
+      ],
+      sous: {
+        title: "How to work with Nooru",
+        text: "Nooru was our head chef before and knows our recipes, processes and products better than anyone. He is not your assistant \u2014 he is your most important partner. You lead on content, strategy and final decisions; he leads on daily operations. Treat his knowledge as indispensable, and the whole team will follow."
+      },
+      working: {
+        title: "How We Work \u2014 What Matters to Us",
+        values: ["Respectful", "Calm", "Clear", "Structured", "Clean", "Thinking ahead", "Planning"],
+        text: "And above all: we work with joy. A kitchen that enjoys the work cooks better food."
+      }
+    },
+    signoff: {
+      title: "Daily Sign-off (like a site manager)",
+      subtitle: "The main problem is forgetting. This checklist removes it.",
+      text: "Before Everton loads the transporter, you sign off. No approval slip = no departure. You check production, then filling & packaging, then give written release with a photo.",
+      steps: [
+        { n: 1, title: "Production check", text: "Taste, temperature, consistency for each dish (salad, curry, dessert)." },
+        { n: 2, title: "Filling & packaging", text: "Labelling complete on every container, sealed, correct amount, photo taken." },
+        { n: 3, title: "Release for Everton", text: "All points ticked, photo sent, Everton informed. Sign & time." }
+      ]
+    }
+  };
+  async function loadProgress() {
+    const { data, error } = await supabase.from("onboarding_progress").select("state").eq("user_id", USER_ID).maybeSingle();
+    if (error) {
+      console.error(error);
+      return {};
+    }
+    return (data == null ? void 0 : data.state) || {};
+  }
+  async function saveProgress(state) {
+    const { error } = await supabase.from("onboarding_progress").upsert({ user_id: USER_ID, state, updated_at: (/* @__PURE__ */ new Date()).toISOString() });
+    if (error) console.error(error);
+  }
+  async function loadNotes() {
+    const { data, error } = await supabase.from("onboarding_notes").select("notes").eq("user_id", USER_ID).maybeSingle();
+    if (error) {
+      console.error(error);
+      return {};
+    }
+    return (data == null ? void 0 : data.notes) || {};
+  }
+  async function saveNotes(notes) {
+    const { error } = await supabase.from("onboarding_notes").upsert({ user_id: USER_ID, notes, updated_at: (/* @__PURE__ */ new Date()).toISOString() });
+    if (error) console.error(error);
+  }
+  function debounce(fn, ms) {
+    let t;
+    return (...a) => {
+      clearTimeout(t);
+      t = setTimeout(() => fn(...a), ms);
+    };
+  }
+  const saveNotesDebounced = debounce(saveNotes, 700);
+  async function loadContent() {
+    const { data, error } = await supabase.from("onboarding_content").select("data").eq("id", "program").maybeSingle();
+    if (error) {
+      console.error(error);
+      return null;
+    }
+    return (data == null ? void 0 : data.data) || null;
+  }
+  async function saveContent(program) {
+    const { error } = await supabase.from("onboarding_content").upsert({ id: "program", data: program, updated_at: (/* @__PURE__ */ new Date()).toISOString() });
+    if (error) {
+      console.error(error);
+      return false;
+    }
+    return true;
+  }
+  async function adminSignIn(email, password) {
+    return supabase.auth.signInWithPassword({ email, password });
+  }
+  async function adminSignOut() {
+    return supabase.auth.signOut();
+  }
+  async function getSession() {
+    const { data } = await supabase.auth.getSession();
+    return (data == null ? void 0 : data.session) || null;
+  }
+  const Ico = ({ d, size = 22, color = INK, fill = "none", sw = 2 }) => /* @__PURE__ */ React.createElement(
+    "svg",
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill,
+      stroke: color,
+      strokeWidth: sw,
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    },
+    d
+  );
+  const IconChef = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z" }), /* @__PURE__ */ React.createElement("line", { x1: "6", y1: "17", x2: "18", y2: "17" })) });
+  const IconTarget = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("circle", { cx: "12", cy: "12", r: "10" }), /* @__PURE__ */ React.createElement("circle", { cx: "12", cy: "12", r: "6" }), /* @__PURE__ */ React.createElement("circle", { cx: "12", cy: "12", r: "2" })) });
+  const IconCheck = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement("polyline", { points: "20 6 9 17 4 12" }) });
+  const IconCircle = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement("circle", { cx: "12", cy: "12", r: "10" }) });
+  const IconCheckCircle = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M22 11.08V12a10 10 0 1 1-5.93-9.14" }), /* @__PURE__ */ React.createElement("polyline", { points: "22 4 12 14.01 9 11.01" })) });
+  const IconChevron = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement("polyline", { points: "9 18 15 12 9 6" }) });
+  const IconArrow = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("line", { x1: "5", y1: "12", x2: "19", y2: "12" }), /* @__PURE__ */ React.createElement("polyline", { points: "12 5 19 12 12 19" })) });
+  const IconHome = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" }), /* @__PURE__ */ React.createElement("polyline", { points: "9 22 9 12 15 12 15 22" })) });
+  const IconMenu = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("line", { x1: "3", y1: "12", x2: "21", y2: "12" }), /* @__PURE__ */ React.createElement("line", { x1: "3", y1: "6", x2: "21", y2: "6" }), /* @__PURE__ */ React.createElement("line", { x1: "3", y1: "18", x2: "21", y2: "18" })) });
+  const IconX = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("line", { x1: "18", y1: "6", x2: "6", y2: "18" }), /* @__PURE__ */ React.createElement("line", { x1: "6", y1: "6", x2: "18", y2: "18" })) });
+  const IconStar = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement("polygon", { points: "12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" }) });
+  const IconCal = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("rect", { x: "3", y: "4", width: "18", height: "18", rx: "2" }), /* @__PURE__ */ React.createElement("line", { x1: "16", y1: "2", x2: "16", y2: "6" }), /* @__PURE__ */ React.createElement("line", { x1: "8", y1: "2", x2: "8", y2: "6" }), /* @__PURE__ */ React.createElement("line", { x1: "3", y1: "10", x2: "21", y2: "10" })) });
+  const IconClip = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" }), /* @__PURE__ */ React.createElement("rect", { x: "8", y: "2", width: "8", height: "4", rx: "1" })) });
+  const IconUsers = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" }), /* @__PURE__ */ React.createElement("circle", { cx: "9", cy: "7", r: "4" }), /* @__PURE__ */ React.createElement("path", { d: "M23 21v-2a4 4 0 0 0-3-3.87" }), /* @__PURE__ */ React.createElement("path", { d: "M16 3.13a4 4 0 0 1 0 7.75" })) });
+  const IconTruck = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("rect", { x: "1", y: "3", width: "15", height: "13" }), /* @__PURE__ */ React.createElement("polygon", { points: "16 8 20 8 23 11 23 16 16 16 16 8" }), /* @__PURE__ */ React.createElement("circle", { cx: "5.5", cy: "18.5", r: "2.5" }), /* @__PURE__ */ React.createElement("circle", { cx: "18.5", cy: "18.5", r: "2.5" })) });
+  const IconMsg = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement("path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" }) });
+  const IconFlame = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement("path", { d: "M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" }) });
+  const IconEdit = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", { d: "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" }), /* @__PURE__ */ React.createElement("path", { d: "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" })) });
+  const IconPlus = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("line", { x1: "12", y1: "5", x2: "12", y2: "19" }), /* @__PURE__ */ React.createElement("line", { x1: "5", y1: "12", x2: "19", y2: "12" })) });
+  const IconTrash = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("polyline", { points: "3 6 5 6 21 6" }), /* @__PURE__ */ React.createElement("path", { d: "M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" }), /* @__PURE__ */ React.createElement("path", { d: "M10 11v6" }), /* @__PURE__ */ React.createElement("path", { d: "M14 11v6" }), /* @__PURE__ */ React.createElement("path", { d: "M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" })) });
+  const IconLock = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("rect", { x: "3", y: "11", width: "18", height: "11", rx: "2" }), /* @__PURE__ */ React.createElement("path", { d: "M7 11V7a5 5 0 0 1 10 0v4" })) });
+  function LoginModal({ onClose }) {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+    const submit = async (e) => {
+      e.preventDefault();
+      setLoading(true);
+      setError("");
+      const { error: error2 } = await adminSignIn(email, password);
+      setLoading(false);
+      if (error2) {
+        setError("Login failed \u2014 check email & password.");
+        return;
+      }
+      onClose();
+    };
+    return /* @__PURE__ */ React.createElement(
+      "div",
+      {
+        style: { position: "fixed", inset: 0, zIndex: 60, background: "rgba(0,0,0,0.5)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 },
+        onClick: onClose
+      },
+      /* @__PURE__ */ React.createElement(
+        "form",
+        {
+          onClick: (e) => e.stopPropagation(),
+          onSubmit: submit,
+          style: { background: "white", borderRadius: 16, padding: "28px 26px", width: 340, maxWidth: "100%", boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }
+        },
+        /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 34, height: 34, borderRadius: 9, background: INK, display: "flex", alignItems: "center", justifyContent: "center" } }, /* @__PURE__ */ React.createElement(IconLock, { size: 17, color: NEON })), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 800, fontSize: 18 } }, "Admin login")),
+        /* @__PURE__ */ React.createElement("p", { style: { fontSize: 13, color: "#888", margin: "0 0 18px" } }, "Sign in to edit weeks, tasks and goals. Dinesh does not need this."),
+        /* @__PURE__ */ React.createElement("label", { style: { fontSize: 12.5, fontWeight: 700, color: "#555" } }, "Email"),
+        /* @__PURE__ */ React.createElement(
+          "input",
+          {
+            type: "email",
+            required: true,
+            value: email,
+            onChange: (e) => setEmail(e.target.value),
+            style: { width: "100%", padding: "10px 12px", margin: "6px 0 14px", border: "2px solid #eee", borderRadius: 9, fontSize: 14.5, boxSizing: "border-box" }
+          }
+        ),
+        /* @__PURE__ */ React.createElement("label", { style: { fontSize: 12.5, fontWeight: 700, color: "#555" } }, "Password"),
+        /* @__PURE__ */ React.createElement(
+          "input",
+          {
+            type: "password",
+            required: true,
+            value: password,
+            onChange: (e) => setPassword(e.target.value),
+            style: { width: "100%", padding: "10px 12px", margin: "6px 0 6px", border: "2px solid #eee", borderRadius: 9, fontSize: 14.5, boxSizing: "border-box" }
+          }
+        ),
+        error && /* @__PURE__ */ React.createElement("div", { style: { color: "#C0392B", fontSize: 13, margin: "6px 0" } }, error),
+        /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 10, marginTop: 16 } }, /* @__PURE__ */ React.createElement("button", { type: "button", onClick: onClose, style: { flex: 1, padding: "11px 0", background: "#f2f2f2", border: "none", borderRadius: 9, fontWeight: 700, fontSize: 14, cursor: "pointer" } }, "Cancel"), /* @__PURE__ */ React.createElement("button", { type: "submit", disabled: loading, style: { flex: 1, padding: "11px 0", background: INK, color: NEON, border: "none", borderRadius: 9, fontWeight: 700, fontSize: 14, cursor: "pointer" } }, loading ? "Signing in\u2026" : "Sign in"))
+      )
+    );
+  }
+  function App() {
+    const [program, setProgram] = useState(null);
+    const [progress, setProgress] = useState(null);
+    const [notes, setNotes] = useState({});
+    const [view, setView] = useState({ type: "home" });
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [session, setSession] = useState(void 0);
+    const [loginOpen, setLoginOpen] = useState(false);
+    const [saveStatus, setSaveStatus] = useState("");
+    useEffect(() => {
+      loadProgress().then((p) => setProgress(p || {}));
+      loadNotes().then((n) => setNotes(n || {}));
+      loadContent().then((c) => setProgram(c || DEFAULT_PROGRAM));
+      getSession().then(setSession);
+      const { data: sub } = supabase.auth.onAuthStateChange((_event, sess) => setSession(sess));
+      return () => {
+        var _a;
+        return (_a = sub == null ? void 0 : sub.subscription) == null ? void 0 : _a.unsubscribe();
       };
-      const overallPct = (() => {
-        let done = 0, total = 0;
-        program.weeks.forEach((w) => {
-          w.checklist.forEach((_, i) => { total++; if (progress[`${w.id}_goal_${i}`]) done++; });
-          w.days.forEach((d, di) => d.items.forEach((_, ii) => { total++; if (progress[`${w.id}_d${di}_${ii}`]) done++; }));
+    }, []);
+    const isAdmin = !!session;
+    const toggle = (key) => {
+      const next = { ...progress, [key]: !progress[key] };
+      setProgress(next);
+      saveProgress(next);
+    };
+    const setNote = (key, value) => {
+      const next = { ...notes, [key]: value };
+      setNotes(next);
+      saveNotesDebounced(next);
+    };
+    const updateProgram = (mutatorFn) => {
+      setProgram((prev) => {
+        const next = JSON.parse(JSON.stringify(prev));
+        mutatorFn(next);
+        setSaveStatus("saving");
+        saveContent(next).then((ok) => setSaveStatus(ok ? "saved" : "error"));
+        return next;
+      });
+    };
+    if (progress === null || program === null || session === void 0) {
+      return /* @__PURE__ */ React.createElement("div", { style: { minHeight: "100vh", background: CREAM, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "system-ui" } }, /* @__PURE__ */ React.createElement("div", { style: { color: INK, fontSize: 18 } }, "Loading\u2026"));
+    }
+    const weekProgress = (w) => {
+      const total = w.checklist.length;
+      const done = w.checklist.filter((_, i) => progress[`${w.id}_goal_${i}`]).length;
+      return { done, total, pct: total ? Math.round(done / total * 100) : 0 };
+    };
+    const overallPct = (() => {
+      let done = 0, total = 0;
+      program.weeks.forEach((w) => {
+        w.checklist.forEach((_, i) => {
+          total++;
+          if (progress[`${w.id}_goal_${i}`]) done++;
         });
-        return total ? Math.round((done / total) * 100) : 0;
-      })();
-
-      const NAV = [
-        { key: "home", label: "Home", Icon: IconHome },
-        ...program.weeks.map((w) => ({ key: w.id, label: w.label, Icon: IconCal, week: w })),
-        { key: "resp", label: "Responsibilities", Icon: IconChef },
-        { key: "signoff", label: "Daily Sign-off", Icon: IconClip },
-      ];
-      const go = (t, w) => { setView({ type: t, week: w }); setMenuOpen(false); window.scrollTo(0, 0); };
-
-      return (
-        <div style={{ minHeight: "100vh", background: CREAM, fontFamily: "'Segoe UI', system-ui, sans-serif", color: INK }}>
-          <header style={{ background: INK, color: CREAM, position: "sticky", top: 0, zIndex: 50, boxShadow: "0 2px 12px rgba(0,0,0,0.15)" }}>
-            <div style={{ maxWidth: 1000, margin: "0 auto", padding: "14px 20px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, cursor: "pointer" }} onClick={() => go("home")}>
-                <div style={{ width: 34, height: 34, background: NEON, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <IconChef size={20} color={INK} sw={2.5} />
-                </div>
-                <div>
-                  <div style={{ fontWeight: 800, fontSize: 15, letterSpacing: 0.3 }}>KARMA FOOD</div>
-                  <div style={{ fontSize: 11, opacity: 0.7 }}>Head Chef Onboarding</div>
-                </div>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                {isAdmin && (
-                  <span style={{ fontSize: 11, fontWeight: 700, color: INK, background: NEON, padding: "5px 10px", borderRadius: 99, display: "flex", alignItems: "center", gap: 5 }}>
-                    <IconEdit size={12} color={INK} /> ADMIN
-                  </span>
-                )}
-                <button onClick={() => isAdmin ? adminSignOut() : setLoginOpen(true)}
-                  style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.25)", color: CREAM, cursor: "pointer", padding: "6px 12px", borderRadius: 8, fontSize: 12.5, fontWeight: 600 }}>
-                  {isAdmin ? "Log out" : "Admin"}
-                </button>
-                <button onClick={() => setMenuOpen(!menuOpen)} style={{ background: "transparent", border: "none", color: CREAM, cursor: "pointer", padding: 6 }}>
-                  {menuOpen ? <IconX size={26} color={CREAM} /> : <IconMenu size={26} color={CREAM} />}
-                </button>
-              </div>
-            </div>
-            <div style={{ background: "#1E1E2E", padding: "6px 20px" }}>
-              <div style={{ maxWidth: 1000, margin: "0 auto", display: "flex", alignItems: "center", gap: 12 }}>
-                <span style={{ fontSize: 11, opacity: 0.75, whiteSpace: "nowrap" }}>Overall progress</span>
-                <div style={{ flex: 1, height: 6, background: "rgba(255,255,255,0.12)", borderRadius: 99, overflow: "hidden" }}>
-                  <div style={{ width: `${overallPct}%`, height: "100%", background: NEON, transition: "width .4s" }} />
-                </div>
-                <span style={{ fontSize: 12, fontWeight: 700, color: NEON }}>{overallPct}%</span>
-              </div>
-            </div>
-          </header>
-
-          {loginOpen && !isAdmin && <LoginModal onClose={() => setLoginOpen(false)} />}
-
-          {menuOpen && (
-            <div style={{ position: "fixed", inset: 0, zIndex: 40, background: "rgba(0,0,0,0.4)" }} onClick={() => setMenuOpen(false)}>
-              <nav onClick={(e) => e.stopPropagation()} style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 280, maxWidth: "80vw", background: CREAM, padding: "88px 16px 24px", overflowY: "auto", boxShadow: "-4px 0 20px rgba(0,0,0,0.2)" }}>
-                {NAV.map((n) => {
-                  const active = (view.type === n.key) || (view.type === "week" && view.week?.id === n.key);
-                  return (<button key={n.key} onClick={() => go(n.week ? "week" : n.key, n.week)}
-                    style={{ width: "100%", display: "flex", alignItems: "center", gap: 12, padding: "13px 14px", marginBottom: 4, background: active ? INK : "transparent", color: active ? CREAM : INK, border: "none", borderRadius: 10, cursor: "pointer", fontSize: 15, fontWeight: 600, textAlign: "left" }}>
-                    <n.Icon size={18} color={active ? CREAM : INK} /> {n.label}</button>);
-                })}
-              </nav>
-            </div>
-          )}
-
-          <main style={{ maxWidth: 1000, margin: "0 auto", padding: "28px 20px 80px" }}>
-            {view.type === "home" && <HomeView program={program} go={go} weekProgress={weekProgress} />}
-            {view.type === "week" && <WeekView program={program} week={program.weeks.find(w => w.id === view.week.id) || view.week} progress={progress} toggle={toggle} weekProgress={weekProgress} go={go} notes={notes} setNote={setNote} isAdmin={isAdmin} updateProgram={updateProgram} saveStatus={saveStatus} />}
-            {view.type === "resp" && <RespView program={program} />}
-            {view.type === "signoff" && <SignoffView program={program} />}
-          </main>
-        </div>
+        w.days.forEach((d, di) => d.items.forEach((_, ii) => {
+          total++;
+          if (progress[`${w.id}_d${di}_${ii}`]) done++;
+        }));
+      });
+      return total ? Math.round(done / total * 100) : 0;
+    })();
+    const NAV = [
+      { key: "home", label: "Home", Icon: IconHome },
+      ...program.weeks.map((w) => ({ key: w.id, label: w.label, Icon: IconCal, week: w })),
+      { key: "resp", label: "Responsibilities", Icon: IconChef },
+      { key: "signoff", label: "Daily Sign-off", Icon: IconClip }
+    ];
+    const go = (t, w) => {
+      setView({ type: t, week: w });
+      setMenuOpen(false);
+      window.scrollTo(0, 0);
+    };
+    return /* @__PURE__ */ React.createElement("div", { style: { minHeight: "100vh", background: CREAM, fontFamily: "'Segoe UI', system-ui, sans-serif", color: INK } }, /* @__PURE__ */ React.createElement("header", { style: { background: INK, color: CREAM, position: "sticky", top: 0, zIndex: 50, boxShadow: "0 2px 12px rgba(0,0,0,0.15)" } }, /* @__PURE__ */ React.createElement("div", { style: { maxWidth: 1e3, margin: "0 auto", padding: "14px 20px", display: "flex", alignItems: "center", justifyContent: "space-between" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, cursor: "pointer" }, onClick: () => go("home") }, /* @__PURE__ */ React.createElement("div", { style: { width: 34, height: 34, background: NEON, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" } }, /* @__PURE__ */ React.createElement(IconChef, { size: 20, color: INK, sw: 2.5 })), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 800, fontSize: 15, letterSpacing: 0.3 } }, "KARMA FOOD"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, opacity: 0.7 } }, "Head Chef Onboarding"))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, isAdmin && /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, fontWeight: 700, color: INK, background: NEON, padding: "5px 10px", borderRadius: 99, display: "flex", alignItems: "center", gap: 5 } }, /* @__PURE__ */ React.createElement(IconEdit, { size: 12, color: INK }), " ADMIN"), /* @__PURE__ */ React.createElement(
+      "button",
+      {
+        onClick: () => isAdmin ? adminSignOut() : setLoginOpen(true),
+        style: { background: "transparent", border: "1px solid rgba(255,255,255,0.25)", color: CREAM, cursor: "pointer", padding: "6px 12px", borderRadius: 8, fontSize: 12.5, fontWeight: 600 }
+      },
+      isAdmin ? "Log out" : "Admin"
+    ), /* @__PURE__ */ React.createElement("button", { onClick: () => setMenuOpen(!menuOpen), style: { background: "transparent", border: "none", color: CREAM, cursor: "pointer", padding: 6 } }, menuOpen ? /* @__PURE__ */ React.createElement(IconX, { size: 26, color: CREAM }) : /* @__PURE__ */ React.createElement(IconMenu, { size: 26, color: CREAM })))), /* @__PURE__ */ React.createElement("div", { style: { background: "#1E1E2E", padding: "6px 20px" } }, /* @__PURE__ */ React.createElement("div", { style: { maxWidth: 1e3, margin: "0 auto", display: "flex", alignItems: "center", gap: 12 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, opacity: 0.75, whiteSpace: "nowrap" } }, "Overall progress"), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, height: 6, background: "rgba(255,255,255,0.12)", borderRadius: 99, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${overallPct}%`, height: "100%", background: NEON, transition: "width .4s" } })), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, fontWeight: 700, color: NEON } }, overallPct, "%")))), loginOpen && !isAdmin && /* @__PURE__ */ React.createElement(LoginModal, { onClose: () => setLoginOpen(false) }), menuOpen && /* @__PURE__ */ React.createElement("div", { style: { position: "fixed", inset: 0, zIndex: 40, background: "rgba(0,0,0,0.4)" }, onClick: () => setMenuOpen(false) }, /* @__PURE__ */ React.createElement("nav", { onClick: (e) => e.stopPropagation(), style: { position: "absolute", right: 0, top: 0, bottom: 0, width: 280, maxWidth: "80vw", background: CREAM, padding: "88px 16px 24px", overflowY: "auto", boxShadow: "-4px 0 20px rgba(0,0,0,0.2)" } }, NAV.map((n) => {
+      var _a;
+      const active = view.type === n.key || view.type === "week" && ((_a = view.week) == null ? void 0 : _a.id) === n.key;
+      return /* @__PURE__ */ React.createElement(
+        "button",
+        {
+          key: n.key,
+          onClick: () => go(n.week ? "week" : n.key, n.week),
+          style: { width: "100%", display: "flex", alignItems: "center", gap: 12, padding: "13px 14px", marginBottom: 4, background: active ? INK : "transparent", color: active ? CREAM : INK, border: "none", borderRadius: 10, cursor: "pointer", fontSize: 15, fontWeight: 600, textAlign: "left" }
+        },
+        /* @__PURE__ */ React.createElement(n.Icon, { size: 18, color: active ? CREAM : INK }),
+        " ",
+        n.label
       );
-    }
-
-    // ── HOME ──────────────────────────────────────────────────
-    function HomeView({ program, go, weekProgress }) {
-      return (<div>
-        <div style={{ background: INK, borderRadius: 20, padding: "40px 32px", color: CREAM, position: "relative", overflow: "hidden", marginBottom: 28 }}>
-          <div style={{ position: "absolute", top: -40, right: -40, width: 180, height: 180, background: NEON, opacity: 0.12, borderRadius: "50%" }} />
-          <div style={{ position: "absolute", bottom: -60, left: -20, width: 140, height: 140, background: ORANGE, opacity: 0.15, borderRadius: "50%" }} />
-          <div style={{ position: "relative" }}>
-            <div style={{ display: "inline-block", background: NEON, color: INK, fontSize: 12, fontWeight: 800, padding: "5px 12px", borderRadius: 99, letterSpacing: 0.5, marginBottom: 16 }}>WELCOME, DINESH 🌱</div>
-            <h1 style={{ fontSize: 34, fontWeight: 800, margin: "0 0 12px", lineHeight: 1.1 }}>{program.intro.title}</h1>
-            <p style={{ fontSize: 17, opacity: 0.85, margin: 0, fontWeight: 500 }}>{program.intro.subtitle}</p>
-          </div>
-        </div>
-        <div style={{ background: "white", borderRadius: 16, padding: "24px 26px", marginBottom: 24, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
-          {program.intro.body.map((t, i) => <p key={i} style={{ fontSize: 15.5, lineHeight: 1.65, color: "#333", margin: i === 0 ? "0 0 14px" : 0 }}>{t}</p>)}
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 14, marginBottom: 30 }}>
-          {program.intro.principles.map((p, i) => (
-            <div key={i} style={{ background: "white", borderRadius: 14, padding: 20, borderTop: `4px solid ${ORANGE}`, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
-              <div style={{ width: 42, height: 42, borderRadius: 10, background: CREAM, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}><IconFlame color={ORANGE} /></div>
-              <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 6 }}>{p.title}</div>
-              <div style={{ fontSize: 14, color: "#555", lineHeight: 1.5 }}>{p.text}</div>
-            </div>))}
-        </div>
-        <h2 style={{ fontSize: 22, fontWeight: 800, margin: "0 0 16px" }}>Your 4-Week Plan</h2>
-        <div style={{ display: "grid", gap: 14 }}>
-          {program.weeks.map((w) => {
-            const wp = weekProgress(w);
-            return (<button key={w.id} onClick={() => go("week", w)}
-              style={{ background: "white", borderRadius: 16, padding: "22px 24px", border: "none", cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", gap: 18, boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderLeft: `6px solid ${w.color}` }}>
-              <div style={{ minWidth: 54, height: 54, borderRadius: 12, background: w.color, color: "white", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", fontWeight: 800 }}>
-                <span style={{ fontSize: 10, opacity: 0.85 }}>WEEK</span>
-                <span style={{ fontSize: 22, lineHeight: 1 }}>{w.label.split(" ")[1]}</span>
-              </div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontWeight: 700, fontSize: 17, marginBottom: 3 }}>{w.theme}</div>
-                <div style={{ fontSize: 13, color: "#888", marginBottom: 8 }}>{w.dates}</div>
-                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                  <div style={{ flex: 1, maxWidth: 160, height: 6, background: "#eee", borderRadius: 99, overflow: "hidden" }}>
-                    <div style={{ width: `${wp.pct}%`, height: "100%", background: w.color }} />
-                  </div>
-                  <span style={{ fontSize: 12, color: "#999", fontWeight: 600 }}>{wp.done}/{wp.total} goals</span>
-                </div>
-              </div>
-              <IconChevron size={22} color="#ccc" />
-            </button>);
-          })}
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginTop: 24 }}>
-          <button onClick={() => go("resp")} style={{ background: INK, color: CREAM, border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" }}>
-            <IconChef size={24} color={NEON} />
-            <div style={{ fontWeight: 700, fontSize: 15, marginTop: 10 }}>Your Responsibilities</div>
-            <div style={{ fontSize: 12.5, opacity: 0.7, marginTop: 3 }}>What you own as Head Chef</div>
-          </button>
-          <button onClick={() => go("signoff")} style={{ background: ORANGE, color: "white", border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" }}>
-            <IconClip size={24} color="white" />
-            <div style={{ fontWeight: 700, fontSize: 15, marginTop: 10 }}>Daily Sign-off</div>
-            <div style={{ fontSize: 12.5, opacity: 0.85, marginTop: 3 }}>Your quality gate before delivery</div>
-          </button>
-        </div>
-      </div>);
-    }
-
-    // ── Small inline-edit helpers (admin only) ────────────────
-    // Uncontrolled + onBlur commit, so typing stays fast even though
-    // committing an edit clones & re-saves the whole program object.
-    function EditText({ value, onCommit, style, placeholder }) {
-      return (
-        <input defaultValue={value} placeholder={placeholder}
-          onBlur={(e) => { if (e.target.value !== value) onCommit(e.target.value); }}
-          style={{ border: "2px dashed #cfcfcf", borderRadius: 8, padding: "6px 9px", fontSize: 14, width: "100%", background: "#fffef8", ...style }} />
+    }))), /* @__PURE__ */ React.createElement("main", { style: { maxWidth: 1e3, margin: "0 auto", padding: "28px 20px 80px" } }, view.type === "home" && /* @__PURE__ */ React.createElement(HomeView, { program, go, weekProgress }), view.type === "week" && /* @__PURE__ */ React.createElement(WeekView, { program, week: program.weeks.find((w) => w.id === view.week.id) || view.week, progress, toggle, weekProgress, go, notes, setNote, isAdmin, updateProgram, saveStatus }), view.type === "resp" && /* @__PURE__ */ React.createElement(RespView, { program }), view.type === "signoff" && /* @__PURE__ */ React.createElement(SignoffView, { program })));
+  }
+  function HomeView({ program, go, weekProgress }) {
+    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { background: INK, borderRadius: 20, padding: "40px 32px", color: CREAM, position: "relative", overflow: "hidden", marginBottom: 28 } }, /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: -40, right: -40, width: 180, height: 180, background: NEON, opacity: 0.12, borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", bottom: -60, left: -20, width: 140, height: 140, background: ORANGE, opacity: 0.15, borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "relative" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "inline-block", background: NEON, color: INK, fontSize: 12, fontWeight: 800, padding: "5px 12px", borderRadius: 99, letterSpacing: 0.5, marginBottom: 16 } }, "WELCOME, DINESH \u{1F331}"), /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 34, fontWeight: 800, margin: "0 0 12px", lineHeight: 1.1 } }, program.intro.title), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 17, opacity: 0.85, margin: 0, fontWeight: 500 } }, program.intro.subtitle))), /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 16, padding: "24px 26px", marginBottom: 24, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, program.intro.body.map((t, i) => /* @__PURE__ */ React.createElement("p", { key: i, style: { fontSize: 15.5, lineHeight: 1.65, color: "#333", margin: i === 0 ? "0 0 14px" : 0 } }, t))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 14, marginBottom: 30 } }, program.intro.principles.map((p, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { background: "white", borderRadius: 14, padding: 20, borderTop: `4px solid ${ORANGE}`, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, /* @__PURE__ */ React.createElement("div", { style: { width: 42, height: 42, borderRadius: 10, background: CREAM, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 } }, /* @__PURE__ */ React.createElement(IconFlame, { color: ORANGE })), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 16, marginBottom: 6 } }, p.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: "#555", lineHeight: 1.5 } }, p.text)))), /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 22, fontWeight: 800, margin: "0 0 16px" } }, "Your 4-Week Plan"), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 14 } }, program.weeks.map((w) => {
+      const wp = weekProgress(w);
+      return /* @__PURE__ */ React.createElement(
+        "button",
+        {
+          key: w.id,
+          onClick: () => go("week", w),
+          style: { background: "white", borderRadius: 16, padding: "22px 24px", border: "none", cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", gap: 18, boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderLeft: `6px solid ${w.color}` }
+        },
+        /* @__PURE__ */ React.createElement("div", { style: { minWidth: 54, height: 54, borderRadius: 12, background: w.color, color: "white", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", fontWeight: 800 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 10, opacity: 0.85 } }, "WEEK"), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 22, lineHeight: 1 } }, w.label.split(" ")[1])),
+        /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 17, marginBottom: 3 } }, w.theme), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: "#888", marginBottom: 8 } }, w.dates), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, /* @__PURE__ */ React.createElement("div", { style: { flex: 1, maxWidth: 160, height: 6, background: "#eee", borderRadius: 99, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${wp.pct}%`, height: "100%", background: w.color } })), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: "#999", fontWeight: 600 } }, wp.done, "/", wp.total, " goals"))),
+        /* @__PURE__ */ React.createElement(IconChevron, { size: 22, color: "#ccc" })
       );
-    }
-    function EditArea({ value, onCommit, style, placeholder, rows = 2 }) {
-      return (
-        <textarea defaultValue={value} placeholder={placeholder} rows={rows}
-          onBlur={(e) => { if (e.target.value !== value) onCommit(e.target.value); }}
-          style={{ border: "2px dashed #cfcfcf", borderRadius: 8, padding: "8px 10px", fontSize: 14, width: "100%", background: "#fffef8", resize: "vertical", fontFamily: "inherit", ...style }} />
+    })), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginTop: 24 } }, /* @__PURE__ */ React.createElement("button", { onClick: () => go("resp"), style: { background: INK, color: CREAM, border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" } }, /* @__PURE__ */ React.createElement(IconChef, { size: 24, color: NEON }), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 15, marginTop: 10 } }, "Your Responsibilities"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, opacity: 0.7, marginTop: 3 } }, "What you own as Head Chef")), /* @__PURE__ */ React.createElement("button", { onClick: () => go("signoff"), style: { background: ORANGE, color: "white", border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" } }, /* @__PURE__ */ React.createElement(IconClip, { size: 24, color: "white" }), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 15, marginTop: 10 } }, "Daily Sign-off"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, opacity: 0.85, marginTop: 3 } }, "Your quality gate before delivery"))));
+  }
+  function EditText({ value, onCommit, style, placeholder }) {
+    return /* @__PURE__ */ React.createElement(
+      "input",
+      {
+        defaultValue: value,
+        placeholder,
+        onBlur: (e) => {
+          if (e.target.value !== value) onCommit(e.target.value);
+        },
+        style: { border: "2px dashed #cfcfcf", borderRadius: 8, padding: "6px 9px", fontSize: 14, width: "100%", background: "#fffef8", ...style }
+      }
+    );
+  }
+  function EditArea({ value, onCommit, style, placeholder, rows = 2 }) {
+    return /* @__PURE__ */ React.createElement(
+      "textarea",
+      {
+        defaultValue: value,
+        placeholder,
+        rows,
+        onBlur: (e) => {
+          if (e.target.value !== value) onCommit(e.target.value);
+        },
+        style: { border: "2px dashed #cfcfcf", borderRadius: 8, padding: "8px 10px", fontSize: 14, width: "100%", background: "#fffef8", resize: "vertical", fontFamily: "inherit", ...style }
+      }
+    );
+  }
+  function SaveBadge({ status }) {
+    if (!status) return null;
+    const map = {
+      saving: { text: "Saving\u2026", color: "#999" },
+      saved: { text: "Saved \u2713", color: SAGE },
+      error: { text: "Save failed", color: "#C0392B" }
+    };
+    const m = map[status];
+    if (!m) return null;
+    return /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, fontWeight: 700, color: m.color, marginLeft: 10 } }, m.text);
+  }
+  function WeekView({ program, week, progress, toggle, weekProgress, go, notes, setNote, isAdmin, updateProgram, saveStatus }) {
+    const wp = weekProgress(week);
+    const noteKey = `${week.id}_notes`;
+    const wIdx = program.weeks.findIndex((w) => w.id === week.id);
+    const editWeekField = (field, value) => updateProgram((p) => {
+      p.weeks[wIdx][field] = value;
+    });
+    const editDayField = (di, field, value) => updateProgram((p) => {
+      p.weeks[wIdx].days[di][field] = value;
+    });
+    const editTask = (di, ii, value) => updateProgram((p) => {
+      p.weeks[wIdx].days[di].items[ii] = value;
+    });
+    const addTask = (di) => updateProgram((p) => {
+      p.weeks[wIdx].days[di].items.push("New task\u2026");
+    });
+    const removeTask = (di, ii) => updateProgram((p) => {
+      p.weeks[wIdx].days[di].items.splice(ii, 1);
+    });
+    const addDay = () => updateProgram((p) => {
+      p.weeks[wIdx].days.push({ day: "New day", tag: "Label", items: ["New task\u2026"] });
+    });
+    const removeDay = (di) => updateProgram((p) => {
+      p.weeks[wIdx].days.splice(di, 1);
+    });
+    const editGoal = (i, value) => updateProgram((p) => {
+      p.weeks[wIdx].checklist[i] = value;
+    });
+    const addGoal = () => updateProgram((p) => {
+      p.weeks[wIdx].checklist.push("New goal\u2026");
+    });
+    const removeGoal = (i) => updateProgram((p) => {
+      p.weeks[wIdx].checklist.splice(i, 1);
+    });
+    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("button", { onClick: () => go("home"), style: { background: "none", border: "none", color: "#888", cursor: "pointer", fontSize: 14, display: "flex", alignItems: "center", gap: 5, marginBottom: 16, padding: 0 } }, /* @__PURE__ */ React.createElement(IconHome, { size: 15, color: "#888" }), " Home"), isAdmin && /* @__PURE__ */ React.createElement("div", { style: { background: NEON, borderRadius: 10, padding: "8px 14px", marginBottom: 16, display: "flex", alignItems: "center", fontSize: 13, fontWeight: 700, color: INK } }, /* @__PURE__ */ React.createElement(IconEdit, { size: 14, color: INK }), " ", /* @__PURE__ */ React.createElement("span", { style: { marginLeft: 7 } }, "Admin edit mode \u2014 click any dashed box to change it"), /* @__PURE__ */ React.createElement(SaveBadge, { status: saveStatus })), /* @__PURE__ */ React.createElement("div", { style: { background: week.color, borderRadius: 18, padding: "30px 28px", color: "white", marginBottom: 22, position: "relative", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: -30, right: -30, width: 130, height: 130, background: "rgba(255,255,255,0.1)", borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "relative" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, opacity: 0.85, fontWeight: 600, letterSpacing: 0.5 } }, week.label.toUpperCase(), " \xB7 ", week.dates), isAdmin ? /* @__PURE__ */ React.createElement("div", { style: { margin: "8px 0" } }, /* @__PURE__ */ React.createElement(EditText, { value: week.theme, onCommit: (v) => editWeekField("theme", v), style: { fontSize: 22, fontWeight: 800, color: INK, marginBottom: 6 } }), /* @__PURE__ */ React.createElement(EditText, { value: week.motto, onCommit: (v) => editWeekField("motto", v), style: { fontSize: 14, fontStyle: "italic", color: INK } })) : /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 30, fontWeight: 800, margin: "6px 0 8px" } }, week.theme), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 16, fontStyle: "italic", opacity: 0.92 } }, week.motto)))), /* @__PURE__ */ React.createElement("div", { style: { background: INK, color: CREAM, borderRadius: 14, padding: "20px 22px", marginBottom: 24, display: "flex", gap: 14 } }, /* @__PURE__ */ React.createElement(IconTarget, { size: 24, color: NEON }), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 13, color: NEON, letterSpacing: 0.5, marginBottom: 6 } }, "GOAL FOR THIS WEEK"), isAdmin ? /* @__PURE__ */ React.createElement(EditArea, { value: week.goal, onCommit: (v) => editWeekField("goal", v), rows: 3, style: { background: "#232336", color: CREAM, borderColor: "#444" } }) : /* @__PURE__ */ React.createElement("div", { style: { fontSize: 15, lineHeight: 1.6 } }, week.goal))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 } }, /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 19, fontWeight: 800, margin: 0 } }, "Daily Plan"), isAdmin && /* @__PURE__ */ React.createElement("button", { onClick: addDay, style: { display: "flex", alignItems: "center", gap: 5, background: "white", border: `1.5px dashed ${week.color}`, color: week.color, borderRadius: 8, padding: "6px 11px", fontSize: 12.5, fontWeight: 700, cursor: "pointer" } }, /* @__PURE__ */ React.createElement(IconPlus, { size: 14, color: week.color }), " Add day")), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 14, marginBottom: 28 } }, week.days.map((d, di) => /* @__PURE__ */ React.createElement("div", { key: di, style: { background: "white", borderRadius: 14, overflow: "hidden", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 20px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", justifyContent: "space-between", background: CREAM, gap: 10 } }, isAdmin ? /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(EditText, { value: d.day, onCommit: (v) => editDayField(di, "day", v), style: { fontWeight: 700, fontSize: 14, flex: 1 } }), /* @__PURE__ */ React.createElement(EditText, { value: d.tag, onCommit: (v) => editDayField(di, "tag", v), style: { fontSize: 12, width: 140, color: week.color } }), /* @__PURE__ */ React.createElement("button", { onClick: () => removeDay(di), style: { background: "none", border: "none", cursor: "pointer", padding: 4 } }, /* @__PURE__ */ React.createElement(IconTrash, { size: 16, color: "#C0392B" }))) : /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { style: { fontWeight: 700, fontSize: 15 } }, d.day), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, fontWeight: 700, color: week.color, background: `${week.color}18`, padding: "4px 10px", borderRadius: 99 } }, d.tag))), /* @__PURE__ */ React.createElement("div", { style: { padding: "8px 20px 14px" } }, d.items.map((it, ii) => {
+      const key = `${week.id}_d${di}_${ii}`;
+      const done = progress[key];
+      if (isAdmin) {
+        return /* @__PURE__ */ React.createElement("div", { key: ii, style: { display: "flex", alignItems: "center", gap: 8, padding: "6px 0" } }, /* @__PURE__ */ React.createElement(EditText, { value: it, onCommit: (v) => editTask(di, ii, v), style: { flex: 1 } }), /* @__PURE__ */ React.createElement("button", { onClick: () => removeTask(di, ii), style: { background: "none", border: "none", cursor: "pointer", padding: 4, flexShrink: 0 } }, /* @__PURE__ */ React.createElement(IconTrash, { size: 15, color: "#C0392B" })));
+      }
+      return /* @__PURE__ */ React.createElement(
+        "button",
+        {
+          key: ii,
+          onClick: () => toggle(key),
+          style: { width: "100%", display: "flex", alignItems: "flex-start", gap: 11, padding: "9px 0", background: "none", border: "none", cursor: "pointer", textAlign: "left", borderBottom: ii < d.items.length - 1 ? "1px solid #f6f6f6" : "none" }
+        },
+        done ? /* @__PURE__ */ React.createElement(IconCheckCircle, { size: 20, color: SAGE }) : /* @__PURE__ */ React.createElement(IconCircle, { size: 20, color: "#ccc" }),
+        /* @__PURE__ */ React.createElement("span", { style: { fontSize: 14.5, color: done ? "#aaa" : "#333", textDecoration: done ? "line-through" : "none", lineHeight: 1.45 } }, it)
       );
-    }
-    function SaveBadge({ status }) {
-      if (!status) return null;
-      const map = {
-        saving: { text: "Saving…", color: "#999" },
-        saved:  { text: "Saved ✓", color: SAGE },
-        error:  { text: "Save failed", color: "#C0392B" },
-      };
-      const m = map[status]; if (!m) return null;
-      return <span style={{ fontSize: 12, fontWeight: 700, color: m.color, marginLeft: 10 }}>{m.text}</span>;
-    }
+    }), isAdmin && /* @__PURE__ */ React.createElement("button", { onClick: () => addTask(di), style: { display: "flex", alignItems: "center", gap: 5, background: "none", border: "none", color: week.color, cursor: "pointer", fontSize: 13, fontWeight: 700, padding: "8px 0 2px" } }, /* @__PURE__ */ React.createElement(IconPlus, { size: 13, color: week.color }), " Add task"))))), /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 16, padding: "22px 24px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", border: `2px solid ${week.color}25` } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 17, fontWeight: 800, margin: 0, display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement(IconStar, { size: 18, color: week.color }), " End-of-Week Goals"), isAdmin ? /* @__PURE__ */ React.createElement("button", { onClick: addGoal, style: { display: "flex", alignItems: "center", gap: 5, background: "none", border: `1.5px dashed ${week.color}`, color: week.color, borderRadius: 8, padding: "5px 10px", fontSize: 12, fontWeight: 700, cursor: "pointer" } }, /* @__PURE__ */ React.createElement(IconPlus, { size: 13, color: week.color }), " Add goal") : /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13, fontWeight: 700, color: week.color } }, wp.done, "/", wp.total)), week.checklist.map((c, i) => {
+      const key = `${week.id}_goal_${i}`;
+      const done = progress[key];
+      if (isAdmin) {
+        return /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", alignItems: "center", gap: 8, padding: "6px 0" } }, /* @__PURE__ */ React.createElement(EditText, { value: c, onCommit: (v) => editGoal(i, v), style: { flex: 1 } }), /* @__PURE__ */ React.createElement("button", { onClick: () => removeGoal(i), style: { background: "none", border: "none", cursor: "pointer", padding: 4, flexShrink: 0 } }, /* @__PURE__ */ React.createElement(IconTrash, { size: 15, color: "#C0392B" })));
+      }
+      return /* @__PURE__ */ React.createElement(
+        "button",
+        {
+          key: i,
+          onClick: () => toggle(key),
+          style: { width: "100%", display: "flex", alignItems: "flex-start", gap: 11, padding: "11px 0", background: "none", border: "none", cursor: "pointer", textAlign: "left", borderBottom: i < week.checklist.length - 1 ? "1px solid #f6f6f6" : "none" }
+        },
+        /* @__PURE__ */ React.createElement("div", { style: { width: 22, height: 22, borderRadius: 6, border: done ? "none" : "2px solid #ddd", background: done ? week.color : "transparent", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1 } }, done && /* @__PURE__ */ React.createElement(IconCheck, { size: 15, color: "white", sw: 3 })),
+        /* @__PURE__ */ React.createElement("span", { style: { fontSize: 15, color: done ? "#aaa" : "#222", fontWeight: 500, textDecoration: done ? "line-through" : "none", lineHeight: 1.45 } }, c)
+      );
+    }), !isAdmin && wp.pct === 100 && /* @__PURE__ */ React.createElement("div", { style: { marginTop: 16, padding: "12px 16px", background: `${SAGE}15`, borderRadius: 10, display: "flex", alignItems: "center", gap: 10, color: SAGE, fontWeight: 700, fontSize: 14 } }, /* @__PURE__ */ React.createElement(IconCheckCircle, { size: 20, color: SAGE }), " Week complete \u2014 great work! \u{1F389}")), !isAdmin && /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 16, padding: "22px 24px", marginTop: 18, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 17, fontWeight: 800, margin: "0 0 4px", display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement(IconMsg, { size: 18, color: week.color }), " My Notes"), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 13, color: "#999", margin: "0 0 12px" } }, "Write down questions, observations or ideas. Saved automatically."), /* @__PURE__ */ React.createElement(
+      "textarea",
+      {
+        value: notes[noteKey] || "",
+        onChange: (e) => setNote(noteKey, e.target.value),
+        placeholder: "Type your notes for this week here\u2026",
+        style: { width: "100%", minHeight: 130, resize: "vertical", border: "2px solid #eee", borderRadius: 12, padding: "14px 16px", fontSize: 15, lineHeight: 1.55, color: "#333", outline: "none", background: CREAM },
+        onFocus: (e) => e.target.style.borderColor = week.color,
+        onBlur: (e) => e.target.style.borderColor = "#eee"
+      }
+    )), isAdmin && notes[noteKey] && /* @__PURE__ */ React.createElement("div", { style: { background: "#FFF8DC", borderRadius: 16, padding: "18px 22px", marginTop: 18, border: "1px solid #eee0b0" } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 14, fontWeight: 800, margin: "0 0 8px", color: "#8a6d00" } }, "Dinesh's notes for this week"), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 14, lineHeight: 1.55, margin: 0, color: "#444", whiteSpace: "pre-wrap" } }, notes[noteKey])), (() => {
+      const next = program.weeks[wIdx + 1];
+      if (!next) return null;
+      return /* @__PURE__ */ React.createElement("button", { onClick: () => go("week", next), style: { marginTop: 20, width: "100%", background: INK, color: CREAM, border: "none", borderRadius: 14, padding: "18px 22px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "space-between" } }, /* @__PURE__ */ React.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, opacity: 0.7 } }, "NEXT"), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 16 } }, next.label, ": ", next.theme)), /* @__PURE__ */ React.createElement(IconArrow, { size: 22, color: NEON }));
+    })());
+  }
+  function RespView({ program }) {
+    const R = program.responsibilities;
+    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 28, fontWeight: 800, margin: "0 0 6px" } }, R.title), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15.5, color: "#666", margin: "0 0 24px" } }, R.subtitle), R.team && /* @__PURE__ */ React.createElement("div", { style: { background: INK, color: CREAM, borderRadius: 16, padding: "24px 26px", marginBottom: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 10 } }, /* @__PURE__ */ React.createElement(IconUsers, { size: 22, color: NEON }), /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 18, fontWeight: 800, margin: 0 } }, R.team.title)), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15, lineHeight: 1.65, margin: 0, opacity: 0.9 } }, R.team.text)), R.leadership && /* @__PURE__ */ React.createElement("div", { style: { background: NEON, color: INK, borderRadius: 16, padding: "24px 26px", marginBottom: 28 } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 18, fontWeight: 800, margin: "0 0 8px" } }, R.leadership.title), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15, lineHeight: 1.65, margin: 0, fontWeight: 500 } }, R.leadership.text)), /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 20, fontWeight: 800, margin: "0 0 14px", display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement("span", { style: { width: 10, height: 10, borderRadius: "50%", background: ORANGE, display: "inline-block" } }), R.yoursTitle || "Your Responsibilities"), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 14, marginBottom: 28 } }, R.yours.map((r, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { background: "white", borderRadius: 14, padding: 22, boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `4px solid ${ORANGE}` } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 16, marginBottom: 7 } }, r.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: "#555", lineHeight: 1.55 } }, r.text)))), R.nooru && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 20, fontWeight: 800, margin: "0 0 14px", display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement("span", { style: { width: 10, height: 10, borderRadius: "50%", background: SAGE, display: "inline-block" } }), R.nooruTitle || "Nooru's Responsibilities"), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 14, marginBottom: 28 } }, R.nooru.map((r, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { background: "white", borderRadius: 14, padding: 22, boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `4px solid ${SAGE}` } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 16, marginBottom: 7 } }, r.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: "#555", lineHeight: 1.55 } }, r.text))))), /* @__PURE__ */ React.createElement("div", { style: { background: SAGE, color: "white", borderRadius: 16, padding: "26px 28px", marginBottom: 28 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 10 } }, /* @__PURE__ */ React.createElement(IconUsers, { size: 24, color: "white" }), /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 19, fontWeight: 800, margin: 0 } }, R.sous.title)), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15.5, lineHeight: 1.65, margin: 0, opacity: 0.95 } }, R.sous.text)), R.working && /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 16, padding: "26px 28px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `4px solid ${NEON}` } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 19, fontWeight: 800, margin: "0 0 14px" } }, R.working.title), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexWrap: "wrap", gap: 9, marginBottom: 14 } }, R.working.values.map((v, i) => /* @__PURE__ */ React.createElement("span", { key: i, style: { fontSize: 13.5, fontWeight: 700, color: INK, background: CREAM, border: "1.5px solid #eadfae", padding: "7px 14px", borderRadius: 99 } }, v))), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15.5, lineHeight: 1.6, margin: 0, color: "#444", fontWeight: 500 } }, R.working.text)));
+  }
+  function SignoffView({ program }) {
+    const S = program.signoff;
+    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 28, fontWeight: 800, margin: "0 0 6px" } }, S.title), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15.5, color: "#666", margin: "0 0 20px" } }, S.subtitle), /* @__PURE__ */ React.createElement("div", { style: { background: ORANGE, color: "white", borderRadius: 14, padding: "20px 24px", marginBottom: 24, fontSize: 15.5, lineHeight: 1.6, fontWeight: 500 } }, S.text), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 14 } }, S.steps.map((s) => /* @__PURE__ */ React.createElement("div", { key: s.n, style: { background: "white", borderRadius: 14, padding: "22px 24px", display: "flex", gap: 18, alignItems: "flex-start", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, /* @__PURE__ */ React.createElement("div", { style: { minWidth: 44, height: 44, borderRadius: "50%", background: INK, color: NEON, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 19 } }, s.n), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 16.5, marginBottom: 5 } }, s.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14.5, color: "#555", lineHeight: 1.55 } }, s.text))))), /* @__PURE__ */ React.createElement("div", { style: { marginTop: 20, padding: "18px 22px", background: INK, color: CREAM, borderRadius: 14, display: "flex", alignItems: "center", gap: 12, fontSize: 15, fontWeight: 600 } }, /* @__PURE__ */ React.createElement(IconTruck, { size: 22, color: NEON }), " No approval slip = no departure. Everton only loads after your release."));
+  }
+  ReactDOM.createRoot(document.getElementById("root")).render(/* @__PURE__ */ React.createElement(App, null));
+})();
 
-    // ── WEEK ──────────────────────────────────────────────────
-    function WeekView({ program, week, progress, toggle, weekProgress, go, notes, setNote, isAdmin, updateProgram, saveStatus }) {
-      const wp = weekProgress(week);
-      const noteKey = `${week.id}_notes`;
-      const wIdx = program.weeks.findIndex((w) => w.id === week.id);
-
-      const editWeekField = (field, value) => updateProgram((p) => { p.weeks[wIdx][field] = value; });
-      const editDayField = (di, field, value) => updateProgram((p) => { p.weeks[wIdx].days[di][field] = value; });
-      const editTask = (di, ii, value) => updateProgram((p) => { p.weeks[wIdx].days[di].items[ii] = value; });
-      const addTask = (di) => updateProgram((p) => { p.weeks[wIdx].days[di].items.push("New task…"); });
-      const removeTask = (di, ii) => updateProgram((p) => { p.weeks[wIdx].days[di].items.splice(ii, 1); });
-      const addDay = () => updateProgram((p) => { p.weeks[wIdx].days.push({ day: "New day", tag: "Label", items: ["New task…"] }); });
-      const removeDay = (di) => updateProgram((p) => { p.weeks[wIdx].days.splice(di, 1); });
-      const editGoal = (i, value) => updateProgram((p) => { p.weeks[wIdx].checklist[i] = value; });
-      const addGoal = () => updateProgram((p) => { p.weeks[wIdx].checklist.push("New goal…"); });
-      const removeGoal = (i) => updateProgram((p) => { p.weeks[wIdx].checklist.splice(i, 1); });
-
-      return (<div>
-        <button onClick={() => go("home")} style={{ background: "none", border: "none", color: "#888", cursor: "pointer", fontSize: 14, display: "flex", alignItems: "center", gap: 5, marginBottom: 16, padding: 0 }}>
-          <IconHome size={15} color="#888" /> Home</button>
-
-        {isAdmin && (
-          <div style={{ background: NEON, borderRadius: 10, padding: "8px 14px", marginBottom: 16, display: "flex", alignItems: "center", fontSize: 13, fontWeight: 700, color: INK }}>
-            <IconEdit size={14} color={INK} /> <span style={{ marginLeft: 7 }}>Admin edit mode — click any dashed box to change it</span>
-            <SaveBadge status={saveStatus} />
-          </div>
-        )}
-
-        <div style={{ background: week.color, borderRadius: 18, padding: "30px 28px", color: "white", marginBottom: 22, position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", top: -30, right: -30, width: 130, height: 130, background: "rgba(255,255,255,0.1)", borderRadius: "50%" }} />
-          <div style={{ position: "relative" }}>
-            <div style={{ fontSize: 13, opacity: 0.85, fontWeight: 600, letterSpacing: 0.5 }}>{week.label.toUpperCase()} · {week.dates}</div>
-            {isAdmin ? (
-              <div style={{ margin: "8px 0" }}>
-                <EditText value={week.theme} onCommit={(v) => editWeekField("theme", v)} style={{ fontSize: 22, fontWeight: 800, color: INK, marginBottom: 6 }} />
-                <EditText value={week.motto} onCommit={(v) => editWeekField("motto", v)} style={{ fontSize: 14, fontStyle: "italic", color: INK }} />
-              </div>
-            ) : (<>
-              <h1 style={{ fontSize: 30, fontWeight: 800, margin: "6px 0 8px" }}>{week.theme}</h1>
-              <div style={{ fontSize: 16, fontStyle: "italic", opacity: 0.92 }}>{week.motto}</div>
-            </>)}
-          </div>
-        </div>
-
-        <div style={{ background: INK, color: CREAM, borderRadius: 14, padding: "20px 22px", marginBottom: 24, display: "flex", gap: 14 }}>
-          <IconTarget size={24} color={NEON} />
-          <div style={{ flex: 1 }}>
-            <div style={{ fontWeight: 700, fontSize: 13, color: NEON, letterSpacing: 0.5, marginBottom: 6 }}>GOAL FOR THIS WEEK</div>
-            {isAdmin
-              ? <EditArea value={week.goal} onCommit={(v) => editWeekField("goal", v)} rows={3} style={{ background: "#232336", color: CREAM, borderColor: "#444" }} />
-              : <div style={{ fontSize: 15, lineHeight: 1.6 }}>{week.goal}</div>}
-          </div>
-        </div>
-
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
-          <h2 style={{ fontSize: 19, fontWeight: 800, margin: 0 }}>Daily Plan</h2>
-          {isAdmin && (
-            <button onClick={addDay} style={{ display: "flex", alignItems: "center", gap: 5, background: "white", border: `1.5px dashed ${week.color}`, color: week.color, borderRadius: 8, padding: "6px 11px", fontSize: 12.5, fontWeight: 700, cursor: "pointer" }}>
-              <IconPlus size={14} color={week.color} /> Add day
-            </button>
-          )}
-        </div>
-
-        <div style={{ display: "grid", gap: 14, marginBottom: 28 }}>
-          {week.days.map((d, di) => (
-            <div key={di} style={{ background: "white", borderRadius: 14, overflow: "hidden", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
-              <div style={{ padding: "14px 20px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", justifyContent: "space-between", background: CREAM, gap: 10 }}>
-                {isAdmin ? (
-                  <>
-                    <EditText value={d.day} onCommit={(v) => editDayField(di, "day", v)} style={{ fontWeight: 700, fontSize: 14, flex: 1 }} />
-                    <EditText value={d.tag} onCommit={(v) => editDayField(di, "tag", v)} style={{ fontSize: 12, width: 140, color: week.color }} />
-                    <button onClick={() => removeDay(di)} style={{ background: "none", border: "none", cursor: "pointer", padding: 4 }}><IconTrash size={16} color="#C0392B" /></button>
-                  </>
-                ) : (<>
-                  <span style={{ fontWeight: 700, fontSize: 15 }}>{d.day}</span>
-                  <span style={{ fontSize: 11, fontWeight: 700, color: week.color, background: `${week.color}18`, padding: "4px 10px", borderRadius: 99 }}>{d.tag}</span>
-                </>)}
-              </div>
-              <div style={{ padding: "8px 20px 14px" }}>
-                {d.items.map((it, ii) => {
-                  const key = `${week.id}_d${di}_${ii}`; const done = progress[key];
-                  if (isAdmin) {
-                    return (
-                      <div key={ii} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 0" }}>
-                        <EditText value={it} onCommit={(v) => editTask(di, ii, v)} style={{ flex: 1 }} />
-                        <button onClick={() => removeTask(di, ii)} style={{ background: "none", border: "none", cursor: "pointer", padding: 4, flexShrink: 0 }}><IconTrash size={15} color="#C0392B" /></button>
-                      </div>
-                    );
-                  }
-                  return (<button key={ii} onClick={() => toggle(key)}
-                    style={{ width: "100%", display: "flex", alignItems: "flex-start", gap: 11, padding: "9px 0", background: "none", border: "none", cursor: "pointer", textAlign: "left", borderBottom: ii < d.items.length - 1 ? "1px solid #f6f6f6" : "none" }}>
-                    {done ? <IconCheckCircle size={20} color={SAGE} /> : <IconCircle size={20} color="#ccc" />}
-                    <span style={{ fontSize: 14.5, color: done ? "#aaa" : "#333", textDecoration: done ? "line-through" : "none", lineHeight: 1.45 }}>{it}</span>
-                  </button>);
-                })}
-                {isAdmin && (
-                  <button onClick={() => addTask(di)} style={{ display: "flex", alignItems: "center", gap: 5, background: "none", border: "none", color: week.color, cursor: "pointer", fontSize: 13, fontWeight: 700, padding: "8px 0 2px" }}>
-                    <IconPlus size={13} color={week.color} /> Add task
-                  </button>
-                )}
-              </div>
-            </div>))}
-        </div>
-
-        <div style={{ background: "white", borderRadius: 16, padding: "22px 24px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", border: `2px solid ${week.color}25` }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
-            <h3 style={{ fontSize: 17, fontWeight: 800, margin: 0, display: "flex", alignItems: "center", gap: 8 }}><IconStar size={18} color={week.color} /> End-of-Week Goals</h3>
-            {isAdmin
-              ? <button onClick={addGoal} style={{ display: "flex", alignItems: "center", gap: 5, background: "none", border: `1.5px dashed ${week.color}`, color: week.color, borderRadius: 8, padding: "5px 10px", fontSize: 12, fontWeight: 700, cursor: "pointer" }}><IconPlus size={13} color={week.color} /> Add goal</button>
-              : <span style={{ fontSize: 13, fontWeight: 700, color: week.color }}>{wp.done}/{wp.total}</span>}
-          </div>
-          {week.checklist.map((c, i) => {
-            const key = `${week.id}_goal_${i}`; const done = progress[key];
-            if (isAdmin) {
-              return (
-                <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 0" }}>
-                  <EditText value={c} onCommit={(v) => editGoal(i, v)} style={{ flex: 1 }} />
-                  <button onClick={() => removeGoal(i)} style={{ background: "none", border: "none", cursor: "pointer", padding: 4, flexShrink: 0 }}><IconTrash size={15} color="#C0392B" /></button>
-                </div>
-              );
-            }
-            return (<button key={i} onClick={() => toggle(key)}
-              style={{ width: "100%", display: "flex", alignItems: "flex-start", gap: 11, padding: "11px 0", background: "none", border: "none", cursor: "pointer", textAlign: "left", borderBottom: i < week.checklist.length - 1 ? "1px solid #f6f6f6" : "none" }}>
-              <div style={{ width: 22, height: 22, borderRadius: 6, border: done ? "none" : "2px solid #ddd", background: done ? week.color : "transparent", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1 }}>
-                {done && <IconCheck size={15} color="white" sw={3} />}
-              </div>
-              <span style={{ fontSize: 15, color: done ? "#aaa" : "#222", fontWeight: 500, textDecoration: done ? "line-through" : "none", lineHeight: 1.45 }}>{c}</span>
-            </button>);
-          })}
-          {!isAdmin && wp.pct === 100 && (<div style={{ marginTop: 16, padding: "12px 16px", background: `${SAGE}15`, borderRadius: 10, display: "flex", alignItems: "center", gap: 10, color: SAGE, fontWeight: 700, fontSize: 14 }}>
-            <IconCheckCircle size={20} color={SAGE} /> Week complete — great work! 🎉</div>)}
-        </div>
-
-        {!isAdmin && (
-          <div style={{ background: "white", borderRadius: 16, padding: "22px 24px", marginTop: 18, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
-            <h3 style={{ fontSize: 17, fontWeight: 800, margin: "0 0 4px", display: "flex", alignItems: "center", gap: 8 }}><IconMsg size={18} color={week.color} /> My Notes</h3>
-            <p style={{ fontSize: 13, color: "#999", margin: "0 0 12px" }}>Write down questions, observations or ideas. Saved automatically.</p>
-            <textarea value={notes[noteKey] || ""} onChange={(e) => setNote(noteKey, e.target.value)}
-              placeholder="Type your notes for this week here…"
-              style={{ width: "100%", minHeight: 130, resize: "vertical", border: "2px solid #eee", borderRadius: 12, padding: "14px 16px", fontSize: 15, lineHeight: 1.55, color: "#333", outline: "none", background: CREAM }}
-              onFocus={(e) => (e.target.style.borderColor = week.color)} onBlur={(e) => (e.target.style.borderColor = "#eee")} />
-          </div>
-        )}
-
-        {isAdmin && notes[noteKey] && (
-          <div style={{ background: "#FFF8DC", borderRadius: 16, padding: "18px 22px", marginTop: 18, border: "1px solid #eee0b0" }}>
-            <h3 style={{ fontSize: 14, fontWeight: 800, margin: "0 0 8px", color: "#8a6d00" }}>Dinesh's notes for this week</h3>
-            <p style={{ fontSize: 14, lineHeight: 1.55, margin: 0, color: "#444", whiteSpace: "pre-wrap" }}>{notes[noteKey]}</p>
-          </div>
-        )}
-
-        {(() => {
-          const next = program.weeks[wIdx + 1];
-          if (!next) return null;
-          return (<button onClick={() => go("week", next)} style={{ marginTop: 20, width: "100%", background: INK, color: CREAM, border: "none", borderRadius: 14, padding: "18px 22px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <div style={{ textAlign: "left" }}>
-              <div style={{ fontSize: 12, opacity: 0.7 }}>NEXT</div>
-              <div style={{ fontWeight: 700, fontSize: 16 }}>{next.label}: {next.theme}</div>
-            </div>
-            <IconArrow size={22} color={NEON} />
-          </button>);
-        })()}
-      </div>);
-    }
-
-    // ── RESPONSIBILITIES ──────────────────────────────────────
-    function RespView({ program }) {
-      const R = program.responsibilities;
-      return (<div>
-        <h1 style={{ fontSize: 28, fontWeight: 800, margin: "0 0 6px" }}>{R.title}</h1>
-        <p style={{ fontSize: 15.5, color: "#666", margin: "0 0 24px" }}>{R.subtitle}</p>
-
-        {/* TEAM OVERVIEW */}
-        {R.team && (
-          <div style={{ background: INK, color: CREAM, borderRadius: 16, padding: "24px 26px", marginBottom: 16 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-              <IconUsers size={22} color={NEON} />
-              <h3 style={{ fontSize: 18, fontWeight: 800, margin: 0 }}>{R.team.title}</h3>
-            </div>
-            <p style={{ fontSize: 15, lineHeight: 1.65, margin: 0, opacity: 0.9 }}>{R.team.text}</p>
-          </div>
-        )}
-
-        {/* SHARED LEADERSHIP */}
-        {R.leadership && (
-          <div style={{ background: NEON, color: INK, borderRadius: 16, padding: "24px 26px", marginBottom: 28 }}>
-            <h3 style={{ fontSize: 18, fontWeight: 800, margin: "0 0 8px" }}>{R.leadership.title}</h3>
-            <p style={{ fontSize: 15, lineHeight: 1.65, margin: 0, fontWeight: 500 }}>{R.leadership.text}</p>
-          </div>
-        )}
-
-        {/* DINESH RESPONSIBILITIES */}
-        <h2 style={{ fontSize: 20, fontWeight: 800, margin: "0 0 14px", display: "flex", alignItems: "center", gap: 8 }}>
-          <span style={{ width: 10, height: 10, borderRadius: "50%", background: ORANGE, display: "inline-block" }} />
-          {R.yoursTitle || "Your Responsibilities"}
-        </h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 14, marginBottom: 28 }}>
-          {R.yours.map((r, i) => (
-            <div key={i} style={{ background: "white", borderRadius: 14, padding: 22, boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `4px solid ${ORANGE}` }}>
-              <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 7 }}>{r.title}</div>
-              <div style={{ fontSize: 14, color: "#555", lineHeight: 1.55 }}>{r.text}</div>
-            </div>))}
-        </div>
-
-        {/* NOORU RESPONSIBILITIES */}
-        {R.nooru && (<>
-          <h2 style={{ fontSize: 20, fontWeight: 800, margin: "0 0 14px", display: "flex", alignItems: "center", gap: 8 }}>
-            <span style={{ width: 10, height: 10, borderRadius: "50%", background: SAGE, display: "inline-block" }} />
-            {R.nooruTitle || "Nooru's Responsibilities"}
-          </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 14, marginBottom: 28 }}>
-            {R.nooru.map((r, i) => (
-              <div key={i} style={{ background: "white", borderRadius: 14, padding: 22, boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `4px solid ${SAGE}` }}>
-                <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 7 }}>{r.title}</div>
-                <div style={{ fontSize: 14, color: "#555", lineHeight: 1.55 }}>{r.text}</div>
-              </div>))}
-          </div>
-        </>)}
-
-        {/* HOW TO WORK WITH NOORU */}
-        <div style={{ background: SAGE, color: "white", borderRadius: 16, padding: "26px 28px", marginBottom: 28 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}><IconUsers size={24} color="white" /><h3 style={{ fontSize: 19, fontWeight: 800, margin: 0 }}>{R.sous.title}</h3></div>
-          <p style={{ fontSize: 15.5, lineHeight: 1.65, margin: 0, opacity: 0.95 }}>{R.sous.text}</p>
-        </div>
-
-        {/* WORKING STYLE */}
-        {R.working && (
-          <div style={{ background: "white", borderRadius: 16, padding: "26px 28px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `4px solid ${NEON}` }}>
-            <h3 style={{ fontSize: 19, fontWeight: 800, margin: "0 0 14px" }}>{R.working.title}</h3>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 9, marginBottom: 14 }}>
-              {R.working.values.map((v, i) => (
-                <span key={i} style={{ fontSize: 13.5, fontWeight: 700, color: INK, background: CREAM, border: "1.5px solid #eadfae", padding: "7px 14px", borderRadius: 99 }}>{v}</span>
-              ))}
-            </div>
-            <p style={{ fontSize: 15.5, lineHeight: 1.6, margin: 0, color: "#444", fontWeight: 500 }}>{R.working.text}</p>
-          </div>
-        )}
-      </div>);
-    }
-
-    // ── SIGN-OFF ──────────────────────────────────────────────
-    function SignoffView({ program }) {
-      const S = program.signoff;
-      return (<div>
-        <h1 style={{ fontSize: 28, fontWeight: 800, margin: "0 0 6px" }}>{S.title}</h1>
-        <p style={{ fontSize: 15.5, color: "#666", margin: "0 0 20px" }}>{S.subtitle}</p>
-        <div style={{ background: ORANGE, color: "white", borderRadius: 14, padding: "20px 24px", marginBottom: 24, fontSize: 15.5, lineHeight: 1.6, fontWeight: 500 }}>{S.text}</div>
-        <div style={{ display: "grid", gap: 14 }}>
-          {S.steps.map((s) => (
-            <div key={s.n} style={{ background: "white", borderRadius: 14, padding: "22px 24px", display: "flex", gap: 18, alignItems: "flex-start", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
-              <div style={{ minWidth: 44, height: 44, borderRadius: "50%", background: INK, color: NEON, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 19 }}>{s.n}</div>
-              <div><div style={{ fontWeight: 700, fontSize: 16.5, marginBottom: 5 }}>{s.title}</div><div style={{ fontSize: 14.5, color: "#555", lineHeight: 1.55 }}>{s.text}</div></div>
-            </div>))}
-        </div>
-        <div style={{ marginTop: 20, padding: "18px 22px", background: INK, color: CREAM, borderRadius: 14, display: "flex", alignItems: "center", gap: 12, fontSize: 15, fontWeight: 600 }}>
-          <IconTruck size={22} color={NEON} /> No approval slip = no departure. Everton only loads after your release.
-        </div>
-      </div>);
-    }
-
-    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-  </script>
+</script>
 </body>
 </html>
