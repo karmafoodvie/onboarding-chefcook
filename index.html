@@ -32,10 +32,100 @@
   const ORANGE = "#E94E1B";
   const CREAM = "#FBF8F0";
   const SAGE = "#2E7D5B";
+  const T = {
+    en: {
+      subtitle: "Head Chef Onboarding",
+      admin: "Admin",
+      logout: "Log out",
+      overallProgress: "Overall progress",
+      navHome: "Home",
+      navPhilosophy: "How We Cook",
+      navResp: "Responsibilities",
+      navSignoff: "Daily Sign-off",
+      welcomeBadge: "WELCOME, DINESH \u{1F331}",
+      yourWeeks: "Your First 4 Weeks \u{1F680}",
+      goals: "goals",
+      howWeCook: "How We Cook \u{1F331}",
+      howWeCookSub: "Our philosophy, in 8 bites",
+      yourResp: "Your Responsibilities",
+      yourRespSub: "Who owns what \u2014 you, Nooru, the team",
+      dailySignoff: "Daily Sign-off \u{1F512}",
+      dailySignoffSub: "Your quality gate before delivery",
+      home: "Home",
+      adminBanner: "Admin edit mode \u2014 click any dashed box to change it",
+      goalHeader: "GOAL FOR THIS WEEK",
+      gamePlan: "The Game Plan \u{1F3AF}",
+      addDay: "Add day",
+      addTask: "Add task",
+      addGoal: "Add goal",
+      endOfWeekGoals: "End-of-Week Goals",
+      weekComplete: "Week complete \u2014 great work! \u{1F389}",
+      myNotes: "My Notes",
+      myNotesSub: "Write down questions, observations or ideas. Saved automatically.",
+      notesPlaceholder: "Type your notes for this week here\u2026",
+      dineshNotes: "Dinesh's notes for this week",
+      next: "NEXT",
+      loginTitle: "Admin login",
+      loginSub: "Sign in to edit weeks, tasks and goals. Dinesh does not need this.",
+      email: "Email",
+      password: "Password",
+      cancel: "Cancel",
+      signIn: "Sign in",
+      signingIn: "Signing in\u2026",
+      loginError: "Login failed \u2014 check email & password.",
+      saving: "Saving\u2026",
+      saved: "Saved \u2713",
+      saveFailed: "Save failed"
+    },
+    de: {
+      subtitle: "Einschulung K\xFCchenchef",
+      admin: "Admin",
+      logout: "Abmelden",
+      overallProgress: "Gesamtfortschritt",
+      navHome: "Start",
+      navPhilosophy: "Wie wir kochen",
+      navResp: "Verantwortlichkeiten",
+      navSignoff: "Tages-Freigabe",
+      welcomeBadge: "WILLKOMMEN, DINESH \u{1F331}",
+      yourWeeks: "Deine ersten 4 Wochen \u{1F680}",
+      goals: "Ziele",
+      howWeCook: "Wie wir kochen \u{1F331}",
+      howWeCookSub: "Unsere Philosophie, in 8 H\xE4ppchen",
+      yourResp: "Deine Verantwortlichkeiten",
+      yourRespSub: "Wer macht was \u2014 du, Nooru, das Team",
+      dailySignoff: "Tages-Freigabe \u{1F512}",
+      dailySignoffSub: "Deine Qualit\xE4tskontrolle vor der Lieferung",
+      home: "Start",
+      adminBanner: "Admin-Bearbeitungsmodus \u2014 klick auf ein gestricheltes Feld zum \xC4ndern",
+      goalHeader: "ZIEL DIESER WOCHE",
+      gamePlan: "Der Wochenplan \u{1F3AF}",
+      addDay: "Tag hinzuf\xFCgen",
+      addTask: "Aufgabe hinzuf\xFCgen",
+      addGoal: "Ziel hinzuf\xFCgen",
+      endOfWeekGoals: "Wochenziele",
+      weekComplete: "Woche geschafft \u2014 super gemacht! \u{1F389}",
+      myNotes: "Meine Notizen",
+      myNotesSub: "Fragen, Beobachtungen oder Ideen notieren. Wird automatisch gespeichert.",
+      notesPlaceholder: "Hier deine Notizen f\xFCr diese Woche eintragen\u2026",
+      dineshNotes: "Dineshs Notizen zu dieser Woche",
+      next: "N\xC4CHSTE",
+      loginTitle: "Admin-Anmeldung",
+      loginSub: "Melde dich an, um Wochen, Aufgaben und Ziele zu bearbeiten. Dinesh braucht das nicht.",
+      email: "E-Mail",
+      password: "Passwort",
+      cancel: "Abbrechen",
+      signIn: "Anmelden",
+      signingIn: "Anmeldung l\xE4uft\u2026",
+      loginError: "Anmeldung fehlgeschlagen \u2014 E-Mail & Passwort pr\xFCfen.",
+      saving: "Speichert\u2026",
+      saved: "Gespeichert \u2713",
+      saveFailed: "Speichern fehlgeschlagen"
+    }
+  };
   const DEFAULT_PROGRAM = {
     intro: {
       title: "Welcome to Karma Food",
-      subtitle: "Your first weeks as Head Chef",
+      subtitle: "Your first weeks as Head Chef \u2014 let's cook something great together \u{1F525}",
       body: [
         "Karma Food was founded in 2014 by Simone and Adi Raihmann \u2014 a family business built from a love of healthy, Indian-inspired, plant-based food. Today we run several locations across Vienna and Klosterneuburg, plus catering, cooking classes, our curry pastes and webshop.",
         "You are joining as our Head Chef with full responsibility for the kitchen: recipes, quality, purchasing and leading the team. This app is your guide for the first four weeks. Work through it at your own pace \u2014 your progress is saved automatically."
@@ -194,8 +284,8 @@
       }
     ],
     responsibilities: {
-      title: "Roles & Responsibilities",
-      subtitle: "Who does what in our kitchen \u2014 so everyone has clarity",
+      title: "Who Does What \u{1F91D}",
+      subtitle: "So everyone in the kitchen knows exactly where they stand \u2014 no grey areas, no guessing",
       team: {
         title: "Our Kitchen Team",
         text: "We are a team of 5, from 5 countries \u2014 Pakistan, India, Afghanistan, Austria and Brazil. We speak English, German, Punjabi and Hindi. This mix is a strength: you and Nooru can bridge between team members in several languages."
@@ -232,14 +322,46 @@
       }
     },
     signoff: {
-      title: "Daily Sign-off (like a site manager)",
-      subtitle: "The main problem is forgetting. This checklist removes it.",
-      text: "Before Everton loads the transporter, you sign off. No approval slip = no departure. You check production, then filling & packaging, then give written release with a photo.",
+      title: "Daily Sign-off \u2014 You're the Gatekeeper \u{1F512}",
+      subtitle: "The #1 problem in any kitchen is forgetting. This checklist makes that impossible.",
+      text: "Every batch gets checked before it counts as done: production first, then filling & packaging, then your own final sign-off. On Fridays, Schrankerl batches get one extra step \u2014 a photo to Everton before he loads the transporter.",
       steps: [
         { n: 1, title: "Production check", text: "Taste, temperature, consistency for each dish (salad, curry, dessert)." },
         { n: 2, title: "Filling & packaging", text: "Labelling complete on every container, sealed, correct amount, photo taken." },
-        { n: 3, title: "Release for Everton", text: "All points ticked, photo sent, Everton informed. Sign & time." }
+        { n: 3, title: "Your final sign-off", text: "All points ticked, you're satisfied \u2014 batch done. Sign & time." }
       ]
+    },
+    philosophy: {
+      title: "How We Cook",
+      subtitle: "Our recipe for good food and good karma \u{1F331}",
+      intro: "This is the compass for every dish that leaves our kitchen. New ideas are always welcome \u2014 but they earn their place on the menu by fitting this philosophy, not by replacing it.",
+      core: "We cook light, balanced, fresh and full of flavour \u2014 so every single portion leaves people feeling good, not weighed down. Good food in, good energy out. That's the whole deal. \u2728",
+      pillars: [
+        { emoji: "\u{1F525}", title: "Taste", tag: "Bold, clear, unmistakably Karma", text: "One hero flavour leads, two or three supporting notes back it up. Salt, sour, sweet, bitter, umami \u2014 always in balance, never one drowning out the rest." },
+        { emoji: "\u{1F324}\uFE0F", title: "Lightness", tag: "Never a food coma", text: "Good oils, citrus and herbs do the heavy lifting \u2014 not cream and butter. People should leave the table lighter than they arrived, not needing a nap." },
+        { emoji: "\u2696\uFE0F", title: "Balance", tag: "Protein, veg, carbs \u2014 all pulling their weight", text: "Vegetables are a main character in every dish, not a side note. Every plate needs protein, veg, carbs (or legumes) and a splash of acid or fat to tie it together." },
+        { emoji: "\u{1F331}", title: "Freshness", tag: "Cooked today, for today", text: "Seasonal where we can, fresh herbs (not dried, unless that's the point), and nothing gets reheated tomorrow. What we serve is what we made this morning." },
+        { emoji: "\u2728", title: "Quality", tag: "Only what we'd serve a friend", text: "Traceable ingredients, spices ground fresh where possible. If we wouldn't be proud to explain where it came from, it doesn't go in the pot." },
+        { emoji: "\u{1F4E6}", title: "Fill & Presentation", tag: "Looks as good as it tastes \u2014 in the container", text: "Clean fill line, no mess on the rim, colour comes from real ingredients \u2014 not garnish for garnish's sake. First impression is the container, so it has to be spotless." },
+        { emoji: "\u2696\uFE0F", title: "Consistent Amounts", tag: "Same great fill, every single time", text: "Weighed, not eyeballed. Every dish has a documented standard in grams \u2014 that's how we keep quality identical whether it's Monday or Friday." },
+        { emoji: "\u{1F33F}", title: "Ingredients", tag: "Nothing you can't pronounce", text: "No artificial flavour enhancers \u2014 ever. Natural umami instead: mushrooms, tomato reduction, miso. If in doubt, simpler wins." }
+      ],
+      notTitle: "What We're Not",
+      not: [
+        { emoji: "\u{1F6AB}", text: "Not a diet kitchen \u2014 joy comes first, always." },
+        { emoji: "\u{1F6AB}", text: "Not a fusion playground \u2014 new ideas fit our handwriting, they don't overwrite it." },
+        { emoji: "\u{1F6AB}", text: "Not fast-and-cheap \u2014 efficient, yes. Cutting corners, never." }
+      ],
+      testTitle: "The 5-Question Test",
+      testSubtitle: "Before any new dish earns a spot on the menu, ask yourself:",
+      test: [
+        "Does the main flavour scream Karma?",
+        "Be honest \u2014 light, or heavy?",
+        "Protein, veg, carbs \u2014 is everyone pulling their weight?",
+        "Can we source these ingredients fresh, every week, reliably?",
+        "Can it be filled and packed cleanly, every time, without falling apart?"
+      ],
+      outro: "Pass all five? Welcome to the menu. \u{1F525} Fail one? Back to the drawing board \u2014 that's not a setback, that's the standard working."
     }
   };
   async function loadProgress() {
@@ -335,7 +457,7 @@
   const IconPlus = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("line", { x1: "12", y1: "5", x2: "12", y2: "19" }), /* @__PURE__ */ React.createElement("line", { x1: "5", y1: "12", x2: "19", y2: "12" })) });
   const IconTrash = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("polyline", { points: "3 6 5 6 21 6" }), /* @__PURE__ */ React.createElement("path", { d: "M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" }), /* @__PURE__ */ React.createElement("path", { d: "M10 11v6" }), /* @__PURE__ */ React.createElement("path", { d: "M14 11v6" }), /* @__PURE__ */ React.createElement("path", { d: "M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" })) });
   const IconLock = (p) => /* @__PURE__ */ React.createElement(Ico, { ...p, d: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("rect", { x: "3", y: "11", width: "18", height: "11", rx: "2" }), /* @__PURE__ */ React.createElement("path", { d: "M7 11V7a5 5 0 0 1 10 0v4" })) });
-  function LoginModal({ onClose }) {
+  function LoginModal({ onClose, t }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -347,7 +469,7 @@
       const { error: error2 } = await adminSignIn(email, password);
       setLoading(false);
       if (error2) {
-        setError("Login failed \u2014 check email & password.");
+        setError(t("loginError"));
         return;
       }
       onClose();
@@ -365,9 +487,9 @@
           onSubmit: submit,
           style: { background: "white", borderRadius: 16, padding: "28px 26px", width: 340, maxWidth: "100%", boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }
         },
-        /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 34, height: 34, borderRadius: 9, background: INK, display: "flex", alignItems: "center", justifyContent: "center" } }, /* @__PURE__ */ React.createElement(IconLock, { size: 17, color: NEON })), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 800, fontSize: 18 } }, "Admin login")),
-        /* @__PURE__ */ React.createElement("p", { style: { fontSize: 13, color: "#888", margin: "0 0 18px" } }, "Sign in to edit weeks, tasks and goals. Dinesh does not need this."),
-        /* @__PURE__ */ React.createElement("label", { style: { fontSize: 12.5, fontWeight: 700, color: "#555" } }, "Email"),
+        /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 34, height: 34, borderRadius: 9, background: INK, display: "flex", alignItems: "center", justifyContent: "center" } }, /* @__PURE__ */ React.createElement(IconLock, { size: 17, color: NEON })), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 800, fontSize: 18 } }, t("loginTitle"))),
+        /* @__PURE__ */ React.createElement("p", { style: { fontSize: 13, color: "#888", margin: "0 0 18px" } }, t("loginSub")),
+        /* @__PURE__ */ React.createElement("label", { style: { fontSize: 12.5, fontWeight: 700, color: "#555" } }, t("email")),
         /* @__PURE__ */ React.createElement(
           "input",
           {
@@ -378,7 +500,7 @@
             style: { width: "100%", padding: "10px 12px", margin: "6px 0 14px", border: "2px solid #eee", borderRadius: 9, fontSize: 14.5, boxSizing: "border-box" }
           }
         ),
-        /* @__PURE__ */ React.createElement("label", { style: { fontSize: 12.5, fontWeight: 700, color: "#555" } }, "Password"),
+        /* @__PURE__ */ React.createElement("label", { style: { fontSize: 12.5, fontWeight: 700, color: "#555" } }, t("password")),
         /* @__PURE__ */ React.createElement(
           "input",
           {
@@ -390,7 +512,7 @@
           }
         ),
         error && /* @__PURE__ */ React.createElement("div", { style: { color: "#C0392B", fontSize: 13, margin: "6px 0" } }, error),
-        /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 10, marginTop: 16 } }, /* @__PURE__ */ React.createElement("button", { type: "button", onClick: onClose, style: { flex: 1, padding: "11px 0", background: "#f2f2f2", border: "none", borderRadius: 9, fontWeight: 700, fontSize: 14, cursor: "pointer" } }, "Cancel"), /* @__PURE__ */ React.createElement("button", { type: "submit", disabled: loading, style: { flex: 1, padding: "11px 0", background: INK, color: NEON, border: "none", borderRadius: 9, fontWeight: 700, fontSize: 14, cursor: "pointer" } }, loading ? "Signing in\u2026" : "Sign in"))
+        /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 10, marginTop: 16 } }, /* @__PURE__ */ React.createElement("button", { type: "button", onClick: onClose, style: { flex: 1, padding: "11px 0", background: "#f2f2f2", border: "none", borderRadius: 9, fontWeight: 700, fontSize: 14, cursor: "pointer" } }, t("cancel")), /* @__PURE__ */ React.createElement("button", { type: "submit", disabled: loading, style: { flex: 1, padding: "11px 0", background: INK, color: NEON, border: "none", borderRadius: 9, fontWeight: 700, fontSize: 14, cursor: "pointer" } }, loading ? t("signingIn") : t("signIn")))
       )
     );
   }
@@ -402,6 +524,8 @@
     const [menuOpen, setMenuOpen] = useState(false);
     const [session, setSession] = useState(void 0);
     const [loginOpen, setLoginOpen] = useState(false);
+    const [lang, setLang] = useState("en");
+    const t = (key) => T[lang][key] || key;
     const [saveStatus, setSaveStatus] = useState("");
     useEffect(() => {
       loadProgress().then((p) => setProgress(p || {}));
@@ -457,24 +581,32 @@
       return total ? Math.round(done / total * 100) : 0;
     })();
     const NAV = [
-      { key: "home", label: "Home", Icon: IconHome },
+      { key: "home", label: t("navHome"), Icon: IconHome },
       ...program.weeks.map((w) => ({ key: w.id, label: w.label, Icon: IconCal, week: w })),
-      { key: "resp", label: "Responsibilities", Icon: IconChef },
-      { key: "signoff", label: "Daily Sign-off", Icon: IconClip }
+      { key: "philosophy", label: t("navPhilosophy"), Icon: IconFlame },
+      { key: "resp", label: t("navResp"), Icon: IconChef },
+      { key: "signoff", label: t("navSignoff"), Icon: IconClip }
     ];
-    const go = (t, w) => {
-      setView({ type: t, week: w });
+    const go = (t2, w) => {
+      setView({ type: t2, week: w });
       setMenuOpen(false);
       window.scrollTo(0, 0);
     };
-    return /* @__PURE__ */ React.createElement("div", { style: { minHeight: "100vh", background: CREAM, fontFamily: "'Segoe UI', system-ui, sans-serif", color: INK } }, /* @__PURE__ */ React.createElement("header", { style: { background: INK, color: CREAM, position: "sticky", top: 0, zIndex: 50, boxShadow: "0 2px 12px rgba(0,0,0,0.15)" } }, /* @__PURE__ */ React.createElement("div", { style: { maxWidth: 1e3, margin: "0 auto", padding: "14px 20px", display: "flex", alignItems: "center", justifyContent: "space-between" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, cursor: "pointer" }, onClick: () => go("home") }, /* @__PURE__ */ React.createElement("div", { style: { width: 34, height: 34, background: NEON, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" } }, /* @__PURE__ */ React.createElement(IconChef, { size: 20, color: INK, sw: 2.5 })), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 800, fontSize: 15, letterSpacing: 0.3 } }, "KARMA FOOD"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, opacity: 0.7 } }, "Head Chef Onboarding"))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, isAdmin && /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, fontWeight: 700, color: INK, background: NEON, padding: "5px 10px", borderRadius: 99, display: "flex", alignItems: "center", gap: 5 } }, /* @__PURE__ */ React.createElement(IconEdit, { size: 12, color: INK }), " ADMIN"), /* @__PURE__ */ React.createElement(
+    return /* @__PURE__ */ React.createElement("div", { style: { minHeight: "100vh", background: CREAM, fontFamily: "'Segoe UI', system-ui, sans-serif", color: INK } }, /* @__PURE__ */ React.createElement("header", { style: { background: INK, color: CREAM, position: "sticky", top: 0, zIndex: 50, boxShadow: "0 2px 12px rgba(0,0,0,0.15)" } }, /* @__PURE__ */ React.createElement("div", { style: { maxWidth: 1e3, margin: "0 auto", padding: "14px 20px", display: "flex", alignItems: "center", justifyContent: "space-between" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, cursor: "pointer" }, onClick: () => go("home") }, /* @__PURE__ */ React.createElement("div", { style: { width: 34, height: 34, background: NEON, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" } }, /* @__PURE__ */ React.createElement(IconChef, { size: 20, color: INK, sw: 2.5 })), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 800, fontSize: 15, letterSpacing: 0.3 } }, "KARMA FOOD"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, opacity: 0.7 } }, t("subtitle")))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, isAdmin && /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, fontWeight: 700, color: INK, background: NEON, padding: "5px 10px", borderRadius: 99, display: "flex", alignItems: "center", gap: 5 } }, /* @__PURE__ */ React.createElement(IconEdit, { size: 12, color: INK }), " ADMIN"), /* @__PURE__ */ React.createElement(
+      "button",
+      {
+        onClick: () => setLang(lang === "en" ? "de" : "en"),
+        style: { background: "transparent", border: "1px solid rgba(255,255,255,0.25)", color: CREAM, cursor: "pointer", padding: "6px 10px", borderRadius: 8, fontSize: 12.5, fontWeight: 700, letterSpacing: 0.5 }
+      },
+      lang === "en" ? "\u{1F1EC}\u{1F1E7} EN" : "\u{1F1E9}\u{1F1EA} DE"
+    ), /* @__PURE__ */ React.createElement(
       "button",
       {
         onClick: () => isAdmin ? adminSignOut() : setLoginOpen(true),
         style: { background: "transparent", border: "1px solid rgba(255,255,255,0.25)", color: CREAM, cursor: "pointer", padding: "6px 12px", borderRadius: 8, fontSize: 12.5, fontWeight: 600 }
       },
-      isAdmin ? "Log out" : "Admin"
-    ), /* @__PURE__ */ React.createElement("button", { onClick: () => setMenuOpen(!menuOpen), style: { background: "transparent", border: "none", color: CREAM, cursor: "pointer", padding: 6 } }, menuOpen ? /* @__PURE__ */ React.createElement(IconX, { size: 26, color: CREAM }) : /* @__PURE__ */ React.createElement(IconMenu, { size: 26, color: CREAM })))), /* @__PURE__ */ React.createElement("div", { style: { background: "#1E1E2E", padding: "6px 20px" } }, /* @__PURE__ */ React.createElement("div", { style: { maxWidth: 1e3, margin: "0 auto", display: "flex", alignItems: "center", gap: 12 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, opacity: 0.75, whiteSpace: "nowrap" } }, "Overall progress"), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, height: 6, background: "rgba(255,255,255,0.12)", borderRadius: 99, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${overallPct}%`, height: "100%", background: NEON, transition: "width .4s" } })), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, fontWeight: 700, color: NEON } }, overallPct, "%")))), loginOpen && !isAdmin && /* @__PURE__ */ React.createElement(LoginModal, { onClose: () => setLoginOpen(false) }), menuOpen && /* @__PURE__ */ React.createElement("div", { style: { position: "fixed", inset: 0, zIndex: 40, background: "rgba(0,0,0,0.4)" }, onClick: () => setMenuOpen(false) }, /* @__PURE__ */ React.createElement("nav", { onClick: (e) => e.stopPropagation(), style: { position: "absolute", right: 0, top: 0, bottom: 0, width: 280, maxWidth: "80vw", background: CREAM, padding: "88px 16px 24px", overflowY: "auto", boxShadow: "-4px 0 20px rgba(0,0,0,0.2)" } }, NAV.map((n) => {
+      isAdmin ? t("logout") : t("admin")
+    ), /* @__PURE__ */ React.createElement("button", { onClick: () => setMenuOpen(!menuOpen), style: { background: "transparent", border: "none", color: CREAM, cursor: "pointer", padding: 6 } }, menuOpen ? /* @__PURE__ */ React.createElement(IconX, { size: 26, color: CREAM }) : /* @__PURE__ */ React.createElement(IconMenu, { size: 26, color: CREAM })))), /* @__PURE__ */ React.createElement("div", { style: { background: "#1E1E2E", padding: "6px 20px" } }, /* @__PURE__ */ React.createElement("div", { style: { maxWidth: 1e3, margin: "0 auto", display: "flex", alignItems: "center", gap: 12 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, opacity: 0.75, whiteSpace: "nowrap" } }, t("overallProgress")), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, height: 6, background: "rgba(255,255,255,0.12)", borderRadius: 99, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${overallPct}%`, height: "100%", background: NEON, transition: "width .4s" } })), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, fontWeight: 700, color: NEON } }, overallPct, "%")))), loginOpen && !isAdmin && /* @__PURE__ */ React.createElement(LoginModal, { onClose: () => setLoginOpen(false), t }), menuOpen && /* @__PURE__ */ React.createElement("div", { style: { position: "fixed", inset: 0, zIndex: 40, background: "rgba(0,0,0,0.4)" }, onClick: () => setMenuOpen(false) }, /* @__PURE__ */ React.createElement("nav", { onClick: (e) => e.stopPropagation(), style: { position: "absolute", right: 0, top: 0, bottom: 0, width: 280, maxWidth: "80vw", background: CREAM, padding: "88px 16px 24px", overflowY: "auto", boxShadow: "-4px 0 20px rgba(0,0,0,0.2)" } }, NAV.map((n) => {
       var _a;
       const active = view.type === n.key || view.type === "week" && ((_a = view.week) == null ? void 0 : _a.id) === n.key;
       return /* @__PURE__ */ React.createElement(
@@ -488,10 +620,10 @@
         " ",
         n.label
       );
-    }))), /* @__PURE__ */ React.createElement("main", { style: { maxWidth: 1e3, margin: "0 auto", padding: "28px 20px 80px" } }, view.type === "home" && /* @__PURE__ */ React.createElement(HomeView, { program, go, weekProgress }), view.type === "week" && /* @__PURE__ */ React.createElement(WeekView, { program, week: program.weeks.find((w) => w.id === view.week.id) || view.week, progress, toggle, weekProgress, go, notes, setNote, isAdmin, updateProgram, saveStatus }), view.type === "resp" && /* @__PURE__ */ React.createElement(RespView, { program }), view.type === "signoff" && /* @__PURE__ */ React.createElement(SignoffView, { program })));
+    }))), /* @__PURE__ */ React.createElement("main", { style: { maxWidth: 1e3, margin: "0 auto", padding: "28px 20px 80px" } }, view.type === "home" && /* @__PURE__ */ React.createElement(HomeView, { program, go, weekProgress, t }), view.type === "week" && /* @__PURE__ */ React.createElement(WeekView, { program, week: program.weeks.find((w) => w.id === view.week.id) || view.week, progress, toggle, weekProgress, go, notes, setNote, isAdmin, updateProgram, saveStatus, t }), view.type === "philosophy" && /* @__PURE__ */ React.createElement(PhilosophyView, { program }), view.type === "resp" && /* @__PURE__ */ React.createElement(RespView, { program }), view.type === "signoff" && /* @__PURE__ */ React.createElement(SignoffView, { program })));
   }
-  function HomeView({ program, go, weekProgress }) {
-    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { background: INK, borderRadius: 20, padding: "40px 32px", color: CREAM, position: "relative", overflow: "hidden", marginBottom: 28 } }, /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: -40, right: -40, width: 180, height: 180, background: NEON, opacity: 0.12, borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", bottom: -60, left: -20, width: 140, height: 140, background: ORANGE, opacity: 0.15, borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "relative" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "inline-block", background: NEON, color: INK, fontSize: 12, fontWeight: 800, padding: "5px 12px", borderRadius: 99, letterSpacing: 0.5, marginBottom: 16 } }, "WELCOME, DINESH \u{1F331}"), /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 34, fontWeight: 800, margin: "0 0 12px", lineHeight: 1.1 } }, program.intro.title), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 17, opacity: 0.85, margin: 0, fontWeight: 500 } }, program.intro.subtitle))), /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 16, padding: "24px 26px", marginBottom: 24, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, program.intro.body.map((t, i) => /* @__PURE__ */ React.createElement("p", { key: i, style: { fontSize: 15.5, lineHeight: 1.65, color: "#333", margin: i === 0 ? "0 0 14px" : 0 } }, t))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 14, marginBottom: 30 } }, program.intro.principles.map((p, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { background: "white", borderRadius: 14, padding: 20, borderTop: `4px solid ${ORANGE}`, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, /* @__PURE__ */ React.createElement("div", { style: { width: 42, height: 42, borderRadius: 10, background: CREAM, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 } }, /* @__PURE__ */ React.createElement(IconFlame, { color: ORANGE })), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 16, marginBottom: 6 } }, p.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: "#555", lineHeight: 1.5 } }, p.text)))), /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 22, fontWeight: 800, margin: "0 0 16px" } }, "Your 4-Week Plan"), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 14 } }, program.weeks.map((w) => {
+  function HomeView({ program, go, weekProgress, t }) {
+    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { background: INK, borderRadius: 20, padding: "40px 32px", color: CREAM, position: "relative", overflow: "hidden", marginBottom: 28 } }, /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: -40, right: -40, width: 180, height: 180, background: NEON, opacity: 0.12, borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", bottom: -60, left: -20, width: 140, height: 140, background: ORANGE, opacity: 0.15, borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "relative" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "inline-block", background: NEON, color: INK, fontSize: 12, fontWeight: 800, padding: "5px 12px", borderRadius: 99, letterSpacing: 0.5, marginBottom: 16 } }, t("welcomeBadge")), /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 34, fontWeight: 800, margin: "0 0 12px", lineHeight: 1.1 } }, program.intro.title), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 17, opacity: 0.85, margin: 0, fontWeight: 500 } }, program.intro.subtitle))), /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 16, padding: "24px 26px", marginBottom: 24, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, program.intro.body.map((paragraph, i) => /* @__PURE__ */ React.createElement("p", { key: i, style: { fontSize: 15.5, lineHeight: 1.65, color: "#333", margin: i === 0 ? "0 0 14px" : 0 } }, paragraph))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 14, marginBottom: 30 } }, program.intro.principles.map((p, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { background: "white", borderRadius: 14, padding: 20, borderTop: `4px solid ${ORANGE}`, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, /* @__PURE__ */ React.createElement("div", { style: { width: 42, height: 42, borderRadius: 10, background: CREAM, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 } }, /* @__PURE__ */ React.createElement(IconFlame, { color: ORANGE })), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 16, marginBottom: 6 } }, p.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: "#555", lineHeight: 1.5 } }, p.text)))), /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 22, fontWeight: 800, margin: "0 0 16px" } }, t("yourWeeks")), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 14 } }, program.weeks.map((w) => {
       const wp = weekProgress(w);
       return /* @__PURE__ */ React.createElement(
         "button",
@@ -501,10 +633,10 @@
           style: { background: "white", borderRadius: 16, padding: "22px 24px", border: "none", cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", gap: 18, boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderLeft: `6px solid ${w.color}` }
         },
         /* @__PURE__ */ React.createElement("div", { style: { minWidth: 54, height: 54, borderRadius: 12, background: w.color, color: "white", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", fontWeight: 800 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 10, opacity: 0.85 } }, "WEEK"), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 22, lineHeight: 1 } }, w.label.split(" ")[1])),
-        /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 17, marginBottom: 3 } }, w.theme), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: "#888", marginBottom: 8 } }, w.dates), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, /* @__PURE__ */ React.createElement("div", { style: { flex: 1, maxWidth: 160, height: 6, background: "#eee", borderRadius: 99, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${wp.pct}%`, height: "100%", background: w.color } })), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: "#999", fontWeight: 600 } }, wp.done, "/", wp.total, " goals"))),
+        /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 17, marginBottom: 3 } }, w.theme), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: "#888", marginBottom: 8 } }, w.dates), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, /* @__PURE__ */ React.createElement("div", { style: { flex: 1, maxWidth: 160, height: 6, background: "#eee", borderRadius: 99, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${wp.pct}%`, height: "100%", background: w.color } })), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: "#999", fontWeight: 600 } }, wp.done, "/", wp.total, " ", t("goals")))),
         /* @__PURE__ */ React.createElement(IconChevron, { size: 22, color: "#ccc" })
       );
-    })), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginTop: 24 } }, /* @__PURE__ */ React.createElement("button", { onClick: () => go("resp"), style: { background: INK, color: CREAM, border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" } }, /* @__PURE__ */ React.createElement(IconChef, { size: 24, color: NEON }), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 15, marginTop: 10 } }, "Your Responsibilities"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, opacity: 0.7, marginTop: 3 } }, "What you own as Head Chef")), /* @__PURE__ */ React.createElement("button", { onClick: () => go("signoff"), style: { background: ORANGE, color: "white", border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" } }, /* @__PURE__ */ React.createElement(IconClip, { size: 24, color: "white" }), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 15, marginTop: 10 } }, "Daily Sign-off"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, opacity: 0.85, marginTop: 3 } }, "Your quality gate before delivery"))));
+    })), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 14, marginTop: 24 } }, /* @__PURE__ */ React.createElement("button", { onClick: () => go("philosophy"), style: { background: SAGE, color: "white", border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" } }, /* @__PURE__ */ React.createElement(IconFlame, { size: 24, color: NEON }), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 15, marginTop: 10 } }, t("howWeCook")), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, opacity: 0.85, marginTop: 3 } }, t("howWeCookSub"))), /* @__PURE__ */ React.createElement("button", { onClick: () => go("resp"), style: { background: INK, color: CREAM, border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" } }, /* @__PURE__ */ React.createElement(IconChef, { size: 24, color: NEON }), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 15, marginTop: 10 } }, t("yourResp")), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, opacity: 0.7, marginTop: 3 } }, t("yourRespSub"))), /* @__PURE__ */ React.createElement("button", { onClick: () => go("signoff"), style: { background: ORANGE, color: "white", border: "none", borderRadius: 14, padding: 20, cursor: "pointer", textAlign: "left" } }, /* @__PURE__ */ React.createElement(IconClip, { size: 24, color: "white" }), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 15, marginTop: 10 } }, t("dailySignoff")), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, opacity: 0.85, marginTop: 3 } }, t("dailySignoffSub")))));
   }
   function EditText({ value, onCommit, style, placeholder }) {
     return /* @__PURE__ */ React.createElement(
@@ -544,7 +676,7 @@
     if (!m) return null;
     return /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, fontWeight: 700, color: m.color, marginLeft: 10 } }, m.text);
   }
-  function WeekView({ program, week, progress, toggle, weekProgress, go, notes, setNote, isAdmin, updateProgram, saveStatus }) {
+  function WeekView({ program, week, progress, toggle, weekProgress, go, notes, setNote, isAdmin, updateProgram, saveStatus, t }) {
     const wp = weekProgress(week);
     const noteKey = `${week.id}_notes`;
     const wIdx = program.weeks.findIndex((w) => w.id === week.id);
@@ -578,7 +710,7 @@
     const removeGoal = (i) => updateProgram((p) => {
       p.weeks[wIdx].checklist.splice(i, 1);
     });
-    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("button", { onClick: () => go("home"), style: { background: "none", border: "none", color: "#888", cursor: "pointer", fontSize: 14, display: "flex", alignItems: "center", gap: 5, marginBottom: 16, padding: 0 } }, /* @__PURE__ */ React.createElement(IconHome, { size: 15, color: "#888" }), " Home"), isAdmin && /* @__PURE__ */ React.createElement("div", { style: { background: NEON, borderRadius: 10, padding: "8px 14px", marginBottom: 16, display: "flex", alignItems: "center", fontSize: 13, fontWeight: 700, color: INK } }, /* @__PURE__ */ React.createElement(IconEdit, { size: 14, color: INK }), " ", /* @__PURE__ */ React.createElement("span", { style: { marginLeft: 7 } }, "Admin edit mode \u2014 click any dashed box to change it"), /* @__PURE__ */ React.createElement(SaveBadge, { status: saveStatus })), /* @__PURE__ */ React.createElement("div", { style: { background: week.color, borderRadius: 18, padding: "30px 28px", color: "white", marginBottom: 22, position: "relative", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: -30, right: -30, width: 130, height: 130, background: "rgba(255,255,255,0.1)", borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "relative" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, opacity: 0.85, fontWeight: 600, letterSpacing: 0.5 } }, week.label.toUpperCase(), " \xB7 ", week.dates), isAdmin ? /* @__PURE__ */ React.createElement("div", { style: { margin: "8px 0" } }, /* @__PURE__ */ React.createElement(EditText, { value: week.theme, onCommit: (v) => editWeekField("theme", v), style: { fontSize: 22, fontWeight: 800, color: INK, marginBottom: 6 } }), /* @__PURE__ */ React.createElement(EditText, { value: week.motto, onCommit: (v) => editWeekField("motto", v), style: { fontSize: 14, fontStyle: "italic", color: INK } })) : /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 30, fontWeight: 800, margin: "6px 0 8px" } }, week.theme), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 16, fontStyle: "italic", opacity: 0.92 } }, week.motto)))), /* @__PURE__ */ React.createElement("div", { style: { background: INK, color: CREAM, borderRadius: 14, padding: "20px 22px", marginBottom: 24, display: "flex", gap: 14 } }, /* @__PURE__ */ React.createElement(IconTarget, { size: 24, color: NEON }), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 13, color: NEON, letterSpacing: 0.5, marginBottom: 6 } }, "GOAL FOR THIS WEEK"), isAdmin ? /* @__PURE__ */ React.createElement(EditArea, { value: week.goal, onCommit: (v) => editWeekField("goal", v), rows: 3, style: { background: "#232336", color: CREAM, borderColor: "#444" } }) : /* @__PURE__ */ React.createElement("div", { style: { fontSize: 15, lineHeight: 1.6 } }, week.goal))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 } }, /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 19, fontWeight: 800, margin: 0 } }, "Daily Plan"), isAdmin && /* @__PURE__ */ React.createElement("button", { onClick: addDay, style: { display: "flex", alignItems: "center", gap: 5, background: "white", border: `1.5px dashed ${week.color}`, color: week.color, borderRadius: 8, padding: "6px 11px", fontSize: 12.5, fontWeight: 700, cursor: "pointer" } }, /* @__PURE__ */ React.createElement(IconPlus, { size: 14, color: week.color }), " Add day")), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 14, marginBottom: 28 } }, week.days.map((d, di) => /* @__PURE__ */ React.createElement("div", { key: di, style: { background: "white", borderRadius: 14, overflow: "hidden", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 20px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", justifyContent: "space-between", background: CREAM, gap: 10 } }, isAdmin ? /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(EditText, { value: d.day, onCommit: (v) => editDayField(di, "day", v), style: { fontWeight: 700, fontSize: 14, flex: 1 } }), /* @__PURE__ */ React.createElement(EditText, { value: d.tag, onCommit: (v) => editDayField(di, "tag", v), style: { fontSize: 12, width: 140, color: week.color } }), /* @__PURE__ */ React.createElement("button", { onClick: () => removeDay(di), style: { background: "none", border: "none", cursor: "pointer", padding: 4 } }, /* @__PURE__ */ React.createElement(IconTrash, { size: 16, color: "#C0392B" }))) : /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { style: { fontWeight: 700, fontSize: 15 } }, d.day), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, fontWeight: 700, color: week.color, background: `${week.color}18`, padding: "4px 10px", borderRadius: 99 } }, d.tag))), /* @__PURE__ */ React.createElement("div", { style: { padding: "8px 20px 14px" } }, d.items.map((it, ii) => {
+    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("button", { onClick: () => go("home"), style: { background: "none", border: "none", color: "#888", cursor: "pointer", fontSize: 14, display: "flex", alignItems: "center", gap: 5, marginBottom: 16, padding: 0 } }, /* @__PURE__ */ React.createElement(IconHome, { size: 15, color: "#888" }), " ", t("home")), isAdmin && /* @__PURE__ */ React.createElement("div", { style: { background: NEON, borderRadius: 10, padding: "8px 14px", marginBottom: 16, display: "flex", alignItems: "center", fontSize: 13, fontWeight: 700, color: INK } }, /* @__PURE__ */ React.createElement(IconEdit, { size: 14, color: INK }), " ", /* @__PURE__ */ React.createElement("span", { style: { marginLeft: 7 } }, t("adminBanner")), /* @__PURE__ */ React.createElement(SaveBadge, { status: saveStatus })), /* @__PURE__ */ React.createElement("div", { style: { background: week.color, borderRadius: 18, padding: "30px 28px", color: "white", marginBottom: 22, position: "relative", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: -30, right: -30, width: 130, height: 130, background: "rgba(255,255,255,0.1)", borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "relative" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, opacity: 0.85, fontWeight: 600, letterSpacing: 0.5 } }, week.label.toUpperCase(), " \xB7 ", week.dates), isAdmin ? /* @__PURE__ */ React.createElement("div", { style: { margin: "8px 0" } }, /* @__PURE__ */ React.createElement(EditText, { value: week.theme, onCommit: (v) => editWeekField("theme", v), style: { fontSize: 22, fontWeight: 800, color: INK, marginBottom: 6 } }), /* @__PURE__ */ React.createElement(EditText, { value: week.motto, onCommit: (v) => editWeekField("motto", v), style: { fontSize: 14, fontStyle: "italic", color: INK } })) : /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 30, fontWeight: 800, margin: "6px 0 8px" } }, week.theme), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 16, fontStyle: "italic", opacity: 0.92 } }, week.motto)))), /* @__PURE__ */ React.createElement("div", { style: { background: INK, color: CREAM, borderRadius: 14, padding: "20px 22px", marginBottom: 24, display: "flex", gap: 14 } }, /* @__PURE__ */ React.createElement(IconTarget, { size: 24, color: NEON }), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 13, color: NEON, letterSpacing: 0.5, marginBottom: 6 } }, t("goalHeader")), isAdmin ? /* @__PURE__ */ React.createElement(EditArea, { value: week.goal, onCommit: (v) => editWeekField("goal", v), rows: 3, style: { background: "#232336", color: CREAM, borderColor: "#444" } }) : /* @__PURE__ */ React.createElement("div", { style: { fontSize: 15, lineHeight: 1.6 } }, week.goal))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 } }, /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 19, fontWeight: 800, margin: 0 } }, t("gamePlan")), isAdmin && /* @__PURE__ */ React.createElement("button", { onClick: addDay, style: { display: "flex", alignItems: "center", gap: 5, background: "white", border: `1.5px dashed ${week.color}`, color: week.color, borderRadius: 8, padding: "6px 11px", fontSize: 12.5, fontWeight: 700, cursor: "pointer" } }, /* @__PURE__ */ React.createElement(IconPlus, { size: 14, color: week.color }), " ", t("addDay"))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 14, marginBottom: 28 } }, week.days.map((d, di) => /* @__PURE__ */ React.createElement("div", { key: di, style: { background: "white", borderRadius: 14, overflow: "hidden", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 20px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", justifyContent: "space-between", background: CREAM, gap: 10 } }, isAdmin ? /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(EditText, { value: d.day, onCommit: (v) => editDayField(di, "day", v), style: { fontWeight: 700, fontSize: 14, flex: 1 } }), /* @__PURE__ */ React.createElement(EditText, { value: d.tag, onCommit: (v) => editDayField(di, "tag", v), style: { fontSize: 12, width: 140, color: week.color } }), /* @__PURE__ */ React.createElement("button", { onClick: () => removeDay(di), style: { background: "none", border: "none", cursor: "pointer", padding: 4 } }, /* @__PURE__ */ React.createElement(IconTrash, { size: 16, color: "#C0392B" }))) : /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { style: { fontWeight: 700, fontSize: 15 } }, d.day), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, fontWeight: 700, color: week.color, background: `${week.color}18`, padding: "4px 10px", borderRadius: 99 } }, d.tag))), /* @__PURE__ */ React.createElement("div", { style: { padding: "8px 20px 14px" } }, d.items.map((it, ii) => {
       const key = `${week.id}_d${di}_${ii}`;
       const done = progress[key];
       if (isAdmin) {
@@ -594,7 +726,7 @@
         done ? /* @__PURE__ */ React.createElement(IconCheckCircle, { size: 20, color: SAGE }) : /* @__PURE__ */ React.createElement(IconCircle, { size: 20, color: "#ccc" }),
         /* @__PURE__ */ React.createElement("span", { style: { fontSize: 14.5, color: done ? "#aaa" : "#333", textDecoration: done ? "line-through" : "none", lineHeight: 1.45 } }, it)
       );
-    }), isAdmin && /* @__PURE__ */ React.createElement("button", { onClick: () => addTask(di), style: { display: "flex", alignItems: "center", gap: 5, background: "none", border: "none", color: week.color, cursor: "pointer", fontSize: 13, fontWeight: 700, padding: "8px 0 2px" } }, /* @__PURE__ */ React.createElement(IconPlus, { size: 13, color: week.color }), " Add task"))))), /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 16, padding: "22px 24px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", border: `2px solid ${week.color}25` } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 17, fontWeight: 800, margin: 0, display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement(IconStar, { size: 18, color: week.color }), " End-of-Week Goals"), isAdmin ? /* @__PURE__ */ React.createElement("button", { onClick: addGoal, style: { display: "flex", alignItems: "center", gap: 5, background: "none", border: `1.5px dashed ${week.color}`, color: week.color, borderRadius: 8, padding: "5px 10px", fontSize: 12, fontWeight: 700, cursor: "pointer" } }, /* @__PURE__ */ React.createElement(IconPlus, { size: 13, color: week.color }), " Add goal") : /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13, fontWeight: 700, color: week.color } }, wp.done, "/", wp.total)), week.checklist.map((c, i) => {
+    }), isAdmin && /* @__PURE__ */ React.createElement("button", { onClick: () => addTask(di), style: { display: "flex", alignItems: "center", gap: 5, background: "none", border: "none", color: week.color, cursor: "pointer", fontSize: 13, fontWeight: 700, padding: "8px 0 2px" } }, /* @__PURE__ */ React.createElement(IconPlus, { size: 13, color: week.color }), " ", t("addTask")))))), /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 16, padding: "22px 24px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", border: `2px solid ${week.color}25` } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 17, fontWeight: 800, margin: 0, display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement(IconStar, { size: 18, color: week.color }), " ", t("endOfWeekGoals")), isAdmin ? /* @__PURE__ */ React.createElement("button", { onClick: addGoal, style: { display: "flex", alignItems: "center", gap: 5, background: "none", border: `1.5px dashed ${week.color}`, color: week.color, borderRadius: 8, padding: "5px 10px", fontSize: 12, fontWeight: 700, cursor: "pointer" } }, /* @__PURE__ */ React.createElement(IconPlus, { size: 13, color: week.color }), " ", t("addGoal")) : /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13, fontWeight: 700, color: week.color } }, wp.done, "/", wp.total)), week.checklist.map((c, i) => {
       const key = `${week.id}_goal_${i}`;
       const done = progress[key];
       if (isAdmin) {
@@ -610,29 +742,34 @@
         /* @__PURE__ */ React.createElement("div", { style: { width: 22, height: 22, borderRadius: 6, border: done ? "none" : "2px solid #ddd", background: done ? week.color : "transparent", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1 } }, done && /* @__PURE__ */ React.createElement(IconCheck, { size: 15, color: "white", sw: 3 })),
         /* @__PURE__ */ React.createElement("span", { style: { fontSize: 15, color: done ? "#aaa" : "#222", fontWeight: 500, textDecoration: done ? "line-through" : "none", lineHeight: 1.45 } }, c)
       );
-    }), !isAdmin && wp.pct === 100 && /* @__PURE__ */ React.createElement("div", { style: { marginTop: 16, padding: "12px 16px", background: `${SAGE}15`, borderRadius: 10, display: "flex", alignItems: "center", gap: 10, color: SAGE, fontWeight: 700, fontSize: 14 } }, /* @__PURE__ */ React.createElement(IconCheckCircle, { size: 20, color: SAGE }), " Week complete \u2014 great work! \u{1F389}")), !isAdmin && /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 16, padding: "22px 24px", marginTop: 18, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 17, fontWeight: 800, margin: "0 0 4px", display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement(IconMsg, { size: 18, color: week.color }), " My Notes"), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 13, color: "#999", margin: "0 0 12px" } }, "Write down questions, observations or ideas. Saved automatically."), /* @__PURE__ */ React.createElement(
+    }), !isAdmin && wp.pct === 100 && /* @__PURE__ */ React.createElement("div", { style: { marginTop: 16, padding: "12px 16px", background: `${SAGE}15`, borderRadius: 10, display: "flex", alignItems: "center", gap: 10, color: SAGE, fontWeight: 700, fontSize: 14 } }, /* @__PURE__ */ React.createElement(IconCheckCircle, { size: 20, color: SAGE }), " ", t("weekComplete"))), !isAdmin && /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 16, padding: "22px 24px", marginTop: 18, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 17, fontWeight: 800, margin: "0 0 4px", display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement(IconMsg, { size: 18, color: week.color }), " ", t("myNotes")), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 13, color: "#999", margin: "0 0 12px" } }, t("myNotesSub")), /* @__PURE__ */ React.createElement(
       "textarea",
       {
         value: notes[noteKey] || "",
         onChange: (e) => setNote(noteKey, e.target.value),
-        placeholder: "Type your notes for this week here\u2026",
+        placeholder: t("notesPlaceholder"),
         style: { width: "100%", minHeight: 130, resize: "vertical", border: "2px solid #eee", borderRadius: 12, padding: "14px 16px", fontSize: 15, lineHeight: 1.55, color: "#333", outline: "none", background: CREAM },
         onFocus: (e) => e.target.style.borderColor = week.color,
         onBlur: (e) => e.target.style.borderColor = "#eee"
       }
-    )), isAdmin && notes[noteKey] && /* @__PURE__ */ React.createElement("div", { style: { background: "#FFF8DC", borderRadius: 16, padding: "18px 22px", marginTop: 18, border: "1px solid #eee0b0" } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 14, fontWeight: 800, margin: "0 0 8px", color: "#8a6d00" } }, "Dinesh's notes for this week"), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 14, lineHeight: 1.55, margin: 0, color: "#444", whiteSpace: "pre-wrap" } }, notes[noteKey])), (() => {
+    )), isAdmin && notes[noteKey] && /* @__PURE__ */ React.createElement("div", { style: { background: "#FFF8DC", borderRadius: 16, padding: "18px 22px", marginTop: 18, border: "1px solid #eee0b0" } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 14, fontWeight: 800, margin: "0 0 8px", color: "#8a6d00" } }, t("dineshNotes")), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 14, lineHeight: 1.55, margin: 0, color: "#444", whiteSpace: "pre-wrap" } }, notes[noteKey])), (() => {
       const next = program.weeks[wIdx + 1];
       if (!next) return null;
-      return /* @__PURE__ */ React.createElement("button", { onClick: () => go("week", next), style: { marginTop: 20, width: "100%", background: INK, color: CREAM, border: "none", borderRadius: 14, padding: "18px 22px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "space-between" } }, /* @__PURE__ */ React.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, opacity: 0.7 } }, "NEXT"), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 16 } }, next.label, ": ", next.theme)), /* @__PURE__ */ React.createElement(IconArrow, { size: 22, color: NEON }));
+      return /* @__PURE__ */ React.createElement("button", { onClick: () => go("week", next), style: { marginTop: 20, width: "100%", background: INK, color: CREAM, border: "none", borderRadius: 14, padding: "18px 22px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "space-between" } }, /* @__PURE__ */ React.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, opacity: 0.7 } }, t("next")), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 16 } }, next.label, ": ", next.theme)), /* @__PURE__ */ React.createElement(IconArrow, { size: 22, color: NEON }));
     })());
   }
   function RespView({ program }) {
     const R = program.responsibilities;
     return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 28, fontWeight: 800, margin: "0 0 6px" } }, R.title), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15.5, color: "#666", margin: "0 0 24px" } }, R.subtitle), R.team && /* @__PURE__ */ React.createElement("div", { style: { background: INK, color: CREAM, borderRadius: 16, padding: "24px 26px", marginBottom: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 10 } }, /* @__PURE__ */ React.createElement(IconUsers, { size: 22, color: NEON }), /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 18, fontWeight: 800, margin: 0 } }, R.team.title)), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15, lineHeight: 1.65, margin: 0, opacity: 0.9 } }, R.team.text)), R.leadership && /* @__PURE__ */ React.createElement("div", { style: { background: NEON, color: INK, borderRadius: 16, padding: "24px 26px", marginBottom: 28 } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 18, fontWeight: 800, margin: "0 0 8px" } }, R.leadership.title), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15, lineHeight: 1.65, margin: 0, fontWeight: 500 } }, R.leadership.text)), /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 20, fontWeight: 800, margin: "0 0 14px", display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement("span", { style: { width: 10, height: 10, borderRadius: "50%", background: ORANGE, display: "inline-block" } }), R.yoursTitle || "Your Responsibilities"), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 14, marginBottom: 28 } }, R.yours.map((r, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { background: "white", borderRadius: 14, padding: 22, boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `4px solid ${ORANGE}` } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 16, marginBottom: 7 } }, r.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: "#555", lineHeight: 1.55 } }, r.text)))), R.nooru && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("h2", { style: { fontSize: 20, fontWeight: 800, margin: "0 0 14px", display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement("span", { style: { width: 10, height: 10, borderRadius: "50%", background: SAGE, display: "inline-block" } }), R.nooruTitle || "Nooru's Responsibilities"), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 14, marginBottom: 28 } }, R.nooru.map((r, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { background: "white", borderRadius: 14, padding: 22, boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `4px solid ${SAGE}` } }, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 16, marginBottom: 7 } }, r.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: "#555", lineHeight: 1.55 } }, r.text))))), /* @__PURE__ */ React.createElement("div", { style: { background: SAGE, color: "white", borderRadius: 16, padding: "26px 28px", marginBottom: 28 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 10 } }, /* @__PURE__ */ React.createElement(IconUsers, { size: 24, color: "white" }), /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 19, fontWeight: 800, margin: 0 } }, R.sous.title)), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15.5, lineHeight: 1.65, margin: 0, opacity: 0.95 } }, R.sous.text)), R.working && /* @__PURE__ */ React.createElement("div", { style: { background: "white", borderRadius: 16, padding: "26px 28px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `4px solid ${NEON}` } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 19, fontWeight: 800, margin: "0 0 14px" } }, R.working.title), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexWrap: "wrap", gap: 9, marginBottom: 14 } }, R.working.values.map((v, i) => /* @__PURE__ */ React.createElement("span", { key: i, style: { fontSize: 13.5, fontWeight: 700, color: INK, background: CREAM, border: "1.5px solid #eadfae", padding: "7px 14px", borderRadius: 99 } }, v))), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15.5, lineHeight: 1.6, margin: 0, color: "#444", fontWeight: 500 } }, R.working.text)));
   }
+  function PhilosophyView({ program }) {
+    const P = program.philosophy;
+    if (!P) return null;
+    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 30, fontWeight: 800, margin: "0 0 6px" } }, P.title), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 16, color: "#666", margin: "0 0 22px" } }, P.subtitle), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15, lineHeight: 1.6, color: "#555", margin: "0 0 20px" } }, P.intro), /* @__PURE__ */ React.createElement("div", { style: { background: INK, color: CREAM, borderRadius: 20, padding: "30px 28px", marginBottom: 30, position: "relative", overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: -30, right: -30, width: 140, height: 140, background: NEON, opacity: 0.13, borderRadius: "50%" } }), /* @__PURE__ */ React.createElement("div", { style: { position: "relative", fontSize: 19, fontWeight: 700, lineHeight: 1.5 } }, P.core)), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 14, marginBottom: 32 } }, P.pillars.map((p, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { background: "white", borderRadius: 16, padding: "22px 22px", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", borderTop: `4px solid ${[ORANGE, SAGE, "#3A7CA5", SAGE, ORANGE, "#8B5CF6", "#3A7CA5", SAGE][i % 8]}` } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 28, marginBottom: 8 } }, p.emoji), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 800, fontSize: 17, marginBottom: 4 } }, p.title), /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 13, color: ORANGE, marginBottom: 9 } }, p.tag), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: "#555", lineHeight: 1.55 } }, p.text)))), /* @__PURE__ */ React.createElement("div", { style: { background: "#FDEAEA", borderRadius: 16, padding: "22px 24px", marginBottom: 30 } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 18, fontWeight: 800, margin: "0 0 14px", color: "#A33" } }, P.notTitle), P.not.map((n, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", alignItems: "flex-start", gap: 10, marginBottom: i < P.not.length - 1 ? 10 : 0 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 18 } }, n.emoji), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 15, color: "#663", lineHeight: 1.5, fontWeight: 500 } }, n.text)))), /* @__PURE__ */ React.createElement("div", { style: { background: NEON, borderRadius: 20, padding: "28px 26px" } }, /* @__PURE__ */ React.createElement("h3", { style: { fontSize: 20, fontWeight: 800, margin: "0 0 4px", color: INK } }, P.testTitle), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 14.5, margin: "0 0 18px", color: "#333" } }, P.testSubtitle), P.test.map((t, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", alignItems: "center", gap: 14, background: "rgba(255,255,255,0.55)", borderRadius: 12, padding: "13px 16px", marginBottom: 10 } }, /* @__PURE__ */ React.createElement("div", { style: { minWidth: 30, height: 30, borderRadius: "50%", background: INK, color: NEON, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14 } }, i + 1), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 15, fontWeight: 600, color: INK } }, t))), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15, fontWeight: 700, color: INK, margin: "16px 0 0", lineHeight: 1.5 } }, P.outro)));
+  }
   function SignoffView({ program }) {
     const S = program.signoff;
-    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 28, fontWeight: 800, margin: "0 0 6px" } }, S.title), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15.5, color: "#666", margin: "0 0 20px" } }, S.subtitle), /* @__PURE__ */ React.createElement("div", { style: { background: ORANGE, color: "white", borderRadius: 14, padding: "20px 24px", marginBottom: 24, fontSize: 15.5, lineHeight: 1.6, fontWeight: 500 } }, S.text), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 14 } }, S.steps.map((s) => /* @__PURE__ */ React.createElement("div", { key: s.n, style: { background: "white", borderRadius: 14, padding: "22px 24px", display: "flex", gap: 18, alignItems: "flex-start", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, /* @__PURE__ */ React.createElement("div", { style: { minWidth: 44, height: 44, borderRadius: "50%", background: INK, color: NEON, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 19 } }, s.n), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 16.5, marginBottom: 5 } }, s.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14.5, color: "#555", lineHeight: 1.55 } }, s.text))))), /* @__PURE__ */ React.createElement("div", { style: { marginTop: 20, padding: "18px 22px", background: INK, color: CREAM, borderRadius: 14, display: "flex", alignItems: "center", gap: 12, fontSize: 15, fontWeight: 600 } }, /* @__PURE__ */ React.createElement(IconTruck, { size: 22, color: NEON }), " No approval slip = no departure. Everton only loads after your release."));
+    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { style: { fontSize: 28, fontWeight: 800, margin: "0 0 6px" } }, S.title), /* @__PURE__ */ React.createElement("p", { style: { fontSize: 15.5, color: "#666", margin: "0 0 20px" } }, S.subtitle), /* @__PURE__ */ React.createElement("div", { style: { background: ORANGE, color: "white", borderRadius: 14, padding: "20px 24px", marginBottom: 24, fontSize: 15.5, lineHeight: 1.6, fontWeight: 500 } }, S.text), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gap: 14 } }, S.steps.map((s) => /* @__PURE__ */ React.createElement("div", { key: s.n, style: { background: "white", borderRadius: 14, padding: "22px 24px", display: "flex", gap: 18, alignItems: "flex-start", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" } }, /* @__PURE__ */ React.createElement("div", { style: { minWidth: 44, height: 44, borderRadius: "50%", background: INK, color: NEON, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 19 } }, s.n), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontWeight: 700, fontSize: 16.5, marginBottom: 5 } }, s.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14.5, color: "#555", lineHeight: 1.55 } }, s.text))))), /* @__PURE__ */ React.createElement("div", { style: { marginTop: 20, padding: "18px 22px", background: INK, color: CREAM, borderRadius: 14, display: "flex", alignItems: "center", gap: 12, fontSize: 15, fontWeight: 600 } }, /* @__PURE__ */ React.createElement(IconTruck, { size: 22, color: NEON }), " Every day: your own sign-off is the standard. Fridays only: no photo to Everton, no departure."));
   }
   ReactDOM.createRoot(document.getElementById("root")).render(/* @__PURE__ */ React.createElement(App, null));
 })();
